@@ -1,0 +1,19 @@
+.footer-main-container{
+    padding: 4rem 6rem;
+    color: #fff;
+    .top-footer-part{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    hr{
+        border: 1px solid #fff;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+    .bottom-footer-part{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+}

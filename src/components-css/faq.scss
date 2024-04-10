@@ -1,0 +1,22 @@
+.faq-main-container{
+    background-color: #fff;
+    color: #000;
+    padding: 4rem 6rem;
+    h2{
+        font-weight: 500;
+    }
+    .accordions{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    .accordion{
+        display: flex;
+        justify-content: space-between;
+        padding: 20px 30px 20px 30px;
+        background-color: #E7E7E7;
+        border-radius: 18px;
+        width: 44%;
+        margin-bottom: 20px;
+    }
+}

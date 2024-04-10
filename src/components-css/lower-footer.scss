@@ -1,0 +1,18 @@
+.lower-footer-main{
+    .footer{
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding: 8px;
+        font-size: 12px;
+        .USA, .canada, .india{
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
+        }
+        img{
+            width: 25px;
+            height: 15px;
+        }
+    }
+}

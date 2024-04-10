@@ -1,0 +1,156 @@
+.slider-container {
+  padding: 4rem 0rem 4rem 6rem;
+}
+
+.slider {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.slider-button:hover img {
+  filter: brightness(0%);
+}
+
+@keyframes slideAnimation {
+  0% { opacity: 0; transform: translateX(-50px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+.slider.slide-animation {
+  animation: slideAnimation 0.5s ease; /* Apply animation */
+}
+
+.slider img {
+  max-width: 100%;
+  height: auto;
+}
+
+.slider img:nth-child(2),
+.slider img:nth-child(4) {
+  position: relative;
+  top: 80px; /* Adjust this value as needed */
+}
+
+.slider-buttons {
+  margin-top: 100px;
+  display: flex;
+  align-items: center;
+}
+
+.slider-button {
+  border: 1px solid #fff;
+  padding: 10px 16px;
+  border-radius: 50%;
+  margin-right: 8px;
+  transition: all 0.3s ease; /* Added transition for smoother effect */
+  cursor: pointer;
+}
+
+.slider-button:hover {
+  background-color: #fff;
+  color: #000;
+  transform: translateY(-2px); /* Changed direction of movement */
+  cursor: pointer;
+}
+h1{
+  line-height: 56px;
+  font-size: 36px;
+}
+.case-study{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  padding: 0 6rem 0 0;
+}
+
+.button button {
+  background-color: #000;
+  color: #fff;
+  border: 1px solid #fff;
+  cursor: pointer;
+  padding: 12px 20px;
+  border-radius: 50px;
+  position: relative;
+  text-transform: uppercase;
+  transition: opacity 300ms cubic-bezier(.694, 0, 0.335, 1),background-color 100ms cubic-bezier(.694, 0, 0.335, 1),color 100ms cubic-bezier(.694, 0, 0.335, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+}
+
+.button button:before {
+  animation: opacityFallbackOut .5s step-end forwards;
+  backface-visibility: hidden;
+  background: linear-gradient(to left, #FFD80B, #FEAA00);  
+  clip-path: polygon(-1% 0, 0 0, -25% 100%, -1% 100%);
+  content: "";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  transform: translateZ(0);
+  transition: clip-path .5s cubic-bezier(.165, 0.84, 0.44, 1), -webkit-clip-path .5s cubic-bezier(.165, 0.84, 0.44, 1);
+  width: 100%;
+  border-radius: 50px;
+}
+.button button:hover{
+  border: none;
+  color: #000;
+}
+
+.button button:hover:before {
+  animation: opacityFallbackIn 0s step-start forwards;
+  clip-path: polygon(0 0, 101% 0, 101% 101%, 0 101%);
+  border-radius: 50px;
+}
+
+.button button:after {
+  background-color: #FFFFFF;
+  border-radius: 50px;
+}
+
+.button button .img {
+  z-index: 1;
+  position: relative;
+  margin-left: 10px;
+}
+.button button span{
+  z-index: 1;
+  position: relative;
+}
+.button button:hover span img{
+  transition: transform 0.3s ease; // Add transition for the transform property
+  transform: rotate(45deg);
+}
+
+// button {
+//   background: #000; /* Keeping the background color */
+//   color: #fff; /* Making text transparent to apply gradient */
+//   border: 1px solid #fff; /* Making border transparent to apply gradient */
+//   border-radius: 60px;
+//   padding: 10px 24px;
+//   cursor: pointer;
+//   // background-image: linear-gradient(to right, #FFD80B, #FEAA00); /* Adding gradient to button background */
+//   // background-clip: text; /* Applying gradient to text */
+//   // -webkit-background-clip: text; /* Applying gradient to text for Safari */
+//   // -webkit-text-fill-color: transparent; /* Making text transparent to apply gradient for Safari */
+//   span {
+//     margin-left: 10px;
+//       img {
+//           width: 8%;
+//       }
+//   }
+// }
+// .button button:hover{
+//   color: #000;
+//   border: none;
+// background: linear-gradient(to right, #FFD80B, #FEAA00); /* Adding gradient to button background */
+//   span{
+//     img{
+//       transition: transform 0.3s ease; // Add transition for the transform property
+//       transform: rotate(45deg);
+//     }
+//   }
+// }

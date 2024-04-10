@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+// main component
+import React, {useState} from 'react'
+import { Routes, Route } from "react-router-dom"
+import Header from './components/Header'
+import Footer from './components/Footer'
+import Body from './components/Body'
+import BlogsPage from './pages/BlogsPage'
+import './App.css'
 
-function App() {
+const App = () => {
+  const [isHeaderVisible, setIsHeaderVisible] = useState(true);
+
+  const handleHeaderVisibility = () => {
+    setIsHeaderVisible(false);
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div class="main-container">
+      {!isHeaderVisible && <Header />}
+      <Routes>
+        <Route path="/" element={<Body setHeaderVisible={setIsHeaderVisible} onHeaderVisible={handleHeaderVisibility} />} />
+        <Route path="blogs" element={<BlogsPage />} />
+      </Routes>      
+      <Footer />
+      {/* WhatsApp and Contact Us buttons */}
+      <div className="contact-buttons">
+        <a href="https://api.whatsapp.com/send?phone=+1 (786) 648-2910&text=Hello,Team OmkaTech" target="_blank"><button className="whatsapp-button">WHATSAPP</button></a>
+        <button className="contact-us-button"><span>CONTACTUS</span></button>
+      </div>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

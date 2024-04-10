@@ -1,0 +1,96 @@
+.body-main-container {
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    .upper-heading {
+        background-color: #000;
+        color: #fd7702;
+        font-size: 9rem;
+        margin-left: 60px;
+
+        .an1 {
+            width: 32%;
+            text-align: right;
+        }
+
+        .an2 {
+            width: 42%;
+            text-align: right;
+        }
+
+        .an3 {
+            width: 90%;
+            text-align: right;
+        }
+    }
+
+    .body-animation {
+        font-size: 90px;
+        line-height: 160px;
+        letter-spacing: -.03em;
+        font-weight: 200;
+        width: 100%;
+        padding: 0px 6rem;
+        margin-top: 0;
+        margin-bottom: 20px;
+        box-sizing: border-box;
+        height: calc(100vh - 160px);
+
+        span {
+            line-height: 40px;
+        }
+
+        .business {
+            color: #fff;
+            border: 4px solid #FEAA00;
+            cursor: pointer;
+            padding: 10px 40px;
+            border-radius: 70px;
+            position: relative;
+            text-transform: uppercase;
+            transition: opacity 300ms cubic-bezier(.694, 0, 0.335, 1),background-color 100ms cubic-bezier(.694, 0, 0.335, 1),color 100ms cubic-bezier(.694, 0, 0.335, 1);
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+            white-space: nowrap;
+          }
+          
+          .business:before {
+            animation: opacityFallbackOut .5s step-end forwards;
+            backface-visibility: hidden;
+            background: linear-gradient(to left, #FFD80B, #FEAA00);  
+            clip-path: polygon(-1% 0, 0 0, -25% 100%, -1% 100%);
+            content: "";
+            height: 100%;
+            left: 0;
+            position: absolute;
+            top: 0;
+            transform: translateZ(0);
+            transition: clip-path .5s cubic-bezier(.165, 0.84, 0.44, 1), -webkit-clip-path .5s cubic-bezier(.165, 0.84, 0.44, 1);
+            width: 100%;
+            border-radius: 60px;
+          }
+          .business:hover{
+            border: none;
+            color: #000;
+          }
+          
+          .business:hover:before {
+            animation: opacityFallbackIn 0s step-start forwards;
+            clip-path: polygon(0 0, 101% 0, 101% 101%, 0 101%);
+            border-radius: 60px;
+          }
+          
+          .business:after {
+            background-color: #FFFFFF;
+            border-radius: 50px;
+          }
+          
+          .business span {
+            z-index: 1;
+            position: relative;
+          }
+    }
+}

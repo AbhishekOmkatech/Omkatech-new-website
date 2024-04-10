@@ -1,0 +1,171 @@
+.header-main-container{
+    // box-shadow: 0px -5px 18px 0px rgba(0,0,0,0.4);
+    // background-color: rgb(242, 242, 242);
+    opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100px;
+    margin: auto;
+    padding: 0 5rem;
+    .company-logo{
+        width: 20%;
+        span{
+          margin-left: 44px;
+          position: absolute;
+          color: #fff;
+          font-size: 12px;
+          opacity: 0.5;
+          top: 60px;
+        }
+    }
+    .nav-items > ul{
+        display: flex;
+        list-style-type: none;
+        li{
+            margin: 8px;
+            padding: 22px;
+        }
+    }
+    .free-consultation {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        span {
+            margin-right: 10px;
+            color: #fff;
+            font-size: 18px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+          }
+        .arrow-icon-main {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border: 1px solid #fff;
+          cursor: pointer;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          transition: all 0.3s ease; // Add transition for all properties on hover
+  
+          .rotated{
+            transform: rotate(-45deg);
+        }
+          .arrow-icon {
+            transition: transform 0.3s ease;
+        }
+        
+        &.hovered {
+            background-color: white; // Change background color to white on hover
+            border-radius: 50%;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1); // Add smooth shadow for depth
+            transform: scale(1.1); // Add smooth scale transformation for hovered state
+
+            .arrow-icon {
+                filter: invert(1); // Change icon color from white to black
+            }
+            &::before {
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(to left, white 50%, black 50%);
+                background-size: 200% 100%;
+                transition: background-position 0.5s;
+                border-radius: 50%;
+            }
+        }
+
+        &:hover::before {
+            background-position: left;
+          }
+        }
+        &:hover .arrow-icon-main {
+            background-color: white; // Change background color to white on hover
+            border-radius: 50%;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1); // Add smooth shadow for depth
+            transform: scale(1.1); // Add smooth scale transformation for hovered state
+
+            .arrow-icon {
+                filter: invert(1); // Change icon color from white to black
+            }
+
+            &::before {
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(to left, white 50%, black 50%);
+                background-size: 200% 100%;
+                transition: background-position 0.5s;
+                border-radius: 50%;
+            }
+        }
+
+        &:hover .arrow-icon-main::before {
+            background-position: -100% 0;
+        }
+    
+      } 
+}
+.sidebar {
+    position: fixed;
+    top: 90px;
+    right: 0px;
+    height: 100%;
+    width: 40%; /* Adjust as per your design */
+    background-color: #fff; /* Adjust as per your design */
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    transition: transform 0.3s ease-out; /* Slide animation */
+    transform: translateX(100%);
+    .close-icon{
+        text-align: right;
+        margin-top: 20px;
+        margin-right: 20px;
+        cursor: pointer;
+    }
+  }
+  
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin-left: 50px;
+    line-height: 50px;
+    letter-spacing: 2px;
+    .home{
+        color: #FEA900;
+    }
+    .blogs{
+      text-decoration: none;
+      color: inherit;
+    }
+}
+
+.sidebar ul li {
+    padding: 10px;
+    font-size: 32px;
+    font-weight: 300;
+  }
+  li:hover{
+    color: #FEA900;
+    cursor: pointer;
+  }
+  
+  .menu-icon {
+    cursor: pointer;
+  }
+  .sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Adjust opacity as needed */
+    z-index: 999; /* Ensure overlay is above other content */
+  }
