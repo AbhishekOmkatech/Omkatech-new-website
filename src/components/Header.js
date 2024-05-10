@@ -1,97 +1,65 @@
-import React, { useState, useEffect } from 'react';
-import gsap from 'gsap';
+import React, { useState } from 'react';
 import Logo from '../pngs/omkatech-logo.png';
 import CrossIcon from '../assets/svgs/cross.svg';
 import MenuBar from '../assets/svgs/Group 3.svg';
 import '../components-css/header.scss';
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import SmallArrowDown from '../assets/svgs/Group 6.svg';
+import OrangeSmallArrowDown from '../assets/svgs/Vector (2).svg'
 
 const Header = () => {
-  const [handleArrowClick, setHandleArrowClick] = useState(false);
-  const [isHovered, setIsHovered] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-
-  useEffect(() => {
-    const arrowIcon = document.querySelector('.arrow-icon');
-
-    const arrowAnimation = gsap.to(arrowIcon, {
-      rotation: handleArrowClick ? -45 : 0,
-      duration: 0.3,
-      ease: 'power2.inOut'
-    });
-
-    return () => {
-      arrowAnimation.kill(); // Clean up the animation
-    };
-  }, [handleArrowClick]);
-
-  useEffect(() => {
-    // Animate sidebar initially if it's open
-    animateSidebar(isSidebarOpen);
-  }, [isSidebarOpen]);
+  const [showAboutSubmenu, setShowAboutSubmenu] = useState(false);
+  const { pathname } = useLocation();
 
   const handleClick = () => {
-    setHandleArrowClick(!handleArrowClick);
     setIsSidebarOpen(!isSidebarOpen);
-    
-  };
-
-  const handleCloseClick = () => {
-    setIsSidebarOpen(false);
-    setHandleArrowClick(!handleArrowClick);
-  };
-
-  const animateSidebar = (open) => {
-    const sidebar = document.querySelector('.sidebar');
-    if (open) {
-      gsap.to(sidebar, { duration: 0.3, right: 576, ease: 'power2.inOut' });
-    } else {
-      gsap.to(sidebar, { duration: 0.3, right: 0, ease: 'power2.inOut' });
-    }
-  };
-
-  const handleHover = () => {
-    setIsHovered(true);
-  };
-
-  const handleMouseLeave = () => {
-    setIsHovered(false);
   };
 
   return (
-    <div className="header-main-container">
+    <div className="header-main-container" >
       <div className="header">
         <div className="company-logo">
           <Link to="/"><img src={Logo} alt="company-logo" /></Link>
           <div><span>ISO : 9001 : 2015</span></div>
         </div>
-        <div className="free-consultation" onMouseEnter={handleHover} onMouseLeave={handleMouseLeave}>
+        <div className="free-consultation">
           <span>Menu</span>
-          <div className={`arrow-icon-main ${isHovered ? 'hovered' : ''}`} onClick={handleClick}>
-            <img className={`arrow-icon ${handleArrowClick ? 'rotated' : ''}`} src={MenuBar} alt="menu-bar-icon" />
+          <div className="arrow-icon-main" onClick={handleClick}>
+            <img className={`arrow-icon ${isSidebarOpen ? 'rotated' : ''}`} src={MenuBar} alt="menu-bar-icon" />
           </div>
         </div>
       </div>
-      {isSidebarOpen && (
-        <>
-          <div className="sidebar-overlay" onClick={handleCloseClick}></div>
-          <div className="sidebar">
-            <div className="close-icon" onClick={handleCloseClick}>
-              <img src={CrossIcon} alt="cross-icon" />
-            </div>
-            <ul>
-              <li className='home'>HOME</li>
-              <li>ABOUT US</li>
-              <li>SERVICES</li>
-              <li>CASE STUDY</li>
-              <li>PORTFOLIO</li>
-              <li>OUR CLIENTS</li>
-              <li>TESTIMONIAL</li>
-              <Link className='blogs' onClick={handleCloseClick} to="blogs"><li>BLOGS</li></Link>
-            </ul>
-          </div>
-        </>
-      )}
+      <div className={`sidebar ${isSidebarOpen ? 'open' : ''}`}>
+        <div className="close-icon" onClick={handleClick}>
+          <img src={CrossIcon} alt="cross-icon" />
+        </div>
+        <ul>
+          <Link className='home' onClick={handleClick} to="/"><li>Home</li></Link>
+          <li className={`about-us ${showAboutSubmenu ? 'clicked' : ''}`} onClick={() => { setShowAboutSubmenu(!showAboutSubmenu) }}>
+            ABOUT US
+            <span>
+              {showAboutSubmenu ?
+                <img src={OrangeSmallArrowDown} alt="arrow-icon" /> :
+                <img src={SmallArrowDown} alt="arrow-icon" />
+              }
+            </span>
+          </li>            
+          {showAboutSubmenu && <div className='about-us-submenu'>
+            <p>ABOUT OMKATECH</p>
+            <p>CAREER</p>
+            <Link className='our-team' onClick={handleClick} to="our-team"><p>OUR TEAM</p></Link>
+            <p>CERTIFICATION</p>
+          </div>}
+          <li>SERVICES <span><img src={SmallArrowDown} alt="arrow-icon" /></span></li>
+          <Link className='casestudy-page' onClick={handleClick} to="case-study"><li>CASE STUDY</li></Link>
+          <Link className='portfolio-page' onClick={handleClick} to="portfolio"><li>PORTFOLIO</li></Link>
+          <Link className='our-clients' onClick={handleClick} to="our-clients"><li>OUR CLIENTS</li></Link>
+          <Link className='our-testimonials' onClick={handleClick} to="our-testimonials"><li>OUR TESTIMONIAL</li></Link>
+          <Link className='blogs' onClick={handleClick} to="blogs"><li>BLOGS</li></Link>
+        </ul>
+      </div>
+      {isSidebarOpen && <div className="sidebar-overlay" onClick={handleClick}></div>}
     </div>
   );
 };

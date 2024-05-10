@@ -1,0 +1,182 @@
+.Our-testimonial-page-main-container{
+    color: #fff;
+    padding: 4rem 6rem;
+    background-color: #fff;
+    .our-testimonial-banner{
+        position: relative;
+        height: 214px;
+        background-image: url('../pngs/Mask group (6).png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        transition: all 0.3s ease; /* Adding transition for smoothness */
+
+        h1{
+            margin-bottom: 20px;
+            font-size: 62px;
+        }
+        p{
+            font-weight: 100;
+            font-size: 28px;
+        }
+    }
+    .happy-clients{
+        padding-top: 80px;
+        padding-bottom: 80px;
+        background-color: #fff;
+        color: #000;
+        h2{
+            font-size: 32px;
+            text-align: center;
+            font-weight: 400;
+        }
+        .happy-clients-cards{
+            margin-top: 50px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 20px;
+            .happy-client-card{
+                border: 1px solid #e0e0e0;
+                padding: 20px 24px;
+                border-radius: 10px;
+                cursor: pointer;
+                p{
+                    font-size: 16px;
+                    margin-top: 10px;
+                    margin-bottom: 20px;
+                }
+                .client-content{
+                    h5{
+                        font-size: 12px;
+                        line-height: 20px;
+                    }
+                    p{
+                        font-size: 12px;
+                        margin: 0;
+                    }
+                }
+                .about-client{
+                    display: flex;
+                    align-items: center;
+                    img{
+                        margin-right: 10px;
+                    }
+                }
+                &:hover{
+                    background-color: #e0e0e0;
+                }
+            }
+        }
+        .client-say-about-us{
+            margin-top: 80px;
+            h2{
+                font-size: 32px;
+            }
+                iframe{
+                    margin-top: 50px;
+                    border: none !important;
+                    border-radius: 10px !important;
+                    width: 94% !important;
+                }
+        }
+    }
+    /* Add this CSS to your SCSS file */
+.testimonial-right-content {
+  .testimonial-image {
+    position: absolute;
+    cursor: pointer;
+  }
+  
+  .testimonial-image:hover {
+    transition: all 0.3s ease; /* Smooth transition on hover */
+  }
+  
+  /* Random positioning for each image */
+  .testimonial-image:nth-child(1) {
+    bottom: 25%;
+    left: 60%;
+  }
+  
+  .testimonial-image:nth-child(2) {
+    top: 20%;
+    left: 62%;
+  }
+  
+  .testimonial-image:nth-child(3) {
+    bottom: 15%;
+    left: 70%;
+  }
+  
+  .testimonial-image:nth-child(4) {
+    top: 20%;
+    right: 22%;
+  }
+  
+  .testimonial-image:nth-child(5) {
+    top: 58%;
+    right: 18%;
+  }
+  
+  .testimonial-image:nth-child(6) {
+    top: 20%;
+    right: 10%;
+  }
+  
+  .testimonial-image:nth-child(7) {
+    bottom: 10%;
+    left: 85%;
+  }
+}
+.mt{
+    margin-top: 0;
+    .slider-button-left{
+        bottom: -60px;
+        right: 50%;
+    }
+    .slider-button-right{
+        bottom: -60px;
+        right: 46%;
+    }
+}
+}
+
+// .our-testimonial-banner:hover{
+//     /* Random positioning for each image */
+//   .testimonial-image:nth-child(1) {
+//     top: 25%;
+//     left: 60%;
+//   }
+  
+//   .testimonial-image:nth-child(2) {
+//     top: 60%;
+//     left: 62%;
+//   }
+  
+//   .testimonial-image:nth-child(3) {
+//     top: 15%;
+//     left: 70%;
+//   }
+  
+//   .testimonial-image:nth-child(4) {
+//     top: 60%;
+//     right: 22%;
+//   }
+  
+//   .testimonial-image:nth-child(5) {
+//     top: 20%;
+//     right: 18%;
+//   }
+  
+//   .testimonial-image:nth-child(6) {
+//     top: 60%;
+//     right: 10%;
+//   }
+  
+//   .testimonial-image:nth-child(7) {
+//     bottom: 70%;
+//     left: 85%;
+//   }
+// }
+

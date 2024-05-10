@@ -2,14 +2,14 @@ $primary-color: #007bff;
 body{
     padding: 0;
     margin: 0;
-    font-family: sans-serif;
     background: #000;
-    font-family: 'Montserrat', sans-serif;
+    -webkit-text-stroke: 0 !important;
+    -webkit-font-smoothing: antialiased !important;
 }
-// h1, h2, p{
-//     margin: 0;
-//     padding: 0;
-// }
+h1, h2, h3, h5, p{
+    margin: 0;
+    padding: 0;
+}
 // body::before {
 //     content: '';
 //     background: url(./pngs/homePageBanner.jpg);

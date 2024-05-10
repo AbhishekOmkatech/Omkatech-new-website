@@ -1,171 +1,229 @@
-.header-main-container{
-    // box-shadow: 0px -5px 18px 0px rgba(0,0,0,0.4);
-    // background-color: rgb(242, 242, 242);
-    opacity: 1;
+.header-main-container {
+  opacity: 1;
   transition: opacity 0.5s ease-in-out;
+  background-image: url('../pngs/Frame 1 (2).png');
+  background-repeat: no-repeat;
+  background-size: 110%;
+  background-position: top;
 }
-.header{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 100px;
-    margin: auto;
-    padding: 0 5rem;
-    .company-logo{
-        width: 20%;
-        span{
-          margin-left: 44px;
-          position: absolute;
-          color: #fff;
-          font-size: 12px;
-          opacity: 0.5;
-          top: 60px;
-        }
-    }
-    .nav-items > ul{
-        display: flex;
-        list-style-type: none;
-        li{
-            margin: 8px;
-            padding: 22px;
-        }
-    }
-    .free-consultation {
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        span {
-            margin-right: 10px;
-            color: #fff;
-            font-size: 18px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-          }
-        .arrow-icon-main {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          border: 1px solid #fff;
-          cursor: pointer;
-          width: 40px;
-          height: 40px;
-          border-radius: 50%;
-          transition: all 0.3s ease; // Add transition for all properties on hover
-  
-          .rotated{
-            transform: rotate(-45deg);
-        }
-          .arrow-icon {
-            transition: transform 0.3s ease;
-        }
-        
-        &.hovered {
-            background-color: white; // Change background color to white on hover
-            border-radius: 50%;
-            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1); // Add smooth shadow for depth
-            transform: scale(1.1); // Add smooth scale transformation for hovered state
 
-            .arrow-icon {
-                filter: invert(1); // Change icon color from white to black
-            }
-            &::before {
-                content: '';
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                background: linear-gradient(to left, white 50%, black 50%);
-                background-size: 200% 100%;
-                transition: background-position 0.5s;
-                border-radius: 50%;
-            }
-        }
-
-        &:hover::before {
-            background-position: left;
-          }
-        }
-        &:hover .arrow-icon-main {
-            background-color: white; // Change background color to white on hover
-            border-radius: 50%;
-            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1); // Add smooth shadow for depth
-            transform: scale(1.1); // Add smooth scale transformation for hovered state
-
-            .arrow-icon {
-                filter: invert(1); // Change icon color from white to black
-            }
-
-            &::before {
-                content: '';
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                background: linear-gradient(to left, white 50%, black 50%);
-                background-size: 200% 100%;
-                transition: background-position 0.5s;
-                border-radius: 50%;
-            }
-        }
-
-        &:hover .arrow-icon-main::before {
-            background-position: -100% 0;
-        }
-    
-      } 
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100px;
+  margin: auto;
+  padding: 0 5rem;
 }
+
+.company-logo {
+  width: 20%;
+}
+
+.company-logo span {
+  margin-left: 44px;
+  position: absolute;
+  color: #fff;
+  font-size: 12px;
+  opacity: 0.5;
+  top: 60px;
+}
+
+.nav-items > ul {
+  display: flex;
+  list-style-type: none;
+}
+
+.free-consultation {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.free-consultation span {
+  margin-right: 10px;
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.arrow-icon-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #fff;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.arrow-icon-main .rotated {
+  transform: rotate(-45deg);
+}
+
+.arrow-icon-main .arrow-icon {
+  transition: transform 0.3s ease;
+}
+
+.arrow-icon-main.hovered {
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+  transform: scale(1.1);
+}
+
+.arrow-icon-main.hovered .arrow-icon {
+  filter: invert(1);
+}
+
+.arrow-icon-main.hovered::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to left, white 50%, black 50%);
+  background-size: 200% 100%;
+  transition: background-position 0.5s;
+  border-radius: 50%;
+}
+
+.arrow-icon-main:hover::before {
+  background-position: left;
+}
+
+.free-consultation:hover .arrow-icon-main {
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+  transform: scale(1.1);
+}
+
+.free-consultation:hover .arrow-icon-main .arrow-icon {
+  filter: invert(1);
+}
+
+.free-consultation:hover .arrow-icon-main::before {
+  background-position: -100% 0;
+}
+
 .sidebar {
-    position: fixed;
-    top: 90px;
-    right: 0px;
-    height: 100%;
-    width: 40%; /* Adjust as per your design */
-    background-color: #fff; /* Adjust as per your design */
-    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-    transition: transform 0.3s ease-out; /* Slide animation */
-    transform: translateX(100%);
-    .close-icon{
-        text-align: right;
-        margin-top: 20px;
-        margin-right: 20px;
-        cursor: pointer;
-    }
-  }
-  
-  .sidebar ul {
-    list-style: none;
-    padding: 0;
-    margin-left: 50px;
-    line-height: 50px;
-    letter-spacing: 2px;
-    .home{
-        color: #FEA900;
-    }
-    .blogs{
-      text-decoration: none;
-      color: inherit;
-    }
+  position: fixed;
+  top: 100px;
+  right: -500px; /* Off-screen initially */
+  width: 500px;
+  height: 100%;
+  background-color: #fff;
+  transition: right 0.3s ease-in-out;
+  z-index: 99;
+}
+.sidebar.open {
+  right: 0; /* Slide in from the right */
+  overflow-y: scroll;
+}
+.close-icon {
+  text-align: right;
+  margin-top: 20px;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin-left: 24px; /* Adjusted margin for responsiveness */
+  line-height: 40px; /* Adjusted line height for responsiveness */
+  letter-spacing: 2px;
+  margin-bottom: 150px;
+}
+
+.sidebar ul .home {
+  color: #FEA900;
+}
+
+.blogs, .portfolio-page, .home, .casestudy-page, .our-team, .our-clients, .our-testimonials{
+  text-decoration: none;
+  color: inherit;
 }
 
 .sidebar ul li {
-    padding: 10px;
-    font-size: 32px;
-    font-weight: 300;
+  padding: 8px 0;
+  font-size: 25px; /* Adjusted font size for responsiveness */
+  font-weight: 300;
+  span{
+    margin-left: 25px;
   }
-  li:hover{
+}
+.about-us-submenu{
+  padding: 8px 0;
+  font-weight: 100;
+  transition: all 0.3s ease;
+  p:hover{
     color: #FEA900;
     cursor: pointer;
   }
+}
+.about-us,
+.about-us span {
+  color: black; // Initial color
+}
+
+.about-us.clicked,
+.about-us.clicked span {
+  color: #FEA900; // Color when clicked
+  font-weight: 400;
+}
+.about-us.clicked {
+  border-bottom: 2px solid #FEA900;
+  width: 50%;
+}
+
+.about-us:hover,
+.about-us.clicked:hover,
+.about-us.clicked:hover span {
+  color: #FEA900; // Color on hover or when clicked
+}
+
+.sidebar ul li:hover {
+  color: #FEA900;
+  cursor: pointer;
+}
+
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+  display: none;
+  transition: background-color 0.3s ease; /* Add transition for smooth effect */
+}
+.sidebar.open ~ .sidebar-overlay {
+  display: block; /* Show the overlay when sidebar is open */
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9;
+}
+// .active{
+//   background: #fff;
+//   background-image: none;
+//   .free-consultation span{
+//     color: #000;
+//   }
+//   .arrow-icon-main{
+//     border: 1px solid #000;
+//   }
+//   .arrow-icon-main.hovered {
+//     background-color: #000;
+//     border-radius: 50%;
+//     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+//     transform: scale(1.1);
+//   }
   
-  .menu-icon {
-    cursor: pointer;
-  }
-  .sidebar-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Adjust opacity as needed */
-    z-index: 999; /* Ensure overlay is above other content */
-  }
+//   .arrow-icon-main.hovered .arrow-icon {
+//     filter: invert(100%);
+//   }
+// }

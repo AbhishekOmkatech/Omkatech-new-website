@@ -6,7 +6,7 @@
 .close-title{
   position: absolute;
   bottom: 16px;
-  left: 65px;
+  left: 68px;
   transform: rotate(180deg);
   writing-mode: vertical-rl;
   z-index: 999;
@@ -15,11 +15,11 @@
 }
 
 .development-card {
-  width: 150px;
-  height: 480px;
+  width: 10%;
+  height: 400px;
   margin: 10px;
   border: 1px solid #ccc;
-  border-radius: 12px;
+  border-radius: 8px;
   overflow: hidden;
   transition: width 0.3s ease; /* Add transition for width change */
 }
@@ -37,7 +37,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.4); /* Adjust the opacity here */
+  background-color: rgba(0, 0, 0, 0.6); /* Adjust the opacity here */
   z-index: 0;
 }
 
@@ -69,7 +69,7 @@
     font-size: 36px;
     margin: 0;
     padding: 0;
-    font-weight: 200;
+    font-weight: 400;
     color: #fff;
   }
   p{
@@ -94,5 +94,28 @@
   to {
     opacity: 1;
     transform: translateX(0);
+  }
+}
+
+// responsive
+@media (min-width: 768px) and (max-width: 1300px) {
+  .development-card-list{
+    padding: 4rem 3rem;
+    margin-left: 10px;
+  }
+  .development-card{
+    width: 130px;
+    height: 250px;
+  }
+  .text-content{
+    left: 10px;
+    bottom: 10px;
+  } 
+  .text-content h2{
+    font-size: 20px;
+  }
+  .close-title{
+    left: 26px;
+    font-size: 16px;
   }
 }

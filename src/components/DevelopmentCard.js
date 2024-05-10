@@ -69,7 +69,6 @@ function DevelopmentCard() {
             <img
               src={card.imageUrl}
               alt={card.title}
-              style={{ filter: expandedCardIndex === index ? 'none' : 'blur(1px)', opacity: expandedCardIndex === index ? 1 : 0.8 }}
               />
               {expandedCardIndex !== index && <div><h2 className='close-title'>{card.title}</h2></div>}
               {expandedCardIndex !== index && (

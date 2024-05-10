@@ -1,15 +1,12 @@
 import React, { useRef, useEffect, useState } from "react";
-import { gsap, Power3 } from "gsap";
-import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import "../components-css/case-study.scss";
 import ArrowIcon from '../assets/svgs/Group 3.svg';
 import GradientArrowIcon from '../assets/svgs/Group 3 (5).svg'
 import caseStudyImage from "../pngs/Rectangle 54.png";
 
-gsap.registerPlugin(ScrollToPlugin);
-
 const CaseStudy = () => {
     const containerRef = useRef(null);
+    const contentRef = useRef(null);
     const [activeIndex, setActiveIndex] = useState(0);
     const [isHovered, setIsHovered] = useState(false);
     const [contentData, setContentData] = useState([
@@ -41,53 +38,51 @@ const CaseStudy = () => {
 
     useEffect(() => {
         const container = containerRef.current;
+        if (!container) return;
+    
         const handleScroll = () => {
             const scrollTop = container.scrollTop;
             const containerHeight = container.offsetHeight;
             const imageHeight = containerHeight;
             const currentIndex = Math.floor(scrollTop / imageHeight);
             setActiveIndex(currentIndex);
+    
+            // Set z-index based on scroll position
+            contentRef.current.style.zIndex = scrollTop > 0 ? 2 : 1;
         };
+    
         container.addEventListener("scroll", handleScroll);
         return () => container.removeEventListener("scroll", handleScroll);
     }, []);
 
-    useEffect(() => {
-        gsap.to(containerRef.current, {
-            scrollTop: activeIndex * 450,
-            duration: 0.8,
-            ease: Power3.easeInOut,
-        });
-    }, [activeIndex]);
-
     return (
         <div className="case-study-container">
-                <div className="content-container">
+            <div className="content-container" ref={contentRef}>
                 <h2>CASE STUDY</h2>
-                    <h1>{contentData[activeIndex].name}</h1>
-                    <p>{contentData[activeIndex].description}</p>
-                    <div className="app-details">
-                        <div className="results">
-                            <p>Results</p>
-                            <h2>{contentData[activeIndex].downloads}</h2>
-                            <span>App Download</span>
-                        </div>
-                        <div className="users">
-                            <h2>{contentData[activeIndex].users}</h2>
-                            <span>New users <br /> accquired</span>
-                        </div>
+                <h1>{contentData[activeIndex].name}</h1>
+                <p>{contentData[activeIndex].description}</p>
+                <div className="app-details">
+                    <div className="results">
+                        <p>Results</p>
+                        <h2>{contentData[activeIndex].downloads}</h2>
+                        <span>App Download</span>
                     </div>
-                    <div className="button">
-                        <button onMouseEnter={() => setIsHovered(true)}
-                            onMouseLeave={() => setIsHovered(false)}>
-                            <span>VIEW CASE STUDY</span> <span className='img'>
-                                {isHovered ? (
-                                    <img src={GradientArrowIcon} alt="gradient-icon" />
-                                ) : (
-                                    <img src={ArrowIcon} alt="arrow-icon" />
-                                )}
-                            </span>
-                        </button>
+                    <div className="users">
+                        <h2>{contentData[activeIndex].users}</h2>
+                        <span>New users <br /> acquired</span>
+                    </div>
+                </div>
+                <div className="button">
+                    <button className="btn-bg" onMouseEnter={() => setIsHovered(true)}
+                        onMouseLeave={() => setIsHovered(false)}>
+                        <span>VIEW CASE STUDY</span> <span className='img'>
+                            {isHovered ? (
+                                <img src={GradientArrowIcon} alt="gradient-icon" />
+                            ) : (
+                                <img src={ArrowIcon} alt="arrow-icon" />
+                            )}
+                        </span>
+                    </button>
                 </div>
             </div>
             <div className="image-container" ref={containerRef}>

@@ -1,0 +1,38 @@
+.our-clients-page-main-container{
+    color: #fff;
+    .our-clients-banner{
+        background-image: url('../pngs/Group 356.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding: 6rem 6rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        h1{
+            margin-bottom: 30px;
+            font-size: 62px;
+        }
+        p{
+            font-size: 28px;
+            font-weight: 100;
+        }
+    }
+    .all-brands{
+        background-color: #fff;
+        padding: 4rem 6rem;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-gap: 80px;
+        .img{
+            border: 1px solid #e0e0e0;
+            padding: 25px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        img{
+            width: 100%;
+        }
+    }
+}

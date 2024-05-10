@@ -1,31 +1,44 @@
 .testimonial-main-container{
-    padding: 4rem 6rem;
+    padding: 8rem 6rem;
     background-color: #fff;
     h2{
-        color: #000;
-        font-weight: 500;
+        color: #262626;
+        font-weight: 300;
+        font-size: 46px;
+        margin-bottom: 40px;
     }
-    .clients-review{
+    .slick-list{
         background: #262626;
         border-radius: 20px;
-        padding: 40px 24px;
-        display: flex;
-        align-items:self-start;
-        justify-content: center;
+        padding: 40px 40px;
+        box-sizing: border-box;
+        cursor: pointer;
+    }
+    .slick-dots{
+        margin-top: 200px;
+    }
+    .clients-review{
+        // display: flex;
+        // align-items:self-start;
+        // justify-content: center;
         img{
             margin-right: 12px;
         }
         .content{
+            width: 95% !important;
             margin-top: 20px;
             p{
                 line-height: 24px;
+                font-size: 22px;
+                font-weight: 200;
             }
             .client-content{
                     display: flex;
                     align-items: center;
                     justify-content: space-between;
+                    margin-top: 30px;
                     .video{
-                        margin-right: 10px;
+                        margin-right: 24px;
                         iframe{
                             border-radius: 8px;
                         }
@@ -38,12 +51,35 @@
                     margin-left: 8px;
                 }
                 h3{
-                    font-weight: 500;
+                    font-weight: 200;
+                    font-size: 28px;
+                    line-height: 54px;
                 }
                 p{
                     font-size: 10px;
+                    font-size: 14px;
+                    font-weight: 100;
                 }
             }
         }
     }
 }
+.testimonial{
+    color: #000;
+    .slider-button-right{
+        background-color: #262626;
+        right: 0px;
+        bottom: 0;
+    }
+    .slider-button-left{
+        background-color: #262626;
+        right: 50px;
+        bottom: 0;
+    }
+}
+// responsive
+@media (min-width: 768px) and (max-width: 1300px) {
+    .testimonial-main-container{
+        padding: 4rem 3rem;
+    }
+  }

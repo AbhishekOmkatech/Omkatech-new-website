@@ -1,37 +1,49 @@
 .blogs-main-container{
-    padding: 0rem 6rem 4rem 6rem;
+    padding: 4rem 6rem 4rem 6rem;
     h2{
-        font-weight: 500;
+        font-weight: 300;
+        font-size: 46px;
+        margin-bottom: 40px;
     }
     .cards{
         display: flex;
         align-items: flex-start;
         justify-content: space-between;
+        .content div{
+            text-align: center;
+        }
         .large-card{
             width: 30%;
             border-radius: 16px;
-            background-color: #fff;
-            color: #000;
-            padding: 30px 24px 30px 24px;
+            background-color: #393091;
+            color: #fff;
+            padding: 30px 26px 30px 26px;
+            height: 524px;
             .date{
                 text-align: right;
                 font-weight: 300;
                 margin-bottom: 40px;
             }
             h4{
-                font-weight: 500;
+                font-weight: 300;
+                font-size: 18px;
             }
             p{
                 margin-bottom: 40px;
-                font-weight: 300;
+                margin-top: 20px;
+                font-weight: 100;
+            }
+            .content:hover span img{
+                transition: transform 0.3s ease;
+                transform: rotate(45deg);
             }
         }
         .small-cards{
             width: 64%;
             color: #fff;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
             cursor: pointer;
             .content div{
                 display: flex;
@@ -39,26 +51,59 @@
                 justify-content: center;
             }
             .card{
-                width: 44%;
+                height: 240px;
                 border-radius: 16px;
                 background-color: #262626;
                 gap: 10px;
-                padding: 19px 20px 25px 20px;
-                margin-bottom: 16px;
+                padding: 19px 20px 22px 20px;
+                transition: transform 0.3s ease;
                 transition: transform 0.8s ease; /* Add transition here for smooth scaling */
+                z-index: 0;
             }
+            .card:hover .content span img{
+                transform: rotate(45deg);
+                transition: transform 0.3s ease;
+            }
+            // .card:hover{
+            //     transform: scaley(1.2);
+            // }
             .date{
                 text-align: right;
                 font-weight: 300;
                 margin-bottom: 40px;
             }
             h4{
-                font-weight: 500;
+                font-weight: 300;
+                font-size: 18px;
             }
             p{
                 margin-bottom: 40px;
-                font-weight: 300;
+                font-weight: 100;
+            }
+            .rotate{
+                transform: rotate(45deg);
             }
         }
     }
 }
+// responsive
+@media (min-width: 768px) and (max-width: 1300px) {
+    .blogs-main-container{
+        padding: 3rem 3rem;
+    }
+    .cards{
+        flex-direction: column;
+    }
+    .large-card{
+        width: 100% !important;
+        margin-bottom: 30px;
+        box-sizing: border-box;
+    }
+    .small-cards{
+        width: 100% !important;
+        box-sizing: border-box;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+  }

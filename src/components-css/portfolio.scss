@@ -21,7 +21,7 @@
 }
 
 .slider img {
-  max-width: 100%;
+  max-width: 22%;
   height: auto;
 }
 
@@ -32,18 +32,52 @@
 }
 
 .slider-buttons {
-  margin-top: 100px;
+  margin-top: 60px;
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 
-.slider-button {
+.slider-button-left {
   border: 1px solid #fff;
   padding: 10px 16px;
   border-radius: 50%;
   margin-right: 8px;
   transition: all 0.3s ease; /* Added transition for smoother effect */
   cursor: pointer;
+  position: absolute;
+  bottom: -20px;
+  right: 120px;
+    img {
+      fill: black; // Icon color
+    }
+    &:hover {
+      background-color: white; // Change background color on hover
+      img {
+        fill: black; // Change icon color on hover
+      }
+    }
+}
+.slider-button-right {
+  border: 1px solid #fff;
+  padding: 10px 16px;
+  border-radius: 50%;
+  margin-right: 8px;
+  transition: all 0.3s ease; /* Added transition for smoother effect */
+  cursor: pointer;
+  position: absolute;
+  bottom: -20px;
+  right: 60px;
+    img {
+      fill: black; // Icon color]
+      transition: fill 0.3s ease; // Smooth transition for color change
+    }
+    &:hover {
+      background-color: white; // Change background color on hover
+      img {
+        fill: black; // Change icon color on hover
+      }
+    }
 }
 
 .slider-button:hover {
@@ -54,13 +88,15 @@
 }
 h1{
   line-height: 56px;
-  font-size: 36px;
+  font-size: 46px;
+  letter-spacing: 2px;
+  font-weight: 300;
 }
-.case-study{
+.portfolio{
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 16px;
+  margin-bottom: 40px;
   padding: 0 6rem 0 0;
 }
 
@@ -69,7 +105,7 @@ h1{
   color: #fff;
   border: 1px solid #fff;
   cursor: pointer;
-  padding: 12px 20px;
+  padding: 10px 26px;
   border-radius: 50px;
   position: relative;
   text-transform: uppercase;
@@ -119,6 +155,8 @@ h1{
 .button button span{
   z-index: 1;
   position: relative;
+  font-size: 18px;
+  font-weight: 100;
 }
 .button button:hover span img{
   transition: transform 0.3s ease; // Add transition for the transform property
@@ -154,3 +192,20 @@ h1{
 //     }
 //   }
 // }
+.slick-slide .image{
+  width: 90%;
+  cursor: pointer;
+}
+// .slick-slide .image:hover{
+//   transform: scale(1.1);
+//   transition: transform 0.5s ease;
+// }
+// responsive
+@media (min-width: 768px) and (max-width: 1300px) {
+  .slider-container{
+    padding: 3rem 3rem;
+  }
+  .portfolio{
+    padding: 0;
+  }
+}

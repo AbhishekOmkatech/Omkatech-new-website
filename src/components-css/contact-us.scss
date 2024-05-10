@@ -1,0 +1,147 @@
+.contact-us-main-container {
+    padding: 0rem 6rem 4rem 6rem;
+    color: #fff;
+    .contact-heading{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        h1{
+            font-size: 80px;
+            line-height: 90px;
+        }
+        img{
+            margin-top: 10px;
+        }
+    }
+    .intrested-in{
+        p{
+            font-size: 42px;
+            margin-top: 40px;
+            margin-bottom: 60px;
+        }
+        .intrested-work{
+            margin-bottom: 80px;
+            .services-container{
+                display: flex;
+                flex-wrap: wrap;
+                font-size: 24px;
+            }
+        }
+    }
+    
+    .contact-us {
+        font-size: 24px;
+        position: relative;
+        background-color: #202020;
+        border-radius: 14px;
+        padding: 100px 50px 50px 50px;
+        .image {
+            position: absolute;
+            text-align: center;
+            top: -74px; /* Adjust this value to your desired position from the top */
+            left: 50%; /* Adjust this value to horizontally center the image */
+            transform: translateX(-50%); /* Centering trick */
+            
+            img {
+                width: 100%;
+            }
+        }
+        .your-name {
+            border-bottom: 1px solid #7F7F7F;
+            margin-bottom: 30px;
+            input {
+                width: 100%;
+                outline: none;
+                background: none;
+                border: none;
+                color: #fff;
+                font-size: 24px;
+                font-weight: 100;
+                padding: 12px 0px 12px 0px;
+                letter-spacing: 1px;
+                font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            }
+        }
+        .flag{
+            display: flex;
+            .flag-select-container{
+                margin-right: 40px;
+            }
+            .ReactFlagsSelect-module_filterBox__3m8EU input{
+                color: #000 !important;
+                margin: 0 6px;
+            }
+            .ReactFlagsSelect-module_selectFlag__2q5gC svg{
+                width: 30px;
+                height: 30px;
+            }
+            .ReactFlagsSelect-module_selectBtn__19wW7{
+                padding: 0;
+                border: none;
+            }
+            .ReactFlagsSelect-module_label__27pw9, .ReactFlagsSelect-module_secondaryLabel__37t1D{
+                display: none !important;
+            }
+        }
+        .services-container{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .button{
+            margin-top: 50px;
+            text-align: center;
+            .btn-bg{
+                background-color: #202020;
+            }
+            button{
+                padding: 12px 40px;
+            }
+        }
+        .choose-service p{
+            color: #7F7F7F;
+            margin-bottom: 30px;
+            font-weight: 100;
+        }
+    }
+}
+.service {
+    color: #7F7F7F;
+    cursor: pointer;
+    padding: 8px 16px;
+    margin-right: 20px;
+    border: 1px solid #7F7F7F;
+    border-radius: 50px;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: 100;
+    letter-spacing: 1px;
+  }
+  
+  .active {
+    border: 1px solid #fff;
+    color: #fff;
+  }
+
+
+// responsive
+@media (min-width: 768px) and (max-width: 1300px) {
+    .contact-us-main-container{
+        padding: 2rem 3rem !important;
+    }
+    .contact-heading{
+        h1{
+            font-size: 42px !important;
+            line-height: 56px !important;
+        }
+        img{
+            width: 52% !important;
+        }
+    }
+    .intrested-in p{
+        font-size: 32px !important;
+        margin-bottom: 30px !important;
+    }
+    .intrested-work{
+        margin-bottom: 30px !important;
+    }
+  }

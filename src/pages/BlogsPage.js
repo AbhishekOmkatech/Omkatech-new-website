@@ -1,27 +1,57 @@
 import React, { useEffect, useState } from 'react'
 import '../components-css/blogs-page.scss'
-import rightArrowWhite from '../assets/svgs/Group 3 (2).svg';
-import robotImg from '../pngs/01-01 1.png';
+import ArrowIcon from '../assets/svgs/Group 3.svg';
+import BlogImage from '../pngs/Rectangle 41.png'
 import bigRobotImg from '../pngs/01-01 2.png'
 import MenuBar from '../assets/svgs/Group 3.svg';
 import axios from 'axios'
-
+import { useNavigate } from 'react-router-dom';
 
 const BlogsPage = () => {
-    useEffect(() => {
-        blogsApi()
-    }, [])
     const [showImage, setShowImage] = useState(false);
-    const [blogData, setBlogData] = useState([])
-
-    const blogsApi = async () => {
-        try {
-            const response = await axios.get('http://localhost:8000/server.php');
-            setBlogData(response.data);
-        } catch (error) {
-            console.error('Error fetching blog data:', error);
-        }
-    }
+    const [blogData, setBlogData] = useState([
+        {
+            id: 1,
+            title: 'The Importance of Learning PHP',
+            description: 'PHP is a popular server-side scripting language that is widely used for web development. Learning PHP can open up many opportunities...',
+            image: BlogImage, // File path of the image in the 'images' directory
+            time: '5 MINUTE READ',
+            date: 'MAR 19, 2024'
+        },
+        {
+            id: 2,
+            title: 'The Importance of Learning PHP',
+            description: 'PHP is a popular server-side scripting language that is widely used for web development. Learning PHP can open up many opportunities...',
+            image: BlogImage, // File path of the image in the 'images' directory
+            time: '5 MINUTE READ',
+            date: 'MAR 19, 2024'
+        },
+        {
+            'id': 3,
+            'title': 'The Importance of Learning PHP',
+            'description': 'PHP is a popular server-side scripting language that is widely used for web development. Learning PHP can open up many opportunities...',
+            'image': BlogImage, // File path of the image in the 'images' directory
+            'time': '5 MINUTE READ',
+            date: 'MAR 19, 2024'
+        },
+        {
+            'id': 4,
+            'title': 'The Importance of Learning PHP',
+            'description': 'PHP is a popular server-side scripting language that is widely used for web development. Learning PHP can open up many opportunities...',
+            'image': BlogImage, // File path of the image in the 'images' directory
+            'time': '5 MINUTE READ',
+            date: 'MAR 19, 2024'
+        },
+        {
+            'id': 5,
+            'title': 'The Importance of Learning PHP',
+            'description': 'PHP is a popular server-side scripting language that is widely used for web development. Learning PHP can open up many opportunities...',
+            'image': BlogImage, // File path of the image in the 'images' directory
+            'time': "5 MINUTE READ",
+            date: 'MAR 19, 2024'
+        },
+    ])
+    let navigate = useNavigate()
 
     const handleHover = () => {
         setShowImage(true);
@@ -48,21 +78,19 @@ const BlogsPage = () => {
             </div>
             <div className="blog-cards">
                 {blogData.map((blog) => (
-                    <div className="card" key={blog.id}>
-                        <a href="https://www.omkatech.com/blog" target="_blank">
-                        <p className="date">{blog.date}</p>
-                        <div onMouseEnter={handleHover} onMouseLeave={handleMouseLeave} className="content">
-                            <h4>{blog.title}</h4>
-                            {console.log('tet', blog.image)}
-                            {showImage && <div><img src={blog.image} className="image-overlay" alt="img-icon" /></div>}
-                            <p>
-                                {blog.content}
-                            </p>
-                            <span>
-                                <img src={rightArrowWhite} alt="right-arrow-icon" />
-                            </span>
-                        </div>
-                </a>
+                    <div onClick={()=> navigate(`/blog/${blog.id}`, {state: blog})} className="card" key={blog.id}>
+                            <p className="date">{blog.date}</p>
+                            <div onMouseEnter={handleHover} onMouseLeave={handleMouseLeave} className="content">
+                                <h4>{blog.title}</h4>
+                                {console.log('tet', blog.image)}
+                                {/* {showImage && <div><img src={blog.image} className="image-overlay" alt="img-icon" /></div>} */}
+                                <p>
+                                    {blog.description}
+                                </p>
+                                <span>
+                                    <img src={ArrowIcon} alt="right-arrow-icon" />
+                                </span>
+                            </div>
                     </div>
                 ))}
             </div>

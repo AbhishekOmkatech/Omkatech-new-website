@@ -1,0 +1,47 @@
+.portfolio-heading{
+    background-image: url('../pngs/Group 72 (1).png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.d-flex{
+    flex-direction: column;
+}
+.case-study-container{
+    color: #fff;
+    background-color: #1c1c1c;
+    .left{
+        width: 50%;
+    }
+    .right{
+        width: 50%;
+    }
+    .even {
+        .content-container {
+            order: 2;
+        }
+    
+        .image-container {
+            order: 1;
+        }
+    }
+    
+    .odd {
+        .content-container {
+            order: 1;
+        }
+    
+        .image-container {
+            order: 2;
+        }
+    }
+    .case-study-inner{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #2b2b2b;
+        color: #fff;
+        padding: 40px 10px 40px 50px;
+        border-radius: 16px;
+        margin-bottom: 80px;
+    }
+}

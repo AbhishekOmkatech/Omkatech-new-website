@@ -2,22 +2,38 @@
     background: #202020;
     .about{
         display: flex;
-        align-items: center;
         justify-content: space-between;
         padding: 4rem 6rem;
         .heading{
-            width: 46%;
-            line-height: 56px;
+            width: 48%;
+            text-transform: uppercase;
             h1{
-                font-size: 36px;
-                font-weight: 200;
+                line-height: 60px;
+                font-size: 32px;
+                font-weight: 300;
+                letter-spacing: 1px;
             }
         }
         .company-brief{
-            width: 46%;
+            width: 48%;
             line-height: 26px;
-            font-weight: 200;
-            font-size: 16px;
+            font-weight: 300;
+            font-size: 18px;
         }
     }
 }
+
+// responsive
+@media (min-width: 768px) and (max-width: 1300px) {
+    .about{
+      padding: 3rem 3rem !important;
+    }
+    .heading h1{
+        font-size: 25px !important;
+        letter-spacing: 1px !important;
+        line-height: 50px !important;
+    }
+    p{
+        font-size: 14px;
+    }
+  }

@@ -1,0 +1,146 @@
+.our-team-main-container {
+    color: #fff;
+    padding: 2rem 6rem;
+    background-color: #fff;
+    color: #000;
+
+    .our-office-culture {
+        margin-top: 80px;
+        margin-bottom: 120px;
+        box-sizing: border-box;
+
+        h3 {
+            font-size: 32px;
+            margin-bottom: 16px;
+            font-weight: 500;
+        }
+
+        p {
+            font-size: 18px;
+            font-weight: 100;
+        }
+
+        .images {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 30px;
+
+            .left-img {
+                width: 48%;
+
+                img {
+                    width: 100%;
+                }
+            }
+
+            .right-img {
+                width: 48%;
+
+                .group-2 {
+                    margin-bottom: 14px;
+                }
+
+                img {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    .meet-our-team {
+        h2 {
+            text-align: center;
+        }
+
+        .company-employees {
+            .single-company-employee {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 20px;
+            }
+
+            .about-employee {
+                margin-top: 80px;
+                text-align: center;
+
+                img {
+                    margin-bottom: 20px;
+                }
+
+                h3 {
+                    line-height: 40px;
+                    color: rgba(255, 138, 0, 1);
+                    font-weight: 400;
+                }
+
+                p {
+                    font-weight: 100;
+                }
+            }
+        }
+    }
+}
+.core-team-container {
+    background-image: url('../pngs/Group 358.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 20px;
+    color: #000;
+    padding: 0 3rem;
+    overflow-y: hidden;
+
+    .left-content {
+        width: 50%;
+        color: #fff;
+
+        h1 {
+            font-size: 62px;
+            margin-bottom: 40px;
+        }
+
+        p {
+            font-size: 22px;
+            line-height: 34px;
+            font-weight: 100;
+        }
+    }
+
+    .right-content {
+        height: 568px;
+        // width: 40%;
+        text-align: right;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 20px; // Adjust as needed
+        position: relative;
+        /* Positioning context for absolutely positioned images */
+        animation: scrollAnimation 25s linear infinite;
+
+        img {
+            align-self: center;
+            width: 185px;
+            height: 183px;
+        }
+
+        /* Keyframe animation for automatic scrolling */
+        @keyframes scrollAnimation {
+            0% {
+                transform: translateY(100px);
+            }
+
+            100% {
+                transform: translateY(calc(-220%));
+                /* Account for grid gap */
+            }
+        }
+
+        img:nth-child(even) {
+            transform: translateY(-100px); // Adjust the value to your preference
+        }
+    }
+}

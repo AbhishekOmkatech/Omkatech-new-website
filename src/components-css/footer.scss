@@ -1,10 +1,23 @@
 .footer-main-container{
-    padding: 4rem 6rem;
     color: #fff;
-    .top-footer-part{
+    .bg-img{
+        background-image: url('../pngs/Group 291.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .middle-footer-part{
+        padding: 3rem 6rem;
         display: flex;
         align-items: center;
         justify-content: space-between;
+        border-top: 0.2px solid #c1c1c1;
+        .about-company{
+                width: 30%;
+        }
+        .iso{
+            width: 30%;
+            text-align: right;
+        }
     }
     hr{
         border: 1px solid #fff;
@@ -12,8 +25,60 @@
         margin-bottom: 30px;
     }
     .bottom-footer-part{
+        padding: 1.5rem 6rem;
         display: flex;
         align-items: center;
         justify-content: space-between;
+        p{
+            font-size: 14px;
+        }
+        img{
+            margin-right: 12px;
+            cursor: pointer;
+        }
+    }
+    .country{
+        img{
+            cursor: pointer;
+            margin-right: 20px;
+        }
+        .text{
+            margin-top: 8px;
+            text-align: center;
+            span{
+                font-size: 14px;
+                font-weight: bold;
+                margin-right: 20px;
+                margin-top: 10px;
+            }
+        }
+        .flag-hovered{
+            border: 1px solid yellow;
+            border-radius: 50%;
+        }
     }
 }
+// responsive
+@media (min-width: 768px) and (max-width: 1300px) {
+    .top-footer-part{
+        padding: 2rem !important;
+        h1{
+            font-size: 46px !important;
+        }
+        p{
+            font-size: 20px !important;
+        }
+        .input-container{
+            width: 80%;
+        }
+    }
+    .middle-footer-part{
+        padding: 2rem !important;
+        .iso{
+            width: 20% !important;
+        }
+    }
+    .bottom-footer-part{
+        padding: 2rem !important;
+    }
+  }
