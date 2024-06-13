@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Logo from '../pngs/omkatech-logo.png';
+import Logo from '../pngs/hd-logo.png';
 import CrossIcon from '../assets/svgs/cross.svg';
 import MenuBar from '../assets/svgs/Group 3.svg';
 import '../components-css/header.scss';
@@ -21,7 +21,6 @@ const Header = () => {
       <div className="header">
         <div className="company-logo">
           <Link to="/"><img src={Logo} alt="company-logo" /></Link>
-          <div><span>ISO : 9001 : 2015</span></div>
         </div>
         <div className="free-consultation">
           <span>Menu</span>
@@ -35,7 +34,7 @@ const Header = () => {
           <img src={CrossIcon} alt="cross-icon" />
         </div>
         <ul>
-          <Link className='home' onClick={handleClick} to="/"><li>Home</li></Link>
+          <Link className='home' onClick={handleClick} to="/"><li className={ pathname === '/' ? 'activeColor' : ''}>HOME</li></Link>
           <li className={`about-us ${showAboutSubmenu ? 'clicked' : ''}`} onClick={() => { setShowAboutSubmenu(!showAboutSubmenu) }}>
             ABOUT US
             <span>
@@ -46,17 +45,21 @@ const Header = () => {
             </span>
           </li>            
           {showAboutSubmenu && <div className='about-us-submenu'>
-            <p>ABOUT OMKATECH</p>
-            <p>CAREER</p>
-            <Link className='our-team' onClick={handleClick} to="our-team"><p>OUR TEAM</p></Link>
+            <p className={ pathname === '/about' ? 'activeColor' : ''}>ABOUT OMKATECH</p>
+            <p className={ pathname === '/career' ? 'activeColor' : ''}>CAREER</p>
+            <Link className='our-team' onClick={handleClick} to="our-team"><p className={ pathname === '/our-team' ? 'activeColor' : ''}>OUR TEAM</p></Link>
+            <Link className='our-clients' onClick={handleClick} to="our-clients"><p className={ pathname === '/our-clients' ? 'activeColor' : ''}>OUR CLIENTS</p></Link>
+            <Link className='our-testimonials' onClick={handleClick} to="our-testimonials"><p className={ pathname === '/our-testimonials' ? 'activeColor' : ''}>OUR TESTIMONIAL</p></Link>
             <p>CERTIFICATION</p>
           </div>}
           <li>SERVICES <span><img src={SmallArrowDown} alt="arrow-icon" /></span></li>
-          <Link className='casestudy-page' onClick={handleClick} to="case-study"><li>CASE STUDY</li></Link>
-          <Link className='portfolio-page' onClick={handleClick} to="portfolio"><li>PORTFOLIO</li></Link>
-          <Link className='our-clients' onClick={handleClick} to="our-clients"><li>OUR CLIENTS</li></Link>
-          <Link className='our-testimonials' onClick={handleClick} to="our-testimonials"><li>OUR TESTIMONIAL</li></Link>
-          <Link className='blogs' onClick={handleClick} to="blogs"><li>BLOGS</li></Link>
+          <Link className='casestudy-page' onClick={handleClick} to="case-study"><li className={ pathname === '/case-study' ? 'activeColor' : ''}>CASE STUDY</li></Link>
+          <Link className='portfolio-page' onClick={handleClick} to="portfolio"><li className={ pathname === '/portfolio' ? 'activeColor' : ''}>PORTFOLIO</li></Link>
+          <li>HIRE RESOURCES</li>
+          {/* <Link className='our-clients' onClick={handleClick} to="our-clients"><li>OUR CLIENTS</li></Link>
+          <Link className='our-testimonials' onClick={handleClick} to="our-testimonials"><li>OUR TESTIMONIAL</li></Link> */}
+          <Link className='blogs' onClick={handleClick} to="blogs"><li className={ pathname === '/blogs' ? 'activeColor' : ''}>BLOGS</li></Link>
+          <Link className='contact-us' onClick={handleClick} to="contact-us"><li className={ pathname === '/contact-us' ? 'activeColor' : ''}>CONTACT US</li></Link>
         </ul>
       </div>
       {isSidebarOpen && <div className="sidebar-overlay" onClick={handleClick}></div>}

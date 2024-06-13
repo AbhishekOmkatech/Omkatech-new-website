@@ -58,15 +58,15 @@ const Blogs = () => {
   const navigate = useNavigate();
 
   const handleHover = (index) => {
-    // setCurrentHoveredIndex(index);
-    // setShowImage(true);
-    // gsap.to(cardRefs.current[index], { height: 404, duration: 0.3 });
-    // // Reset height of other cards
-    // cardRefs.current.forEach((ref, i) => {
-    //   if (i !== index) {
-    //     gsap.to(ref, { height: 240, duration: 0.3 });
-    //   }
-    // });
+    setCurrentHoveredIndex(index);
+    setShowImage(true);
+    gsap.to(cardRefs.current[index], { height: 404, duration: 0.3 });
+    // Reset height of other cards
+    cardRefs.current.forEach((ref, i) => {
+      if (i !== index) {
+        gsap.to(ref, { height: 240, duration: 0.3 });
+      }
+    });
   };
   
 
@@ -78,7 +78,7 @@ const Blogs = () => {
 
   return (
     <div className="blogs-main-container">
-      <h2>Blogs</h2>
+      <h2>BLOGS</h2>
       <div className="cards">
         <div className="large-card">
           <p className="date">{blogs[0].date}</p>

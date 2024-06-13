@@ -3,8 +3,8 @@ import comma from '../pngs/comma.png';
 import clientImage from '../pngs/Mask group (2).png';
 import '../components-css/testimonial.scss';
 import Slider from 'react-slick';
-import leftArrow from '../assets/svgs/Vector.svg';
-import rightArrow from '../assets/svgs/Vector (1).svg';
+// import leftArrow from '../assets/svgs/Vector.svg';
+// import rightArrow from '../assets/svgs/Vector (1).svg';
 
 const Testimonial = () => {
   const [testimonialData, setTestimonialData] = useState([
@@ -32,11 +32,11 @@ const Testimonial = () => {
       clientPosition: "CEO, ABC Company",
       videoUrl: 'https://www.youtube.com/embed/ICRcTZiAtN4?si=O98o1WkkVQtUVpZC'
     },
-    {
-      feedback: "Deepak is amazing!! I only starting working with offshore web developers for my business website a year ago - and I will confess the first two India-based firms I worked with were very problematic.  Poor service, poor attitudes, and inflexible.   Luckily, Deepak arrived on the scene.   He rescued me/ my website.... and fixed many of the things that had been done incorrectly on that website.   He did it with grace, superior service, integrity, and friendliness - along with much greater knowledge than my prior two vendors.   He is good at 'translating' high tech language and options for someone (like me) who does not spend her whole life developing websites. He is good for his word.  I can't recommend Deepak more highly.",
-      clientName: "Kirstin Lynde",
-      clientPosition: "CEO, ABC Company",
-    },
+    // {
+    //   feedback: "Deepak is amazing!! I only starting working with offshore web developers for my business website a year ago - and I will confess the first two India-based firms I worked with were very problematic.  Poor service, poor attitudes, and inflexible.   Luckily, Deepak arrived on the scene.   He rescued me/ my website.... and fixed many of the things that had been done incorrectly on that website.   He did it with grace, superior service, integrity, and friendliness - along with much greater knowledge than my prior two vendors.   He is good at 'translating' high tech language and options for someone (like me) who does not spend her whole life developing websites. He is good for his word.  I can't recommend Deepak more highly.",
+    //   clientName: "Kirstin Lynde",
+    //   clientPosition: "CEO, ABC Company",
+    // },
     {
       feedback: "I worked with Omka Tech on a web app project for the f&b sector. What I can say is that the team at Omka Tech are a great group of people who work around the clock to produce results! They were flexible and willing to make sure that we were satisfied with each milestone. If you are launching a startup project and need a dedicated team for your next tech project, I highly recommend!",
       clientName: "The i-PR Agency",
@@ -76,14 +76,15 @@ const Testimonial = () => {
 
   // Slick Slider settings
   const settings = {
-    autoplay: true, // Enable autoplay
+    // autoplay: true, // Enable autoplay
     autoplaySpeed: 2000,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    nextArrow: <NextArrow />,
-    prevArrow: <PrevArrow />,
+    dots: true
+    // nextArrow: <NextArrow />,
+    // prevArrow: <PrevArrow />,
   };
 
   return (
@@ -94,7 +95,7 @@ const Testimonial = () => {
           <div className="clients-review" key={index}>
             <img src={comma} alt="comma-icon" />
             <div className="content">
-              <p>{client.feedback}</p>
+              <div className='client-feedback'>{client.feedback}</div>
               <div className="client-content">
                 <div className="client-detail">
                   <img src={clientImage} alt="client-image" />
@@ -121,22 +122,22 @@ const Testimonial = () => {
     </div>
   );
 }
-const PrevArrow = (props) => {
-  const { onClick } = props;
-  return (
-      <div className="slider-buttons testimonial">
-          <div className="slider-button-left" onClick={onClick}><img src={leftArrow} alt="left-arrow-icon" /></div>
-      </div>
-  );
-};
+// const PrevArrow = (props) => {
+//   const { onClick } = props;
+//   return (
+//       <div className="slider-buttons testimonial">
+//           <div className="slider-button-left" onClick={onClick}><img src={leftArrow} alt="left-arrow-icon" /></div>
+//       </div>
+//   );
+// };
 
-const NextArrow = (props) => {
-  const { onClick } = props;
-  return (
-      <div className="slider-buttons testimonial">
-          <div className="slider-button-right" onClick={onClick}><img src={rightArrow} alt="right-arrow-icon" /></div>
-      </div>
-  );
-};
+// const NextArrow = (props) => {
+//   const { onClick } = props;
+//   return (
+//       <div className="slider-buttons testimonial">
+//           <div className="slider-button-right" onClick={onClick}><img src={rightArrow} alt="right-arrow-icon" /></div>
+//       </div>
+//   );
+// };
 
 export default Testimonial;

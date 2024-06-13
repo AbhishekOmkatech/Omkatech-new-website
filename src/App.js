@@ -8,7 +8,7 @@ import BlogsPage from './pages/BlogsPage';
 import { Link } from "react-router-dom";
 import './App.css';
 import ContactUs from './pages/ContactUsPage';
-import Logo from './pngs/omkatech-logo.png'; // Import your logo image
+import Logo from './pngs/hd-logo.png'; // Import your logo image
 import Loader from './components/loader'; // Import your Loader component
 import PortfolioPage from './pages/PortfolioPage';
 import { useLocation } from 'react-router-dom';
@@ -50,13 +50,13 @@ const App = () => {
     <div className="main-container">
       {logoVisible && (
         <div className="loader-screen">
-          <img src={Logo} alt="logo-img" />
+          <img src={Logo} className='logo' alt="logo-img" />
           <Loader />
         </div>
       )}
      <>
      {!logoVisible && <div>
-     {!isHeaderVisible && <Header />}
+     {!isHeaderVisible && location.pathname != '/' && <Header />}
       <Routes>
         <Route path="/" element={<Body />} />
         <Route path="blogs" element={<BlogsPage />} />
@@ -72,7 +72,7 @@ const App = () => {
       {/* WhatsApp and Contact Us buttons */}
       <div className="contact-buttons">
         <a href="https://api.whatsapp.com/send?phone=+1 (786) 648-2910&text=Hello,Team OmkaTech" target="_blank"><button className="whatsapp-button">WHATSAPP</button></a>
-        <Link className='contact-us' to="contact-us"><button className="contact-us-button"><span>CONTACTUS</span></button></Link>
+        <Link className='contact-us' to="contact-us"><button className="contact-us-button">CONTACT US</button></Link>
       </div>
       </div>}
      </>

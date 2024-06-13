@@ -12,6 +12,8 @@ const MySlider = () => {
     const settings = {
         infinite: true,
         speed: 500,
+        wheelControl: false,
+        trimWhiteSpace: true,
         slidesToScroll: 1,
         autoplay: true, // Enable autoplay
         autoplaySpeed: 2000,
@@ -20,11 +22,11 @@ const MySlider = () => {
             {
                 breakpoint: 1024, // Tablet breakpoint
                 settings: {
-                    slidesToShow: 3, // Show 3 slides on tablet
+                    slidesToShow: 3.5, // Show 3 slides on tablet
                 },
             },
             {
-                breakpoint: 768, // Phone breakpoint
+                breakpoint: 767, // Phone breakpoint
                 settings: {
                     slidesToShow: 2, // Show 2 slides on phone
                 },

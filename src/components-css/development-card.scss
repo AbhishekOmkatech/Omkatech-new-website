@@ -10,7 +10,7 @@
   transform: rotate(180deg);
   writing-mode: vertical-rl;
   z-index: 999;
-  font-weight: 400;
+  font-weight: 600;
   font-size: 20px;
 }
 
@@ -29,7 +29,7 @@
   width: 100%;
   object-fit: cover;
   transition: transform 0.3s ease; /* Add transition for image transformation */
-  opacity: 0.8;
+  // opacity: 0.9;
 }
 .black-close-overlay{
   position: absolute;
@@ -37,7 +37,6 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.6); /* Adjust the opacity here */
   z-index: 0;
 }
 
@@ -51,7 +50,7 @@
 }
 .black-overlay {
   position: absolute;
-  background-color: rgba(0, 0, 0, 0.2); /* Adjust the opacity here */
+  // background-color: rgba(0, 0, 0, 0.2); /* Adjust the opacity here */
   top: 0;
   left: 0;
   width: 100%;
@@ -69,7 +68,7 @@
     font-size: 36px;
     margin: 0;
     padding: 0;
-    font-weight: 400;
+    font-weight: 600;
     color: #fff;
   }
   p{
@@ -104,12 +103,13 @@
     margin-left: 10px;
   }
   .development-card{
-    width: 130px;
+    width: 140px;
     height: 250px;
+    margin: 2px;
   }
   .text-content{
-    left: 10px;
-    bottom: 10px;
+    left: 10px !important;
+    bottom: 10px !important;
   } 
   .text-content h2{
     font-size: 20px;
@@ -117,5 +117,62 @@
   .close-title{
     left: 26px;
     font-size: 16px;
+  }
+}
+
+@media (max-width: 767px) {
+  .development-card-list{
+    flex-direction: column;
+    padding: 3rem 2rem;
+  }
+  .development-card {
+    width: 100%;
+    height: 80px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: width 0.3s ease; /* Add transition for width change */
+    margin: 0 0 10px 0;
+  }
+  .development-card.expanded {
+    width: 100%; /* Expand width when expanded */
+    height: 250px;
+  }
+  .text-content{
+    bottom: 10px !important;
+    left: 10px !important;
+    h2{
+      font-size: 26px !important;
+    }
+  }
+  .close-title{
+    bottom: 10px !important;
+    left: 10px !important;
+    font-size: 18px;
+  }
+  
+  .development-card.expanded .text-content {
+    display: block; /* Show text content when expanded */
+    animation: slideInDown 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Adjusted timing function and duration for smoother animation */
+    h2{
+      font-size: 28px;
+    }
+  }
+  
+  @keyframes slideInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-100%); /* Move in from right */
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .close-title{
+    writing-mode: initial;
+    transform: rotate(360deg);
+    left: 16px;
+    bottom: 5px;
   }
 }

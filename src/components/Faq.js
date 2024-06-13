@@ -59,7 +59,7 @@ const Faq = () => {
             <h2>FAQ</h2>
             <div className="accordions">
                 {accordions.map((accordion, index) => (
-                    <div className="accordion" key={index} onClick={() => toggleAccordion(index)} style={{ height: accordions[index].isOpen ? '60px' : '24px' }}>
+                    <div className="accordion" key={index} onClick={() => toggleAccordion(index)} style={{ height: accordions[index].isOpen ? '60px' : '22px' }}>
                         <div className="heading" >
                             <p>{accordion.question}</p>
                             <img className={accordion.isOpen ? 'activeFaq': ''} src={ArrowDown} alt="arrow-down-icon" />

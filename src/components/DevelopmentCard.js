@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import '../components-css/development-card.scss'; // Assuming you have your CSS file for styling
-import image1 from '../pngs/1.2.png'
-import image2 from '../pngs/2.2.png'
-import image3 from '../pngs/3.2.png'
-import image4 from '../pngs/4.2.png'
-import image5 from '../pngs/5.2.png'
-import image6 from '../pngs/6.2.png'
-import image7 from '../pngs/7.2.png'
+import image1 from '../pngs/01 Branding & Designing.png'
+import image2 from '../pngs/02 web design development.png'
+import image3 from '../pngs/03 Mobile app development.png'
+import image4 from '../pngs/04 Enterprise solution.png'
+import image5 from '../pngs/05 Buisiness consultant.png'
+import image6 from '../pngs/06 Digital marketing.png'
+import image7 from '../pngs/07 IT Managed Service.png'
 
 function DevelopmentCard() {
   const [expandedCardIndex, setExpandedCardIndex] = useState(0); // Initialize with 0 to expand the first card

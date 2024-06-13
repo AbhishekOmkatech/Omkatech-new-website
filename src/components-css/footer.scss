@@ -10,13 +10,22 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        border-top: 0.2px solid #c1c1c1;
         .about-company{
                 width: 30%;
+                img{
+                    width: 150px;
+                }
         }
         .iso{
             width: 30%;
             text-align: right;
+            img{
+                width: 70px;
+                margin-left: 20px;
+            }
+        }
+        .statutory-info{
+            display: none;
         }
     }
     hr{
@@ -43,7 +52,7 @@
             margin-right: 20px;
         }
         .text{
-            margin-top: 8px;
+            margin-top: 18px;
             text-align: center;
             span{
                 font-size: 14px;
@@ -63,13 +72,20 @@
     .top-footer-part{
         padding: 2rem !important;
         h1{
-            font-size: 46px !important;
+            font-size: 32px !important;
         }
         p{
-            font-size: 20px !important;
+            font-size: 18px !important;
         }
         .input-container{
-            width: 80%;
+            input{
+                font-size: 14px !important;
+                padding: 14px;
+            }
+            button{
+                font-size: 14px !important;
+                padding: 14px;
+            }
         }
     }
     .middle-footer-part{
@@ -81,4 +97,78 @@
     .bottom-footer-part{
         padding: 2rem !important;
     }
+    .about-company img{
+        width: 60%;
+    }
+    .country img{
+        width: 20%;
+    }
+    .iso img{
+        width: 40%;
+    }
   }
+@media (max-width: 767px) {
+    .footer-main-container{
+        padding: 3rem 0 0 0;
+        .top-footer-part{
+            padding: 0;
+            h1{
+                font-size: 18px;
+                line-height: 40px;
+            }
+            p{
+                font-size: 12px;
+                line-height: normal;
+            }
+            .input-container{
+                margin-bottom: 40px;
+                input{
+                    width: 90%;
+                    padding: 10px;
+                    font-size: 12px;
+                }
+                button{
+                    padding: 10px;
+                    font-size: 12px;
+                }
+            }
+        }
+        .middle-footer-part{
+            padding: 0;
+            flex-direction: column;
+            text-align: center;
+            .statutory-info{
+                margin-top: 40px;
+                display: block;
+                p{
+                    font-size: 16px !important;
+                    margin-bottom: 20px;
+                }
+                img{
+                    margin-right: 10px;
+                }
+            }
+            .about-company{
+                width: 100%;
+                margin-top: 40px;
+                margin-bottom: 60px;
+                p{
+                    padding: 0px 40px;
+                }
+            }
+            .country{
+                margin-bottom: 40px;
+            }
+            .iso{
+                width: auto;
+            }
+        }
+        .bottom-footer-part{
+            padding: 1rem;
+            flex-direction: column;
+            .none{
+                display: none;
+            }
+        }
+    }
+}

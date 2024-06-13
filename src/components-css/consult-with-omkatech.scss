@@ -27,7 +27,7 @@
         padding: 16px;
         border-radius: 50px;
         font-size: 20px;
-        text-indent: 16px;
+        text-indent: 12px;
     }
     
     button {
@@ -43,6 +43,6 @@
         cursor: pointer;
     }
     button:hover{
-        background-color: gray;
+        background: linear-gradient(to left, #FFD80B, #FEAA00);  
     }
 }

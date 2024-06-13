@@ -32,11 +32,11 @@
     }
 
     .body-animation {
-      height: 68vh;
+      height: auto;
         font-size: 80px;
         line-height: 160px;
         letter-spacing: 4px;
-        font-weight: 200;
+        font-weight: 100;
         width: 100%;
         padding: 0px 6rem;
         margin-top: 16px;
@@ -107,10 +107,34 @@
 @media (min-width: 768px) and (max-width: 1300px) {
   .body-animation{
     height: auto !important;
-    font-size: 45px !important;
+    font-size: 40px !important;
     line-height: 111px !important;
     padding: 0 3rem !important;
     margin-bottom: 0 !important;
     margin-top: 0px !important;
+  }
+  .business{
+    padding: 20px 40px 14px 40px !important;
+  }
+  .create b{
+    font-size: 50px;
+  }
+}
+
+@media (max-width: 767px) {
+  .body-main-container{
+    background-image: url('../pngs/MobileBanner.png');
+  }
+  .body-animation{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 28px !important;
+    line-height: 20px !important;
+    height: 28vh !important;
+    padding: 0 1rem !important;
+    margin-bottom: 0 !important;
+    letter-spacing: 2px !important;
   }
 }

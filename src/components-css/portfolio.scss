@@ -8,9 +8,9 @@
   align-items: center;
   justify-content: space-between;
 }
-.slider-button:hover img {
-  filter: brightness(0%);
-}
+// .slider-button:hover img {
+//   filter: brightness(0%);
+// }
 
 @keyframes slideAnimation {
   0% { opacity: 0; transform: translateX(-50px); }
@@ -51,12 +51,12 @@
     img {
       fill: black; // Icon color
     }
-    &:hover {
-      background-color: white; // Change background color on hover
-      img {
-        fill: black; // Change icon color on hover
-      }
-    }
+    // &:hover {
+    //   background-color: white; // Change background color on hover
+    //   img {
+    //     fill: black; // Change icon color on hover
+    //   }
+    // }
 }
 .slider-button-right {
   border: 1px solid #fff;
@@ -72,25 +72,23 @@
       fill: black; // Icon color]
       transition: fill 0.3s ease; // Smooth transition for color change
     }
-    &:hover {
-      background-color: white; // Change background color on hover
-      img {
-        fill: black; // Change icon color on hover
-      }
-    }
+    // &:hover {
+    //   background-color: white; // Change background color on hover
+    //   img {
+    //     fill: black; // Change icon color on hover
+    //   }
+    // }
 }
 
-.slider-button:hover {
-  background-color: #fff;
-  color: #000;
-  transform: translateY(-2px); /* Changed direction of movement */
+.slider-button-left:hover, .slider-button-right:hover {
+  transform: scale(1.1);
   cursor: pointer;
 }
 h1{
   line-height: 56px;
   font-size: 46px;
   letter-spacing: 2px;
-  font-weight: 300;
+  font-weight: 400;
 }
 .portfolio{
   display: flex;
@@ -193,7 +191,7 @@ h1{
 //   }
 // }
 .slick-slide .image{
-  width: 90%;
+  width: 88%;
   cursor: pointer;
 }
 // .slick-slide .image:hover{
@@ -202,10 +200,50 @@ h1{
 // }
 // responsive
 @media (min-width: 768px) and (max-width: 1300px) {
+  .portfolio h1{
+    font-size: 30px;
+  }
   .slider-container{
     padding: 3rem 3rem;
   }
   .portfolio{
     padding: 0;
+    a span{
+      font-size: 14px;
+    }
+  }
+  .slider-button-left{
+    padding: 6px 12px;
+    right: 104px;
+  }
+  .slider-button-right{
+    padding: 6px 12px;
+  }
+}
+@media (max-width: 767px) {
+  .slider-container{
+    padding: 3rem 2rem;
+    .button span{
+      font-size: 14px;
+    }
+    .img img{
+      width: 10%;
+    }
+  }
+  .slider-button-left{
+    padding: 6px 12px !important;
+    right: 50px;
+  }
+  .slider-button-right{
+    padding: 6px 12px !important;
+    right: 10px;
+  }
+  .portfolio{
+    box-sizing: border-box;
+    padding: 0;
+    width: 100%;
+  }
+  .portfolio h1{
+    font-size: 18px;
   }
 }

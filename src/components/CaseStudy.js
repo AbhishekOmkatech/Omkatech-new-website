@@ -1,9 +1,9 @@
 import React, { useRef, useEffect, useState } from "react";
 import "../components-css/case-study.scss";
 import ArrowIcon from '../assets/svgs/Group 3.svg';
+import { Link } from "react-router-dom";
 import GradientArrowIcon from '../assets/svgs/Group 3 (5).svg'
 import caseStudyImage from "../pngs/Rectangle 54.png";
-
 const CaseStudy = () => {
     const containerRef = useRef(null);
     const contentRef = useRef(null);
@@ -29,32 +29,26 @@ const CaseStudy = () => {
             users: '700K'
         },
     ]);
-
     const imageData = [
         caseStudyImage,
         "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg",
         "https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630",
     ];
-
     useEffect(() => {
         const container = containerRef.current;
         if (!container) return;
-    
         const handleScroll = () => {
             const scrollTop = container.scrollTop;
             const containerHeight = container.offsetHeight;
             const imageHeight = containerHeight;
             const currentIndex = Math.floor(scrollTop / imageHeight);
             setActiveIndex(currentIndex);
-    
             // Set z-index based on scroll position
             contentRef.current.style.zIndex = scrollTop > 0 ? 2 : 1;
         };
-    
         container.addEventListener("scroll", handleScroll);
         return () => container.removeEventListener("scroll", handleScroll);
     }, []);
-
     return (
         <div className="case-study-container">
             <div className="content-container" ref={contentRef}>
@@ -75,7 +69,7 @@ const CaseStudy = () => {
                 <div className="button">
                     <button className="btn-bg" onMouseEnter={() => setIsHovered(true)}
                         onMouseLeave={() => setIsHovered(false)}>
-                        <span>VIEW CASE STUDY</span> <span className='img'>
+                        <Link className='case-study' to="case-study"><span>VIEW CASE STUDY</span></Link> <span className='img'>
                             {isHovered ? (
                                 <img src={GradientArrowIcon} alt="gradient-icon" />
                             ) : (
@@ -95,5 +89,4 @@ const CaseStudy = () => {
         </div>
     );
 };
-
 export default CaseStudy;

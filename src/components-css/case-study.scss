@@ -1,111 +1,194 @@
 .case-study-container {
-    display: flex;
-    justify-content: space-between;
-    padding: 4rem 6rem;
-    background-color: #202020;
+  display: flex;
+  justify-content: space-between;
+  padding: 4rem 6rem;
+  background-color: #202020;
+}
+.content-container {
+  width: 32%;
+  h2{
+      font-weight: 200;
+      font-size: 38px;
   }
-  
-  .content-container {
-    width: 32%;
-    h2{
-        font-weight: 200;
-        font-size: 30px;
-    }
-    h1{
-        font-weight: 400;
-        font-size: 40px;
-        margin-top: 30px;
-        margin-bottom: 20px;
-    }
-    p{
-        font-weight: 200;
-        font-size: 26px;
-        font-weight: 100;
-    }
-    .app-details{
-        display: flex;
-        margin-top: 40px;
-        margin-bottom: 50px;
-        .results{
-            padding-right: 50px;
-            border-right: 1px solid #fff;
-            p, span{
-              font-size: 20px;
-              font-weight: 100;
-            }
-            h2{
-              font-size: 32px;
-              font-weight: 400;
-              margin-top: 10px;
-              margin-bottom: 10px;
-            }
-        }
-        .users{
-            padding: 0 50px;
-            span{
-              font-size: 20px;
-              font-weight: 100;
-            }
-            h2{
-              font-size: 32px;
-              font-weight: 400;
-              margin-bottom: 10px;
-            }
-        }
-    }
-    .btn-bg{
-      background-color: #202020;
-    }
+  h1{
+      font-weight: 400;
+      font-size: 46px;
+      margin-top: 30px;
+      margin-bottom: 20px;
   }
-  
-  .image-container {
-    display: flex;
-    flex-direction: column;
-    overflow-y: scroll;
-    height: 450px;
-    width: 58%;
-  }
-  
-  .image-container img {
-    height: 450px;
-    width: 96%;
-  }
-
-/* Scrollbar styling */
-.image-container {
-  margin-right: 20px; /* Example margin between image container and scrollbar */
-  overflow-y: auto; /* Ensure vertical scrollbar appears if content overflows */
-  scrollbar-width: thin;
-  scrollbar-color: #FFD80B; /* thumb color track color */
-  }
-  
-  .image-container::-webkit-scrollbar {
-    width: 4px;
-  }
-  
-  .image-container::-webkit-scrollbar-thumb {
-    background-color: #FFD80B;
-  }
-  
-  .image-container::-webkit-scrollbar-track {
-    background-color: #fff;
-  }
-
-  // responsive
-@media (min-width: 768px) and (max-width: 1300px) {
-  .case-study-container{
-    flex-direction: column;
-  }
-  .content-container{
-    width: auto;
-    margin-bottom: 60px;
-    text-align: center;
+  p{
+      font-weight: 200;
+      font-size: 22px;
+      font-weight: 100;
+      color: #CFCFCF;
   }
   .app-details{
-    align-items: center;
-    justify-content: center;
+      display: flex;
+      margin-top: 40px;
+      margin-bottom: 50px;
+      .results{
+          padding-right: 50px;
+          border-right: 1px solid #fff;
+          p, span{
+            font-size: 20px;
+            font-weight: 100;
+            color: #CFCFCF;
+          }
+          h2{
+            font-size: 32px;
+            font-weight: 400;
+            margin-top: 10px;
+            margin-bottom: 10px;
+          }
+        }
+        .users{
+          padding: 0 50px;
+          span{
+            font-size: 20px;
+            font-weight: 100;
+            color: #CFCFCF;
+          }
+          h2{
+            font-size: 32px;
+            font-weight: 400;
+            margin-bottom: 20px;
+          }
+      }
   }
-  .image-container{
-    width: auto;
+  .btn-bg{
+    background-color: #202020;
   }
+}
+.image-container {
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  height: 450px;
+  width: 58%;
+  margin-top: 30px;
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: #FFD80B #fff; /* thumb color track color for Firefox */
+}
+.image-container img {
+  height: 450px;
+  width: 96%;
+}
+/* Scrollbar styling */
+.image-container {
+overflow-y: auto; /* Ensure vertical scrollbar appears if content overflows */
+scrollbar-width: thin;
+scrollbar-color: #FFD80B; /* thumb color track color */
+}
+.image-container::-webkit-scrollbar {
+  width: 4px;
+}
+.image-container::-webkit-scrollbar-thumb {
+  background-color: #FFD80B;
+}
+.image-container::-webkit-scrollbar-track {
+  background-color: #fff;
+}
+// responsive
+@media (min-width: 768px) and (max-width: 1300px) {
+.case-study-container{
+  padding: 4rem 3rem;
+}
+.content-container{
+  width: auto;
+  h2{
+    font-size: 20px;
+  }
+  h1{
+    font-size: 30px;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  p{
+    font-size: 16px;
+  }
+  .button span{
+    font-size: 14px;
+  }
+}
+.app-details{
+  align-items: center;
+  .results p{
+    font-size: 16px !important;
+  }
+  .results h2{
+    font-size: 28px !important;
+  }
+  .results span{
+    font-size: 16px !important;
+  }
+  .users h2{
+    font-size: 28px !important;
+  }
+  .users span{
+    font-size: 16px !important;
+  }
+  margin-top: 20px !important;
+  margin-bottom: 30px !important;
+}
+.image-container{
+  width: auto;
+  height: 238px;
+  img{
+    height: auto;
+  }
+}
+}
+@media (max-width: 767px) {
+.case-study-container{
+  padding: 3rem 2rem !important;
+  flex-direction: column;
+}
+.content-container{
+  width: 100%;
+  h2{
+    font-size: 18px;
+  }
+  h1{
+    font-size: 26px;
+    margin: 0;
+  }
+  p{
+    font-size: 16px;
+  }
+  .app-details{
+    p{
+      font-size: 18px !important;
+    }
+    span{
+      font-size: 18px !important;
+    }
+    h2{
+      font-size: 27px !important;
+    }
+  }
+  .users{
+    span{
+      font-size: 18px !important;
+    }
+    h2{
+      font-size: 27px !important;
+    }
+  }
+  .button span{
+    font-size: 16px;
+  }
+  .button .img img{
+    width: 6%;
+  }
+}
+.image-container{
+  width: auto;
+  height: 254px;
+  img{
+    height: auto;
+  }
+}
+.image-container{
+  width: 100%;
+}
 }
