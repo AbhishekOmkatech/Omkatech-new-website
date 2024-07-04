@@ -3,42 +3,8 @@ import { gsap } from 'gsap';
 import ArrowDown from '../assets/svgs/Group 32.svg';
 import '../components-css/faq.scss';
 
-const Faq = () => {
-    const initialAccordions = [
-        {
-            question: 'What mobile app development service do you offer?',
-            answer: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis, reprehenderit.',
-            isOpen: false
-        },
-        {
-            question: 'What mobile app development service do you?',
-            answer: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis, reprehenderit.',
-            isOpen: false
-        },
-        {
-            question: 'What mobile app development service do you offer?',
-            answer: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis, reprehenderit.',
-            isOpen: false
-        },
-        {
-            question: 'What mobile app development service do you offer?',
-            answer: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis, reprehenderit.',
-            isOpen: false
-        },
-        {
-            question: 'What mobile app development service do you offer?',
-            answer: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis, reprehenderit.',
-            isOpen: false
-        },
-        {
-            question: 'What mobile app development service do you offer?',
-            answer: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis, reprehenderit.',
-            isOpen: false
-        },
-        // Add more FAQ items as needed
-    ];
-
-    const [accordions, setAccordions] = useState(initialAccordions);
+const Faq = ({faqData}) => {
+    const [accordions, setAccordions] = useState(faqData);
     const contentRefs = useRef([]);
 
     const toggleAccordion = (index) => {
@@ -61,7 +27,7 @@ const Faq = () => {
                 {accordions.map((accordion, index) => (
                     <div className="accordion" key={index} onClick={() => toggleAccordion(index)} style={{ height: accordions[index].isOpen ? '60px' : '22px' }}>
                         <div className="heading" >
-                            <p>{accordion.question}</p>
+                            <p>{accordion?.heading}</p>
                             <img className={accordion.isOpen ? 'activeFaq': ''} src={ArrowDown} alt="arrow-down-icon" />
                         </div>
                         <div
@@ -69,7 +35,7 @@ const Faq = () => {
                             ref={(element) => (contentRefs.current[index] = element)}
                             style={{ overflow: 'hidden', height: 0 }}
                         >
-                            <p>{accordion.answer}</p>
+                            <p>{accordion?.subheading}</p>
                         </div>
                     </div>
                 ))}

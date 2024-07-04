@@ -17,15 +17,17 @@ import CaseStudyPage from './pages/CaseStudyPage';
 import OurTeam from './pages/OurTeam';
 import OurClients from './pages/OurClientsPage';
 import OurTestimonialPage from './pages/OurTestimonialPage';
+import AboutOmkatech from './pages/AboutOmkatech';
+import CarrerPage from './pages/CarrerPage';
 
 const App = () => {
-  const [logoVisible, setLogoVisible] = useState(true);
+  // const [logoVisible, setLogoVisible] = useState(true);
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
   const textControls = useAnimation();
 
   useEffect(() => {
     const timeout = setTimeout(() => {
-      setLogoVisible(false);
+      // setLogoVisible(false);
       setIsHeaderVisible(false); // Notify the parent about header visibility
       animateText();
     }, 2500);
@@ -48,15 +50,16 @@ const App = () => {
 
   return (
     <div className="main-container">
-      {logoVisible && (
+      {/* {logoVisible && (
         <div className="loader-screen">
           <img src={Logo} className='logo' alt="logo-img" />
           <Loader />
         </div>
-      )}
+      )} */}
      <>
-     {!logoVisible && <div>
-     {!isHeaderVisible && location.pathname != '/' && <Header />}
+     {/* {!logoVisible && <div> */}
+     {<div>
+     { location.pathname != '/' && <Header />}
       <Routes>
         <Route path="/" element={<Body />} />
         <Route path="blogs" element={<BlogsPage />} />
@@ -67,6 +70,8 @@ const App = () => {
         <Route path="/blog/:id" element={<SingleBlogPage />} />
         <Route path="/our-clients" element={<OurClients />} />
         <Route path="/our-testimonials" element={<OurTestimonialPage />} />
+        <Route path="/about-us" element={<AboutOmkatech />} />
+        <Route path="/career" element={<CarrerPage />} />
       </Routes>      
       {!isHeaderVisible && <Footer />}
       {/* WhatsApp and Contact Us buttons */}

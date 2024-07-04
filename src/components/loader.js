@@ -1,12 +1,13 @@
-import React from 'react'
-import '../components-css/loader.scss'
+import React from 'react';
+// import '../components-css/loader.scss'; // Make sure to style your loader
 
-const loader = () => {
+const Loader = () => {
   return (
-    <div className='loader'>
-
+    <div className="loader-container">
+      <div className="loader"></div>
+      <p>Loading...</p>
     </div>
-  )
-}
+  );
+};
 
-export default loader
+export default Loader;

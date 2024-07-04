@@ -3,12 +3,36 @@ import kite from '../pngs/Group 274 1.png';
 // import GradientArrowIcon from '../assets/svgs/Group 3 (5).svg'
 import ReactFlagSelect from 'react-flags-select'
 import '../components-css/contact-us.scss'
+import axios from 'axios'
 
 const ContactUs = () => {
+    const [name, setName] = useState('')
+    const [email, setEmail] = useState('')
+    const [number, setNumber] = useState('')
+    const [project, setProject] = useState('')
     const [selectedInterestedServices, setSelectedInterestedServices] = useState([]);
     const [selectedServices, setSelectedServices] = useState([]);
     const [isHovered, setIsHovered] = useState(false);
     const [selectedCountry, setSelectedCountry] = useState('US'); // Initially set to America (United States)
+
+    const postContact = async () => {
+        let payload = {
+            name: name,
+            email: email,
+            country_code: selectedCountry,
+            number: number,
+            about_project: project,
+            service: selectedServices
+        }
+        try {
+            let response = await axios.post('https://newomkatech.omkatech.in/api/contact-us', payload)
+            console.log('response', response)
+        } catch (error) {
+            console.log(error)
+        }
+
+    }
+
 
     const handleSelectCountry = (code) => {
         console.log('code', code)
@@ -69,10 +93,10 @@ const ContactUs = () => {
             </div>
             <div className="contact-us">
                 <div className="your-name">
-                    <input type="text" placeholder='Your Name' />
+                    <input type="text" value={name} placeholder='Your Name' onChange={(e) => { setName(e.target.value) }} />
                 </div>
                 <div className="your-name">
-                    <input type="email" placeholder='Your Email' />
+                    <input type="email" value={email} onChange={(e)=> {setEmail(e.target.value)}} placeholder='Your Email' />
                 </div>
                 <div className="your-name flag">
                     <div className="flag-select-container">
@@ -87,12 +111,12 @@ const ContactUs = () => {
                     <div className="phone-number-section">
                         {/* <div>Country Code: {getCountryCode()}</div> */}
                         <div>
-                            <input type="tel" placeholder="Enter phone number" />
+                            <input type="tel" value={number} onChange={(e)=> {setNumber(e.target.value)}} placeholder="Enter phone number" />
                         </div>
                     </div>
                 </div>
                 <div className="your-name">
-                    <input type="textarea" placeholder='Tell us about your project' />
+                    <input type="textarea" value={project} onChange={(e)=> {setProject(e.target.value)}} placeholder='Tell us about your project' />
                 </div>
                 <div className="choose-service">
                     <p>Choose your Service</p>
@@ -109,7 +133,7 @@ const ContactUs = () => {
                     </div>
                 </div>
                 <div className="button">
-                    <button className='btn-bg' onMouseEnter={() => setIsHovered(true)}
+                    <button onClick={postContact} className='btn-bg' onMouseEnter={() => setIsHovered(true)}
                         onMouseLeave={() => setIsHovered(false)}>
                         <span>Submit</span>
                         {/* <span className='img'>

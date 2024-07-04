@@ -6,6 +6,9 @@
     background-image: url('../pngs/Frame 1 (2).png');
     background-repeat: no-repeat;
     background-size: contain;
+    &.loading {
+      background-image: none; /* Hide background image when loading */
+    }
 
     .upper-heading {
         background-color: #202020;

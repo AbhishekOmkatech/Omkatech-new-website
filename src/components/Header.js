@@ -45,9 +45,8 @@ const Header = () => {
             </span>
           </li>            
           {showAboutSubmenu && <div className='about-us-submenu'>
-            <p className={ pathname === '/about' ? 'activeColor' : ''}>ABOUT OMKATECH</p>
-            <p className={ pathname === '/career' ? 'activeColor' : ''}>CAREER</p>
-            <Link className='our-team' onClick={handleClick} to="our-team"><p className={ pathname === '/our-team' ? 'activeColor' : ''}>OUR TEAM</p></Link>
+          <Link className='about-us' onClick={handleClick} to="about-us"><p className={ pathname === '/about-us' ? 'activeColor' : ''}>ABOUT OMKATECH</p></Link>
+          <Link className='career' onClick={handleClick} to="career"><p className={ pathname === '/career' ? 'activeColor' : ''}>CAREER</p></Link>
             <Link className='our-clients' onClick={handleClick} to="our-clients"><p className={ pathname === '/our-clients' ? 'activeColor' : ''}>OUR CLIENTS</p></Link>
             <Link className='our-testimonials' onClick={handleClick} to="our-testimonials"><p className={ pathname === '/our-testimonials' ? 'activeColor' : ''}>OUR TESTIMONIAL</p></Link>
             <p>CERTIFICATION</p>
@@ -56,8 +55,8 @@ const Header = () => {
           <Link className='casestudy-page' onClick={handleClick} to="case-study"><li className={ pathname === '/case-study' ? 'activeColor' : ''}>CASE STUDY</li></Link>
           <Link className='portfolio-page' onClick={handleClick} to="portfolio"><li className={ pathname === '/portfolio' ? 'activeColor' : ''}>PORTFOLIO</li></Link>
           <li>HIRE RESOURCES</li>
-          {/* <Link className='our-clients' onClick={handleClick} to="our-clients"><li>OUR CLIENTS</li></Link>
-          <Link className='our-testimonials' onClick={handleClick} to="our-testimonials"><li>OUR TESTIMONIAL</li></Link> */}
+          {/* <Link className='our-team' onClick={handleClick} to="our-team"><li>OUR TEAM</li></Link> */}
+          {/* <Link className='our-testimonials' onClick={handleClick} to="our-testimonials"><li>OUR TESTIMONIAL</li></Link> */}
           <Link className='blogs' onClick={handleClick} to="blogs"><li className={ pathname === '/blogs' ? 'activeColor' : ''}>BLOGS</li></Link>
           <Link className='contact-us' onClick={handleClick} to="contact-us"><li className={ pathname === '/contact-us' ? 'activeColor' : ''}>CONTACT US</li></Link>
         </ul>

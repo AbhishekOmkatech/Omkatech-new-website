@@ -1,99 +1,79 @@
 import React, { useEffect, useState } from 'react'
+import latestBlogImg from '../pngs/Group 499.png'
+import iconImg from '../assets/svgs/menu-bar.svg'
+import Loader from '../components/loader'
 import '../components-css/blogs-page.scss'
-import ArrowIcon from '../assets/svgs/Group 3.svg';
-import BlogImage from '../pngs/Rectangle 41.png'
-import bigRobotImg from '../pngs/01-01 2.png'
-import MenuBar from '../assets/svgs/Group 3.svg';
-import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios'
 
 const BlogsPage = () => {
-    const [showImage, setShowImage] = useState(false);
-    const [blogData, setBlogData] = useState([
-        {
-            id: 1,
-            title: 'The Importance of Learning PHP',
-            description: 'PHP is a popular server-side scripting language that is widely used for web development. Learning PHP can open up many opportunities...',
-            image: BlogImage, // File path of the image in the 'images' directory
-            time: '5 MINUTE READ',
-            date: 'MAR 19, 2024'
-        },
-        {
-            id: 2,
-            title: 'The Importance of Learning PHP',
-            description: 'PHP is a popular server-side scripting language that is widely used for web development. Learning PHP can open up many opportunities...',
-            image: BlogImage, // File path of the image in the 'images' directory
-            time: '5 MINUTE READ',
-            date: 'MAR 19, 2024'
-        },
-        {
-            'id': 3,
-            'title': 'The Importance of Learning PHP',
-            'description': 'PHP is a popular server-side scripting language that is widely used for web development. Learning PHP can open up many opportunities...',
-            'image': BlogImage, // File path of the image in the 'images' directory
-            'time': '5 MINUTE READ',
-            date: 'MAR 19, 2024'
-        },
-        {
-            'id': 4,
-            'title': 'The Importance of Learning PHP',
-            'description': 'PHP is a popular server-side scripting language that is widely used for web development. Learning PHP can open up many opportunities...',
-            'image': BlogImage, // File path of the image in the 'images' directory
-            'time': '5 MINUTE READ',
-            date: 'MAR 19, 2024'
-        },
-        {
-            'id': 5,
-            'title': 'The Importance of Learning PHP',
-            'description': 'PHP is a popular server-side scripting language that is widely used for web development. Learning PHP can open up many opportunities...',
-            'image': BlogImage, // File path of the image in the 'images' directory
-            'time': "5 MINUTE READ",
-            date: 'MAR 19, 2024'
-        },
-    ])
-    let navigate = useNavigate()
-
-    const handleHover = () => {
-        setShowImage(true);
-    };
-
-    const handleMouseLeave = () => {
-        setShowImage(false);
-    };
+    const [loading, setLoading] = useState(true);
+    const [blogsData, setBlogsData] = useState(null)
+    const navigate = useNavigate()
+    
+    useEffect(() => {
+        const blogData = async () => {
+            try{
+                let response = await axios.get('https://newomkatech.omkatech.in/api/GetBlogs')
+                setBlogsData(response.data.data)
+                console.log('checking', response)
+            }
+            catch(err){
+                console.log(err)
+            }
+            finally{
+                setLoading(false)
+            }
+        }
+        
+        blogData()
+    }, [])
+    
+    function formatDate(isoString) {
+        const date = new Date(isoString);
+    
+        const options = { year: 'numeric', month: 'short', day: 'numeric' };
+        return date.toLocaleDateString('en-US', options);
+      }
+    
+      const isoString = blogsData?.first_blog[0]?.created_at;
+      const formattedDate = formatDate(isoString);
     return (
-        <div className="blogs-page-main-container">
-            <div className="recent-blog">
-                <div className="img">
-                    <img src={bigRobotImg} alt="robot-img-icon" />
-                </div>
-                <div className="content">
-                    <h1>THE EVOLUTION OF AI-AUGMENTED SOFTWARE DEVELOPMENT.</h1>
-                    <p>Technological evolution has come a long way! The proposition that task....</p>
-                    <span>MAR 14, 2024</span>
-                    <img src={MenuBar} alt="menu-bar-icon" />
-                </div>
-            </div>
-            <div className="search-bar">
-                <input type="text" placeholder='Search' />
-            </div>
-            <div className="blog-cards">
-                {blogData.map((blog) => (
-                    <div onClick={()=> navigate(`/blog/${blog.id}`, {state: blog})} className="card" key={blog.id}>
-                            <p className="date">{blog.date}</p>
-                            <div onMouseEnter={handleHover} onMouseLeave={handleMouseLeave} className="content">
-                                <h4>{blog.title}</h4>
-                                {console.log('tet', blog.image)}
-                                {/* {showImage && <div><img src={blog.image} className="image-overlay" alt="img-icon" /></div>} */}
-                                <p>
-                                    {blog.description}
-                                </p>
-                                <span>
-                                    <img src={ArrowIcon} alt="right-arrow-icon" />
-                                </span>
+        <div className='blog-page-main-conatiner'>
+            {
+                loading ? (<Loader />) : (
+                    <>
+                        <div className="latest-blog" key={blogsData?.first_blog[0]?.id} onClick={()=> {navigate(`/blog/${blogsData?.first_blog[0]?.id}`, {state: blogsData?.first_blog[0]?.id})}}>
+                            <div className="left">
+                                <img src={blogsData?.first_blog[0]?.file_path + blogsData?.first_blog[0]?.image} alt="latest-blog-image" />
                             </div>
-                    </div>
-                ))}
-            </div>
+                            <div className="right">
+                                <h2>{blogsData?.first_blog[0]?.title}</h2>
+                                <p dangerouslySetInnerHTML={{ __html: blogsData?.first_blog[0]?.description }} />
+                                <span>{formattedDate}</span>
+                                 <div className="icon">
+                                    <span><img src={iconImg} alt="icon-image" /></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="blogs-section">
+                            <div className="input">
+                                <input type="text" placeholder='Search' />
+                            </div>
+                            <div className="blogs-cards-section">
+                                {
+                                    blogsData?.blog_list?.map((blog)=> (
+                                        <div key={blog.id} onClick={()=> {navigate(`/blog/${blog.id}`, {state: blog.id})}} className="blog-card">
+                                            <span> <img src={iconImg} alt="icon-image" /></span>
+                                            <h3>{blog.title}</h3>
+                                        </div>
+                                    ))
+                                }
+                            </div>
+                        </div>
+                    </>
+                )
+            }
         </div>
     )
 }

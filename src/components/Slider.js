@@ -2,6 +2,7 @@ import React from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import '../components-css/portfolio.scss';  // Import your CSS file
 import image1 from '../pngs/Mask group (1).png';
 import image2 from '../pngs/Mask group.png';
 import image3 from '../pngs/Rectangle 32.png';
@@ -50,14 +51,16 @@ const MySlider = () => {
         <div>
             <Slider {...settings}>
                 {images.map((image, index) => (
-                    <div key={index}>
-                    <img class="image" style={index % 2 != 0 ? { marginTop: '60px' } : null} src={image} alt={`Slide ${index + 1}`} />
-                </div>
+                    <div className="portfolio-image-container" key={index}>
+                        <img className="image" src={image} alt={`Slide ${index + 1}`} />
+                        <button className="hover-button">App Name</button>
+                    </div>
                 ))}
             </Slider>
         </div>
     );
 };
+
 const PrevArrow = (props) => {
     const { onClick } = props;
     return (

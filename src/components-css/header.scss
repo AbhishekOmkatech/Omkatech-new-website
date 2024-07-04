@@ -115,7 +115,7 @@
 
 .sidebar {
   position: fixed;
-  top: 100px;
+  top: 0px;
   right: -500px; /* Off-screen initially */
   width: 430px;
   height: 100%;
@@ -143,7 +143,7 @@
   margin-bottom: 100px;
 }
 
-.blogs, .portfolio-page, .home, .casestudy-page, .our-team, .our-clients, .our-testimonials, .contact-us, .case-study{
+.blogs, .portfolio-page, .home, .casestudy-page, .our-team, .our-clients, .our-testimonials, .contact-us, .case-study, .about-us, .career{
   text-decoration: none;
   color: inherit;
 }
@@ -155,7 +155,7 @@
 }
 
 .sidebar ul li {
-  padding: 8px 0;
+  padding: 12px 0;
   font-size: 25px; /* Adjusted font size for responsiveness */
   font-weight: 300;
   span{
@@ -166,6 +166,9 @@
   padding: 8px 0;
   font-weight: 100;
   transition: all 0.3s ease;
+  p{
+    font-weight: 400;
+  }
   p:hover{
     color: #FEA900;
     cursor: pointer;

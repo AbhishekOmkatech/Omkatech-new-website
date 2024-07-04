@@ -53,16 +53,16 @@ const CaseStudy = () => {
         <div className="case-study-container">
             <div className="content-container" ref={contentRef}>
                 <h2>CASE STUDY</h2>
-                <h1>{contentData[activeIndex].name}</h1>
-                <p>{contentData[activeIndex].description}</p>
+                <h1>{contentData[activeIndex]?.name}</h1>
+                <p>{contentData[activeIndex]?.description}</p>
                 <div className="app-details">
                     <div className="results">
                         <p>Results</p>
-                        <h2>{contentData[activeIndex].downloads}</h2>
+                        <h2>{contentData[activeIndex]?.downloads}</h2>
                         <span>App Download</span>
                     </div>
                     <div className="users">
-                        <h2>{contentData[activeIndex].users}</h2>
+                        <h2>{contentData[activeIndex]?.users}</h2>
                         <span>New users <br /> acquired</span>
                     </div>
                 </div>

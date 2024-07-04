@@ -1,0 +1,108 @@
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.popup-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 550px;
+    width: 100%;
+    text-align: center;
+    .cross-icon{
+        text-align: right;
+        cursor: pointer;
+    }
+    .apply{
+        font-size: 14px;
+        font-weight: 600;
+        color: #121212;
+    }
+    h2{
+        font-size: 16px;
+        font-weight: 600;
+        color: #FEA903;
+        margin-bottom: 8px !important;
+        margin-top: 8px;
+        text-transform: uppercase;
+    }
+    p{
+        font-size: 14px;
+        font-weight: 400;
+    }
+    form{
+        margin-top: 30px;
+        margin-bottom: 10px;
+        input{
+            padding: 8px 0;
+            width: 80%;
+            outline: none;
+            border: none;
+            border-bottom: 1px solid #cecece;
+            margin-bottom: 20px;
+        }
+    }
+    .file-input{
+        display: none;
+    }
+    .file-label{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .file-type-design{
+        background-color: #F2F2F2;
+        border-radius: 6px;
+        padding: 36px;
+        width: 68%;
+        cursor: pointer;
+        img{
+            margin-bottom: 8px;
+        }
+        h2{
+            font-size: 16px;
+            font-weight: 500;
+            color: #8e8e8e;
+        }
+    }
+    .update-resume{
+        width: 80%;
+        margin: auto;
+        text-align: left;
+        font-size: 14px;
+        font-weight: 400;
+        color: #121212;
+    }
+    .button{
+        width: 80%;
+        text-align: left;
+        margin: auto;
+    }
+    button span{
+        font-size: 16px !important;
+    }
+    
+}
+
+.popup-content h2 {
+    margin-bottom: 20px;
+}
+
+.popup-content form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.popup-content label {
+    margin: 10px 0;
+}

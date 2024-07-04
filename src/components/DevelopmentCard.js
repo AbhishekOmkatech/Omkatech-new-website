@@ -1,46 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import '../components-css/development-card.scss'; // Assuming you have your CSS file for styling
-import image1 from '../pngs/01 Branding & Designing.png'
-import image2 from '../pngs/02 web design development.png'
-import image3 from '../pngs/03 Mobile app development.png'
-import image4 from '../pngs/04 Enterprise solution.png'
-import image5 from '../pngs/05 Buisiness consultant.png'
-import image6 from '../pngs/06 Digital marketing.png'
-import image7 from '../pngs/07 IT Managed Service.png'
 
-function DevelopmentCard() {
+function DevelopmentCard({servicesData}) {
   const [expandedCardIndex, setExpandedCardIndex] = useState(0); // Initialize with 0 to expand the first card
   const [lastHoveredIndex, setLastHoveredIndex] = useState(0); // State to track the last hovered index
-  const cards = [
-    {
-      title: 'Branding & Designing',
-      imageUrl: image1
-    },
-    {
-      title: 'Web Design & Development',
-      imageUrl: image2
-    },
-    {
-      title: 'Mobile App Development',
-      imageUrl: image3
-    },
-    {
-      title: 'Enterprise Software Development',
-      imageUrl: image4
-    },
-    {
-      title: 'Business Consultation',
-      imageUrl: image5
-    },
-    {
-      title: 'Maintainance & Support',
-      imageUrl: image6
-    },
-    {
-      title: 'Digital Transformation',
-      imageUrl: image7
-    }
-  ];
 
   useEffect(() => {
     // Expand the first card after the component mounts
@@ -58,7 +21,7 @@ function DevelopmentCard() {
 
   return (
     <div className="development-card-list">
-      {cards.map((card, index) => (
+      {servicesData.map((card, index) => (
         <div
           key={index}
           className={`development-card ${expandedCardIndex === index ? 'expanded' : ''}`}
@@ -67,7 +30,7 @@ function DevelopmentCard() {
         >
           <div className="card-content">
             <img
-              src={card.imageUrl}
+              src={card.file_path + card.image}
               alt={card.title}
               />
               {expandedCardIndex !== index && <div><h2 className='close-title'>{card.title}</h2></div>}
