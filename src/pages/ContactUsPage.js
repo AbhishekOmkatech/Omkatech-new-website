@@ -13,7 +13,7 @@ const ContactUs = () => {
     const [selectedInterestedServices, setSelectedInterestedServices] = useState([]);
     const [selectedServices, setSelectedServices] = useState([]);
     const [isHovered, setIsHovered] = useState(false);
-    const [selectedCountry, setSelectedCountry] = useState('US'); // Initially set to America (United States)
+    const [selectedCountry, setSelectedCountry] = useState('IN'); // Initially set to America (United States)
 
     const postContact = async () => {
         let payload = {
@@ -26,6 +26,12 @@ const ContactUs = () => {
         }
         try {
             let response = await axios.post('https://newomkatech.omkatech.in/api/contact-us', payload)
+            setName('');
+            setEmail('');
+            setSelectedCountry('IN');
+            setNumber('');
+            setProject('');
+            setSelectedServices([]);
             console.log('response', response)
         } catch (error) {
             console.log(error)
