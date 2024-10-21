@@ -81,6 +81,8 @@
         font-size: 14px;
         font-weight: 400;
         color: #121212;
+        margin-bottom: 20px;
+        margin-top: 5px;
     }
     .button{
         width: 80%;
@@ -105,4 +107,10 @@
 
 .popup-content label {
     margin: 10px 0;
+}
+
+@media screen and (max-width: 1024px) {
+    .popup-content{
+        width: 80% !important;
+    }
 }

@@ -78,17 +78,17 @@
     //     fill: black; // Change icon color on hover
     //   }
     // }
+    h1{
+      line-height: 56px;
+      font-size: 46px;
+      letter-spacing: 2px;
+      font-weight: 400;
+    }
 }
 
 .slider-button-left:hover, .slider-button-right:hover {
   transform: scale(1.1);
   cursor: pointer;
-}
-h1{
-  line-height: 56px;
-  font-size: 46px;
-  letter-spacing: 2px;
-  font-weight: 400;
 }
 .portfolio{
   display: flex;
@@ -190,6 +190,18 @@ h1{
 //     }
 //   }
 // }
+.slick-slide{
+  transform: translateX(0); /* Reset any centering */
+  opacity: 1;
+}
+.slick-slide.slick-active {
+  transform: translateX(0);
+}
+
+/* Adjust the visible half slide by reducing margin on the right */
+.slider-item {
+  margin-right: -20px; /* adjust based on how much of the next slide you want to show */
+}
 .slick-slide .image{
   // width: 88%;
   cursor: pointer;
@@ -222,13 +234,26 @@ h1{
 }
 @media (max-width: 767px) {
   .slider-container{
-    padding: 3rem 2rem;
+    padding: 3rem 0rem 3rem 2rem;
     .button span{
       font-size: 14px;
     }
     .img img{
       width: 10%;
     }
+  }
+  .portfolio{
+    padding-right: 2rem !important;
+  }
+  .image{
+    height: 320px !important;
+  }
+  .portfolio-image-container {
+    height: auto !important;
+    margin-left: 74px !important;
+  }
+  .button button{
+    margin-top: 0 !important;
   }
   .slider-button-left{
     padding: 6px 12px !important;
@@ -251,17 +276,22 @@ h1{
 //slider
 .portfolio-image-container {
     position: relative;
-    width: 90% !important;
-}
+    max-width: 415px !important;
+    height: 360px;
+    width: 95% !important;
+    .image {
+    border-radius: 10px;
+    height: 360px;
+      width: 100%;
+      transition: opacity 0.3s ease;
+      object-fit: cover;
+    }
+    .image:hover {
+        opacity: 0.5;
+    }
+  }
+  
 
-.image {
-    width: 100%;
-    transition: opacity 0.3s ease;
-}
-
-.image:hover {
-    opacity: 0.5;
-}
 
 .hover-button {
     width: 90%;

@@ -19,6 +19,11 @@ import OurClients from './pages/OurClientsPage';
 import OurTestimonialPage from './pages/OurTestimonialPage';
 import AboutOmkatech from './pages/AboutOmkatech';
 import CarrerPage from './pages/CarrerPage';
+import SinglePortfolioPage from './pages/SinglePortfolioPage';
+import HireResource from './pages/HireResource';
+import SingleCasestudyPage from './pages/SingleCasestudyPage';
+import ServicePage from './pages/ServicePage';
+import CertificatePage from './pages/CertificatePage';
 
 const App = () => {
   // const [logoVisible, setLogoVisible] = useState(true);
@@ -65,6 +70,7 @@ const App = () => {
         <Route path="blogs" element={<BlogsPage />} />
         <Route path="contact-us" element={<ContactUs />} />
         <Route path="portfolio" element={<PortfolioPage />} />
+        <Route path="/portfolio/:id" element={<SinglePortfolioPage />} />
         <Route path="case-study" element={<CaseStudyPage />} />
         <Route path="our-team" element={<OurTeam />} />
         <Route path="/blog/:id" element={<SingleBlogPage />} />
@@ -72,6 +78,10 @@ const App = () => {
         <Route path="/our-testimonials" element={<OurTestimonialPage />} />
         <Route path="/about-us" element={<AboutOmkatech />} />
         <Route path="/career" element={<CarrerPage />} />
+        <Route path="/hire-resources" element={<HireResource />} />
+        <Route path="/case-study/:id" element={<SingleCasestudyPage />} />
+        <Route path="/services/:id" element={<ServicePage />} />
+        <Route path="/certifications" element={<CertificatePage />} />
       </Routes>      
       {!isHeaderVisible && <Footer />}
       {/* WhatsApp and Contact Us buttons */}

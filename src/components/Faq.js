@@ -8,7 +8,7 @@ const Faq = ({ faqData }) => {
     const contentRefs = useRef([]);
 
     const toggleAccordion = (index) => {
-        const updatedAccordions = accordions.map((accordion, i) => {
+        const updatedAccordions = accordions?.map((accordion, i) => {
             if (i === index) {
                 accordion.isOpen = !accordion.isOpen;
             } else {
@@ -33,8 +33,8 @@ const Faq = ({ faqData }) => {
         <div className="faq-main-container">
             <h2>FAQ</h2>
             <div className="accordions">
-                {accordions.map((accordion, index) => (
-                    <div className="accordion" key={index} onClick={() => toggleAccordion(index)} style={{ height: accordion.isOpen ? '60px' : '22px' }}>
+                {accordions?.map((accordion, index) => (
+                    <div className="accordion" key={index} onClick={() => toggleAccordion(index)}>
                         <div className="heading">
                             <p>{accordion?.heading}</p>
                             <img className={accordion.isOpen ? 'activeFaq' : ''} src={ArrowDown} alt="arrow-down-icon" />

@@ -1,9 +1,4 @@
 import React, {useState} from 'react'
-import img1 from '../pngs/Ellipse 23.png'
-import img2 from '../pngs/Ellipse 25.png'
-import img3 from '../pngs/Ellipse 27.png'
-import img4 from '../pngs/Ellipse 28.png'
-import img5 from '../pngs/Ellipse 29.png'
 import BlackComma from '../assets/svgs/black-comma.svg'
 import Slider from 'react-slick';
 import clientImg from '../pngs/Ellipse 30.png'
@@ -217,18 +212,33 @@ const OurTestimonialPage = () => {
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 1024, // Tablet breakpoint
+        settings: {
+          slidesToShow: 2.3, // Show 3 slides on tablet
+        },
+      },
+      {
+        breakpoint: 767, // Mobile breakpoint
+        settings: {
+          slidesToShow: 2.3, // Show 2 slides on mobile
+        },
+      },
+    ],
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
   };
   return (
+    <>
     <div className='Our-testimonial-page-main-container'>
       <div className="core-team-container">
         <div className="left-content">
-          <h1>OUR CORE TEAM</h1>
-          <p>Meet an exceptional team of technology advisors, growth facilitators, and subject matter experts with proven experience.</p>
+          <h1>TESTIMONIALS</h1>
+          <p>Words of praise from others about our presence.</p>
         </div>
         <div className="right-content">
-          {teamPhotos.map((team, index) => (
+          {teamPhotos?.map((team, index) => (
             <img key={index} src={team.img} alt={team.name} />
           ))}
         </div>
@@ -254,7 +264,7 @@ const OurTestimonialPage = () => {
           <source type="video/webm" src={smileVideo} />
         </video></h2>
         <div className="happy-clients-cards">
-          {happyClients.map((client) => (
+          {happyClients?.map((client) => (
             <div className="happy-client-card">
               <img src={BlackComma} alt="black-comma" />
               <p>{client.comment}</p>
@@ -268,24 +278,26 @@ const OurTestimonialPage = () => {
             </div>
           ))}
         </div>
-        <div className="client-say-about-us">
-          <h2>What Our <b>Client</b> SayAbout Us</h2>
-          <Slider {...settings}>
-            {clientVideos.map((videoUrl, index) => (
-              <iframe
-                key={index}
-                width="408"
-                height="275"
-                src={videoUrl}
-                title="YouTube video player"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
-            ))}
-          </Slider>
-        </div>
       </div>
+      
     </div>
+    <div className="client-say-about-us">
+    <h2>What Our <b>Client</b> SayAbout Us</h2>
+    <Slider {...settings}>
+      {clientVideos?.map((videoUrl, index) => (
+        <iframe
+          key={index}
+          width="408"
+          height="275"
+          src={videoUrl}
+          title="YouTube video player"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        ></iframe>
+      ))}
+    </Slider>
+  </div>
+  </>
   )
 }
 const PrevArrow = (props) => {

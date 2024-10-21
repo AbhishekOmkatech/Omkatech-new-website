@@ -1,0 +1,536 @@
+.hire-resources-container {
+    color: #fff;
+    background-color: #1c1c1c;
+    .hire-dev-omkatech{
+        h2{
+            font-size: 32px;
+            font-weight: 500;
+        }
+        p{
+            font-size: 18px;
+            font-weight: 300;
+            width: 70%;
+            margin: 10px auto;
+        }
+        .cards{
+            margin-top: 50px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            .card{
+                border: 1px solid #dfdfdf;
+                padding: 20px 40px;
+                border-radius: 6px;
+                h5{
+                    font-size: 18px;
+                    font-weight: 400;
+                }
+                p{
+                    font-size: 14px;
+                    font-weight: 300;
+                }
+            }
+        }
+    }
+
+    .hire-developers {
+        text-align: center;
+        background-color: #fff;
+        padding: 6rem;
+        color: #000;
+
+        h3 {
+            font-size: 32px;
+            font-weight: 500;
+            line-height: 64px;
+        }
+
+        p {
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 26px;
+        }
+    }
+
+    .hire-form {
+        padding: 4rem 6rem;
+        background-image: url('../pngs/Rectangle 164.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        text-align: center;
+        h2{
+            font-size: 32px;
+            font-weight: 600;
+            color: #FEA903;
+        }
+        p{
+            font-size: 16px;
+            font-weight: 400;
+            margin-top: 10px;
+        }
+
+        .form {
+            border: 1px solid #fff;
+            padding: 10px;
+            width: 50%;
+            margin: auto;
+            border-radius: 20px;
+            margin-top: 30px;
+            box-sizing: border-box;
+        }
+
+        .inner-form-bg {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            background-color: #2a2a2a;
+            border-radius: 10px;
+
+            input {
+                width: 100%;
+                box-sizing: border-box;
+                background-color: #2a2a2a;
+                border: none;
+                border-bottom: 1px solid #fff;
+                outline: none;
+                padding: 0 0 8px 0;
+                margin-bottom: 24px;
+                color: #fff;
+            }
+
+            select {
+                width: 100%;
+                margin-bottom: 24px;
+                padding: 0 0 8px 0;
+                background-color: #2a2a2a;
+                color: #fff;
+                border: none;
+                border-bottom: 1px solid #fff;
+            }
+            button{
+                background-color: #2a2a2a;
+            }
+        }
+    }
+
+    .our-hiring-process-section{
+        padding: 6rem 6rem;
+        text-align: center;
+        background-image: url('../pngs/Group 543.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        color: #000;
+        h2{
+            font-size: 32px;
+            font-weight: 500;
+        }
+        p{
+            font-size: 18px;
+            font-weight: 300;
+            margin-top: 10px;
+        }
+        .process-cards{
+            margin-top: 5rem;
+            color: #fff;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+            .card{
+                border-radius: 6px;
+                background-color: #121212;
+                padding: 24px 0px;
+                p{
+                    margin-top: 10px;
+                    font-size: 18px;
+                    line-height: 28px;
+                }
+            }
+        }
+    }
+    .our-hiring-process-section{
+        .card:hover{
+            border-bottom: 4px solid #FEA903;
+            cursor: pointer;
+        }
+    }
+    .our-expertise{
+        text-align: center;
+        padding: 6rem;
+        .filter-tabs{
+            margin-top: 60px;
+            margin-bottom: 60px;
+            button{
+                padding: 12px 20px;
+                margin: 0 8px 0 8px;
+                background-color: #1c1c1c;
+                border: 1px solid #fff;
+                border-radius: 4px;
+                color: #fff;
+                cursor: pointer;
+            }
+            .active{
+                background-color: #fff;
+                color: #000;
+            }
+        }
+        h2{
+            font-size: 32px;
+            font-weight: 500;
+        }
+        p{
+            font-size: 18px;
+            font-weight: 300;
+            margin-top: 10px;
+        }
+        .technology-cards{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            .card{
+                border: 1px solid #464646;
+                border-radius: 8px;
+                padding: 10px 20px;
+                text-align: left;
+                display: flex;
+                align-items: center;
+                span{
+                    margin-left: 16px;
+                    font-weight: 300;
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+    .hire-dev-omkatech{
+        text-align: center;
+        padding: 6rem;
+        background-color: #fff;
+        color: #000;
+    }
+
+    .our-testimonial-banner {
+        padding: 8rem 6rem;
+        position: relative;
+        height: 214px;
+        background-image: url('../pngs/Mask group (6).png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        transition: all 0.3s ease;
+        /* Adding transition for smoothness */
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 62px;
+        }
+
+        p {
+            font-weight: 100;
+            font-size: 28px;
+        }
+    }
+
+    .happy-clients {
+        padding-top: 80px;
+        padding-bottom: 80px;
+        background-color: #fff;
+        color: #000;
+
+        h2 {
+            font-size: 32px;
+            text-align: center;
+            font-weight: 400;
+        }
+
+        .happy-clients-cards {
+            margin-top: 50px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 20px;
+
+            .happy-client-card {
+                border: 1px solid #e0e0e0;
+                padding: 20px 24px;
+                border-radius: 10px;
+                cursor: pointer;
+
+                p {
+                    font-size: 16px;
+                    margin-top: 10px;
+                    margin-bottom: 20px;
+                }
+
+                .client-content {
+                    h5 {
+                        font-size: 12px;
+                        line-height: 20px;
+                    }
+
+                    p {
+                        font-size: 12px;
+                        margin: 0;
+                    }
+                }
+
+                .about-client {
+                    display: flex;
+                    align-items: center;
+
+                    img {
+                        margin-right: 10px;
+                    }
+                }
+
+                &:hover {
+                    background-color: #e0e0e0;
+                }
+            }
+        }
+
+        .client-say-about-us {
+            margin-top: 80px;
+
+            h2 {
+                font-size: 32px;
+            }
+
+            iframe {
+                margin-top: 50px;
+                border: none !important;
+                border-radius: 10px !important;
+                width: 94% !important;
+            }
+        }
+    }
+
+    .testimonial-left-content {
+        width: 50%;
+
+        h1 {
+            font-size: 62px;
+            font-weight: 400;
+            line-height: 74px;
+        }
+
+        p {
+            font-size: 20px;
+            font-weight: 300;
+            line-height: 30px;
+        }
+    }
+
+    /* Add this CSS to your SCSS file */
+
+    .mt {
+        margin-top: 0;
+
+        .slider-button-left {
+            bottom: -60px;
+            right: 50%;
+        }
+
+        .slider-button-right {
+            bottom: -60px;
+            right: 46%;
+        }
+    }
+}
+
+// .our-testimonial-banner:hover{
+//     /* Random positioning for each image */
+//   .testimonial-image:nth-child(1) {
+//     top: 25%;
+//     left: 60%;
+//   }
+
+//   .testimonial-image:nth-child(2) {
+//     top: 60%;
+//     left: 62%;
+//   }
+
+//   .testimonial-image:nth-child(3) {
+//     top: 15%;
+//     left: 70%;
+//   }
+
+//   .testimonial-image:nth-child(4) {
+//     top: 60%;
+//     right: 22%;
+//   }
+
+//   .testimonial-image:nth-child(5) {
+//     top: 20%;
+//     right: 18%;
+//   }
+
+//   .testimonial-image:nth-child(6) {
+//     top: 60%;
+//     right: 10%;
+//   }
+
+//   .testimonial-image:nth-child(7) {
+//     bottom: 70%;
+//     left: 85%;
+//   }
+// }
+
+//mobile responsive
+@media screen and (max-width: 767px) {
+    .our-testimonial-banner{
+        padding: 2rem !important;
+        flex-direction: column;
+        height: auto !important;
+        .testimonial-left-content{
+            width: 100% !important;
+            h1{
+                font-size: 28px !important;
+                margin-bottom: 0 !important;
+                line-height: 34px !important;
+            }
+            p{
+                font-size: 16px !important;
+            }
+        }
+        .testimonial-right-content{
+            width: 100% !important;
+            margin-top: 80px;
+            text-align: center;
+            .testimonial-image{
+                object-fit: cover;
+                width: 70%;
+            }
+        }
+    }
+    .hire-developers{
+        padding: 4rem 2rem !important;
+        h3{
+            font-size: 22px !important;
+            font-weight: 500 !important;
+            line-height: 30px !important;
+            margin-bottom: 20px;
+        }
+        p{
+            font-size: 18px !important;
+            font-weight: 400 !important;
+        }
+    }
+    .hire-form{
+        padding: 4rem 2rem !important;
+        h2{
+            font-size: 22px !important;
+            font-weight: 600 !important;
+            margin-bottom: 20px;
+        }
+        p{
+            font-size: 16px !important;
+            font-weight: 400 !important;
+        }
+        .form{
+            width: 100% !important;
+        }
+    }
+    .our-hiring-process-section{
+        h2{
+            font-size: 22px !important;
+            line-height: 34px !important;
+        }
+        p{
+            font-size: 14px !important;
+        }
+        .process-cards{
+            grid-template-columns: repeat(2, 1fr) !important;
+        }
+    }
+    .our-expertise{
+        padding: 4rem 2rem !important;
+        h2{
+            font-size: 22px !important;
+            margin-bottom: 20px;
+        }
+        p{
+            font-size: 14px !important;
+        }
+        .filter-tabs{
+            margin: 30px 0 20px 0 !important;
+            button{
+                margin: 0 8px 16px 8px !important;
+            }
+        }
+    }
+    .technology-cards{
+        grid-template-columns: repeat(1, 1fr) !important;
+    }
+    .hire-dev-omkatech{
+        padding: 4rem 2rem !important;
+        h2{
+            font-size: 22px !important;
+            margin-bottom: 20px;
+        }
+        p{
+            font-size: 14px !important;
+            width: 100% !important;
+        }
+        .cards{
+            grid-template-columns: repeat(1, 1fr) !important;
+            .card{
+                h5{
+                    margin-top: 10px;
+                    margin-bottom: 10px;
+                }
+            }
+        }
+    }
+}
+
+//tablet responsive
+@media screen and (min-width: 767px) and (max-width: 1024px) {
+    .our-testimonial-banner{
+        padding: 2rem !important;
+        flex-direction: column;
+        height: auto !important;
+        .testimonial-left-content{
+            width: 100% !important;
+        }
+        .testimonial-right-content{
+            width: 100% !important;
+            margin-top: 80px !important;
+            text-align: center;
+        }
+    }
+    .hire-developers{
+        padding: 4rem 2rem !important;
+    }
+    .hire-form{
+        padding: 4rem 2rem !important;
+        .form{
+            width: 100% !important;
+        }
+    }
+    .our-hiring-process-section{
+        .process-cards{
+            grid-template-columns: repeat(3, 1fr) !important;
+        }
+    }
+    .our-expertise{
+        padding: 4rem 2rem !important;
+        .filter-tabs{
+            margin: 30px 0 20px 0 !important;
+            button{
+                margin: 0 8px 16px 8px !important;
+            }
+        }
+    }
+    .technology-cards{
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+    .hire-dev-omkatech{
+        padding: 4rem 2rem !important;
+        .cards{
+            grid-template-columns: repeat(3, 1fr) !important;
+        }
+    }
+}

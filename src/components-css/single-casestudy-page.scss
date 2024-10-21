@@ -1,0 +1,359 @@
+.single-case-study-container{
+    .banner{
+        background-image: url('../pngs/01 Branding & Designing.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 600px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        color: #fff;
+        h1{
+            font-size: 60px;
+            font-weight: 600;
+            margin-left: 80px;
+        }
+        p{
+            font-size: 26px;
+            font-style: italic;
+            font-weight: 300;
+            margin-top: 20px;
+            margin-left: 80px;
+        }
+    }
+    .about-project-case-study{
+        background-color: #fff;
+        padding: 6rem;
+        display: flex;
+        justify-content: space-between;
+        .about-left{
+            width: 60%;
+            h2{
+                font-size: 36px;
+                font-weight: 600;
+                span{
+                    color: #FED32C;
+                }
+            }
+            p{
+                font-size: 16px;
+                font-weight: 400;
+                margin-top: 20px;
+                line-height: 24px;
+            }
+        }
+        .about-right{
+            width: 30%;
+            h4{
+                font-size: 16px;
+                font-weight: 600;
+                margin-top: 16px;
+            }
+            span{
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 30px;
+            }
+        }
+    }
+    .project-problem-solution{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        .project-problem{
+            width: 50%;
+            padding: 4rem 6rem;
+            background-color: #222222;
+        }
+        .project-solution{
+            width: 50%;
+            padding: 4rem 6rem;
+            background-color: #353535;
+        }
+        h2{
+            font-size: 36px;
+            font-weight: 400;
+        }
+        ul{
+            padding: 0;
+            li{
+                font-size: 20px;
+                font-weight: 500;
+                margin-top: 30px;
+                margin-bottom: 10px;
+            }
+            span{
+                font-size: 14px;
+                font-weight: 300;
+                color: #aaaaaa;
+            }
+        }
+    }
+    .project-overview{
+        text-align: center;
+        background-color: #fff;
+        color: #000;
+        padding: 6rem;
+        h4{
+            font-size: 32px;
+            font-weight: 400;
+        }
+        p{
+            font-size: 18px;
+            font-weight: 400;
+        }
+    }
+    .project-showcase{
+        text-align: center;
+        padding: 6rem 4rem;
+        color: #fff;
+        h4{
+            font-size: 32px;
+            font-weight: 400;
+        }
+        .project-slider{
+            gap: 20px;
+            p{
+                margin-bottom: 16px;
+            }
+            .width{
+                width: 95% !important;
+            }
+        }
+        img{
+            width: 100%;
+        }
+    }
+    hr{
+        width: 3%;
+        border: 1px solid #FEAA00;
+        outline: none;
+        margin-bottom: 60px;
+    }
+    .project-client{
+        background-color: #fff;
+        padding: 6rem;
+        color: #000;
+        .bg-color{
+            background-color: #f0f0f0;
+            border-radius: 18px;
+            padding: 40px 100px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .about-client{
+                width: 20%;
+                text-align: center;
+                img{
+                    width: 100%;
+                    margin-bottom: 8px;
+                }
+                h5 {
+                    font-size: 18px;
+                    font-weight: 500;
+                    margin-top: 20px;
+                }
+
+                span {
+                    font-size: 14px;
+                    font-weight: 400;
+                }
+            }
+            .client-review{
+                width: 70%;
+                p{
+                    font-size: 18px;
+                    line-height: 28px;
+                    font-weight: 300;
+                    margin-top: 20px;
+                    margin-bottom: 20px;
+                }
+            }
+        }
+    }
+    .start-your-project{
+        background-color: #222222;
+        text-align: center;
+        padding: 6rem;
+        color: #fff;
+        h2{
+            font-size: 36px;
+            font-weight: 700;
+            line-height: 60px;
+        }
+        p{
+            font-size: 16px;
+            font-weight: 300;
+            line-height: 24px;
+            width: 80%;
+            margin: auto;
+            margin-bottom: 24px;
+        }
+        button{
+            background-color: #222222;
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .single-case-study-container{
+    .banner{
+        padding: 2rem !important;
+        height: 300px !important;
+        box-sizing: border-box;
+        h1{
+            font-size: 28px !important;
+            margin-left: 0 !important;
+        }
+        p{
+            font-size: 14px !important;
+            margin-left: 0 !important;
+        }
+    }
+    .about-project-case-study{
+        padding: 4rem 2rem !important;
+        flex-direction: column;
+        .about-left{
+            width: 100% !important;
+            h2{
+                font-size: 22px !important;
+            }
+            p{
+                font-size: 14px !important;
+            }
+        }
+        .about-right{
+            margin-top: 20px !important;
+            width: 100% !important;
+            h4{
+                font-size: 16px !important;
+            }
+            span{
+                font-size: 14px !important;
+            }
+        }
+    }
+    .project-problem-solution{
+        flex-direction: column;
+        .project-problem{
+            width: 100% !important;
+            padding: 40px !important;
+            box-sizing: border-box;
+            h2{
+                font-size: 22px !important;
+            }
+            li{
+                font-size: 20px !important;
+            }
+            span{
+                font-size: 14px !important;
+            }
+        }
+        .project-solution{
+            width: 100% !important;
+            padding: 40px !important;
+            box-sizing: border-box;
+            h2{
+                font-size: 22px !important;
+            }
+            li{
+                font-size: 20px !important;
+            }
+            span{
+                font-size: 14px !important;
+            }
+        }
+    }
+    .project-showcase{
+        padding: 4rem 2rem !important;
+    }
+        .project-client {
+            padding: 4rem 2rem !important;
+
+            .bg-color {
+                flex-direction: column;
+                padding: 60px 20px !important;
+                text-align: center !important;
+
+                .about-client {
+                    width: 60% !important;
+                }
+
+                .client-review {
+                    width: 100% !important;
+                }
+            }
+    }
+    .start-your-project{
+        padding: 4rem 2rem !important;
+        box-sizing: border-box;
+        h2{
+            font-size: 22px !important;
+            line-height: 30px !important;
+            margin-bottom: 20px;
+        }
+        p{
+            width: 100% !important;
+        }
+    }
+}
+}
+
+@media screen and (min-width: 767px) and (max-width: 1024px) {
+    .about-project-case-study{
+        padding: 4rem 2rem !important;
+        flex-direction: column;
+        .about-left{
+            width: 100% !important;
+        }
+        .about-right{
+            margin-top: 20px !important;
+            width: 100% !important;
+        }
+    }
+    .project-problem-solution{
+        .project-problem{
+            width: 100% !important;
+            padding: 40px !important;
+            box-sizing: border-box;
+        }
+        .project-solution{
+            width: 100% !important;
+            padding: 40px !important;
+            box-sizing: border-box;
+        }
+    }
+    .project-showcase{
+        padding: 4rem 2rem !important;
+    }
+        .project-client {
+            padding: 4rem 2rem !important;
+
+            .bg-color {
+                padding: 60px 20px !important;
+                text-align: left !important;
+
+                .about-client {
+                    width: 30% !important;
+                }
+
+                .client-review {
+                    width: 60% !important;
+                }
+            }
+    }
+    .start-your-project{
+        padding: 4rem 2rem !important;
+        box-sizing: border-box;
+        h2{
+            font-size: 22px !important;
+            line-height: 30px !important;
+            margin-bottom: 20px;
+        }
+        p{
+            width: 100% !important;
+        }
+    }
+}

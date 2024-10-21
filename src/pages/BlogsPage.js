@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import latestBlogImg from '../pngs/Group 499.png'
-import iconImg from '../assets/svgs/menu-bar.svg'
+import iconImg from '../assets/svgs/right-black.svg'
 import Loader from '../components/loader'
 import '../components-css/blogs-page.scss'
 import { useNavigate } from 'react-router-dom';

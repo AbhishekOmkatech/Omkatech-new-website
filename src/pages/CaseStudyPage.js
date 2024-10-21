@@ -7,25 +7,30 @@ import Project1 from '../pngs/Mask group (1).png'
 import CaseStudy from '../components/CaseStudy';
 import caseStudyImage from "../pngs/Rectangle 54.png";
 import '../components-css/case-study-page.scss'
+import { useNavigate } from 'react-router-dom';
 
 const CaseStudyPage = () => {
+    const navigate = useNavigate();
     const containerRef = useRef(null);
     const contentRef = useRef(null);
     const [isHovered, setIsHovered] = useState(false);
     const [contentData, setContentData] = useState([
         {
+            id: 1,
             name: 'Avon spotless',
             description: 'Scores the perfect digital landing in UAE',
             downloads: '2M+',
             users: '500K'
         },
         {
+            id: 2,
             name: 'Adidas',
             description: 'Scores the perfect digital landing in UAE',
             downloads: '4M+',
             users: '600K'
         },
         {
+            id: 3,
             name: 'Reebok',
             description: 'Scores the perfect digital landing in UAE',
             downloads: '6M+',
@@ -42,7 +47,7 @@ const CaseStudyPage = () => {
                 </div>
             </div>
             <div className="case-study-container d-flex">
-                {contentData.map((contentData, index) => (
+                {contentData?.map((contentData, index) => (
                     <div className={`case-study-inner ${index % 2 === 0 ? 'even' : 'odd'}`}>
                         <div className="content-container left">
                             <h2>CASE STUDY</h2>
@@ -60,7 +65,7 @@ const CaseStudyPage = () => {
                                 </div>
                             </div>
                             <div className="button">
-                                <button className="btn-bg" onMouseEnter={() => setIsHovered(true)}
+                                <button onClick={() => navigate(`/case-study/${contentData.id}`)} className="btn-bg" onMouseEnter={() => setIsHovered(true)}
                                     onMouseLeave={() => setIsHovered(false)}>
                                     <span>VIEW CASE STUDY</span> <span className='img'>
                                         {isHovered ? (

@@ -68,7 +68,7 @@ const ContactUs = () => {
                 <div className="choose-service">
                     <p>Choose your Service</p>
                     <div className="services-container">
-                        {services.map((service, index) => (
+                        {services?.map((service, index) => (
                             <div
                                 key={index}
                                 className={`service ${selectedServices.includes(service) ? 'active' : ''}`}

@@ -42,7 +42,7 @@ const OurClientsPage = () => {
         <p>Brands You trust, Trust US!</p>
       </div>
       <div className="all-brands">
-        {brandsLogo.map((brandlogo, index) => (
+        {brandsLogo?.map((brandlogo, index) => (
           <div className="img" key={index}>
             <img src={brandlogo.logo} alt={`brand-logo-${index}`} />
           </div>

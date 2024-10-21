@@ -13,9 +13,36 @@
     .image img{
         width: 100%;
         margin-top: 50px;
-        margin-bottom: 80px;
+        margin-bottom: 40px;
+        height: 465px !important;
+        object-fit: cover;
     }
     p{
     color: rgba(128, 128, 128, 1);
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .single-blog-page-container{
+        padding: 2rem !important;
+        h1{
+            font-size: 28px !important;
+            font-weight: 400 !important;
+        }
+        .image img{
+            height: auto !important;
+        }
+        p{
+            margin-top: 16px;
+        }
+    }
+}
+@media screen and (min-width: 767px) and (max-width: 1024px) {
+    .single-blog-page-container{
+        padding: 2rem !important;
+        h1{
+            font-size: 28px !important;
+            font-weight: 400 !important;
+        }
     }
 }

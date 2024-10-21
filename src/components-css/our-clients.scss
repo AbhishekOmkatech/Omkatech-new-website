@@ -1,17 +1,18 @@
 .our-clients-main-container{
     background-color: #fff;
     color: #000;
-    padding: 6rem 6rem;
+    padding: 6rem 0rem 6rem 0;
+    text-align: center;
     h1{
         font-weight: 500;   
-        margin-bottom: 20px;
+        margin-bottom: 80px !important;
         font-size: 40px;
         margin-bottom: 50px;
         letter-spacing: normal;
     }
     .logo{
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        grid-template-columns: repeat(5, minmax(150px, 1fr));
         align-items: center;
         gap: 70px;
         img{
@@ -19,42 +20,52 @@
             cursor: pointer;
         }
     }
+    .slick-track{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 70px;
+    }
 }
 
-// responsive
-@media (min-width: 768px) and (max-width: 1300px) {
+//mobile responsive
+@media screen and (max-width: 767px) {
     .our-clients-main-container{
-        padding: 4rem 3rem;
+        padding: 3rem 2rem !important;
         h1{
-            font-size: 30px;
-        }
-        .logo{
-            gap: 20px;
-        }
-        .brands-logo{
-            img{
-                width: 70%;
-            }
+            font-size: 24px !important;
         }
     }
-  }
-
-@media (max-width: 767px) {
-    .our-clients-main-container{
-        padding: 3rem 2rem;
+    .our-clients-banner{
+        padding: 4rem 2rem !important;
         h1{
-            font-size: 18px;
-            letter-spacing: normal;
-            line-height: 34px;
+            font-size: 28px !important;
+            margin-bottom: 16px !important;
         }
-        .brands-logo img{
-            width: 60%;
-            gap: 10px;
+        p{
+            font-size: 14px !important;
         }
-        .logo{
-            display: grid;
-            grid-template-columns: repeat(3, minmax(110px, 1fr));
-            gap: 20px;
+    }
+    .logo{
+        padding: 2rem !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 30px !important;
+        padding: 0 !important;
+        img{
+            width: 120px !important;
         }
+    }
+}
+
+//tablet responsive
+@media screen and (min-width: 767px) and (max-width: 1024px) {
+    .our-clients-banner{
+        padding: 4rem 2rem !important;
+    }
+    .logo{
+        padding: 2rem !important;
+        grid-template-columns: repeat(4, 1fr) !important;
+        gap: 30px !important;
+        padding: 0 !important;
     }
 }

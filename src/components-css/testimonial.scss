@@ -29,7 +29,7 @@
             margin-top: 20px;
             .client-feedback{
                 width: 98%;
-                height: 100px;
+                // height: 100px;
                 line-height: 30px;
                 font-size: 18px;
                 font-weight: 200;
@@ -95,7 +95,7 @@
 
 @media (max-width: 767px) {
     .testimonial-main-container{
-        padding: 3rem 2rem;
+        padding: 3rem 2rem 5rem 2rem;
         h2{
             font-size: 18px;
             margin-bottom: 30px;

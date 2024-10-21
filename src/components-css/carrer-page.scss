@@ -34,11 +34,14 @@
         }
         span{
             font-size: 18px;
-            font-weight: 400;
+            font-weight: 300;
         }
     }
     .right{
         width: 44%;
+        img{
+            width: 100%;
+        }
     }
     .employee-card{
         display: flex;
@@ -91,12 +94,15 @@
         .perks-cards{
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 40px;
+            gap: 20px;
             .card{
-                border: 1px solid #fff;
+                border: 1px solid;
+                background-color: #1d1d1d;
                 display: flex;
                 align-items: center;
                 border-radius: 8px;
+                border-image: linear-gradient(0deg, #6B6B6B, #121212);
+                border-image-slice: 1;
             }
         }
     }
@@ -208,5 +214,176 @@
         font-style: italic;
         text-align: center;
         padding-bottom: 2rem;
+    }
+}
+
+//mobile
+@media screen and (max-width: 767px) {
+    .carrer-with-us-section{
+        padding: 2rem !important;
+        flex-direction: column;
+        .left{
+            width: 100% !important;
+            h3{
+                font-size: 20px !important;
+                font-weight: 500 !important;
+            }
+            h1{
+                font-size: 24px !important;
+                font-weight: 600 !important;
+                line-height: 34px !important;
+                margin-bottom: 20px !important;
+                span{
+                    font-size: 24px !important;
+                    line-height: 44px !important;
+                }
+            }
+            span{
+                font-size: 14px !important;
+                font-weight: 300 !important;
+            }
+        }
+        .right{
+            width: 100% !important;
+            img{
+                width: 100% !important;
+            }
+        }
+    }
+    .employee-card{
+        display: none !important;
+    }
+    .join-us{
+        margin-bottom: 40px !important;
+    }
+    .perks-section{
+        padding: 4rem 2rem !important;
+        p{
+            width: 100% !important;
+        }
+    }
+    .perks-cards{
+        grid-template-columns: repeat(1, 1fr) !important;
+    }
+    .our-hiring-process-section{
+        padding: 4rem 2rem !important;
+        h2{
+            font-size: 22px !important;
+            font-weight: 500 !important;
+        }
+        .process-cards{
+            margin-top: 30px !important;
+            flex-direction: column;
+            .card{
+                width: 100% !important;
+                margin-bottom: 24px;
+            }
+        }
+    }
+    .job-openings-section{
+        padding: 4rem 2rem 2rem 2rem !important;
+        h2{
+            font-size: 22px !important;
+            font-weight: 500 !important;
+        }
+        .jobs-card{
+            padding: 20px !important;
+            flex-direction: column;
+            align-items: initial !important;
+            h3{
+                font-size: 16px !important;
+                font-weight: 600 !important;
+            }
+            .job-heading{
+                span{
+                    font-size: 16px !important;
+                    font-weight: 600 !important;
+                }
+            }
+            button{
+                margin-top: 24px !important;
+            }
+        }
+    }
+    .tagline{
+        width: 70% !important;
+        margin: auto;
+    }
+}
+
+//tab responsive
+@media screen and (min-width: 767px) and (max-width: 1024px) {
+    .carrer-with-us-section{
+        padding: 2rem !important;
+        .left{
+            width: 100% !important;
+            h3{
+                font-size: 20px !important;
+                font-weight: 500 !important;
+            }
+            h1{
+                font-size: 24px !important;
+                font-weight: 600 !important;
+                line-height: 34px !important;
+                margin-bottom: 20px !important;
+                span{
+                    font-size: 24px !important;
+                    line-height: 44px !important;
+                }
+            }
+            span{
+                font-size: 16px !important;
+                font-weight: 300 !important;
+            }
+        }
+        .right{
+            width: 100% !important;
+            img{
+                width: 100% !important;
+            }
+        }
+    }
+    .employee-card{
+        display: none !important;
+    }
+    .join-us{
+        margin-bottom: 40px !important;
+    }
+    .perks-section{
+        padding: 4rem 2rem !important;
+        p{
+            width: 100% !important;
+        }
+    }
+    .perks-cards{
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+    .our-hiring-process-section{
+        padding: 4rem 2rem !important;
+        .process-cards{
+            margin-top: 30px !important;
+            gap: 20px !important;
+            .card{
+                width: 100% !important;
+                margin-bottom: 24px;
+            }
+        }
+    }
+    .job-openings-section{
+        padding: 4rem 2rem 2rem 2rem !important;
+        .jobs-card{
+            padding: 20px !important;
+            flex-direction: column;
+            align-items: initial !important;
+            .job-heading{
+                span{
+                    font-size: 16px !important;
+                    font-weight: 600 !important;
+                }
+            }
+            button{
+                margin-top: 24px !important;
+            }
+        }
     }
 }

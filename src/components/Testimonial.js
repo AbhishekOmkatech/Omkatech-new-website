@@ -92,7 +92,7 @@ const Testimonial = ({testimonialData}) => {
     <div className="testimonial-main-container">
       <h2>TESTIMONIAL</h2>
       <Slider {...settings}>
-        {testimonialData.map((client, index) => (
+        {testimonialData?.map((client, index) => (
           <div className="clients-review" key={index}>
             <img src={comma} alt="comma-icon" />
             <div className="content">

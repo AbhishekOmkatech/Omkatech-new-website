@@ -17,10 +17,28 @@
 .all-projects{
     padding: 4rem 6rem;
     background-color: #fff;
+    box-sizing: border-box;
+    .portfolio-tabs{
+        text-align: center;
+        margin-bottom: 60px;
+        button{
+            padding: 12px 20px !important;
+            border: 1px solid #464646;
+            font-size: 18px;
+            font-weight: 300;
+            margin: 0 8px 0 8px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .active{
+            background-color: #2b2b2b;
+            color: #fff;
+        }
+    }
 }
 .projects {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 60px;
     cursor: pointer;
     box-sizing: border-box;
@@ -31,10 +49,14 @@
         /* Adjust width as needed for responsiveness */
         transition: transform 0.3s ease;
         overflow: hidden;
+        // max-width: 415px;
+        height: 360px;
+        border-radius: 10px;
     }
     .project-image {
         width: 100%;
         height: auto;
+        object-fit: cover;
         transition: filter 0.3s ease; /* Add transition for smoother effect */
     }
     .project:hover .project-image {
@@ -54,6 +76,18 @@
         color: #fff;
         transform: translateY(100%);
         transition: transform 0.3s ease, background-color 0.3s ease; /* Add transition for smoother effect */
+        text-align: center;
+        button{
+            padding: 16px 40px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            img{
+                margin-left: 30px;
+            }
+        }
     }
 
     .overlay h3 {
@@ -87,3 +121,31 @@
         gap: 20px;
     }
   }
+
+//mobile responsive
+@media screen and (max-width: 767px) {
+    .portfolio-heading{
+        padding: 2rem !important;
+        h1{
+            font-size: 28px !important;
+            font-weight: 500 !important;
+        }
+        p{
+            font-size: 14px !important;
+            font-weight: 300 !important;
+            line-height: 24px !important;
+        }
+    }
+    .all-projects{
+        padding: 2rem !important;
+        .projects{
+            grid-template-columns: repeat(1, 1fr) !important;
+        }
+        .portfolio-tabs{
+            margin-bottom: 20px !important;
+            button{
+                margin: 0 8px 16px 8px !important;
+            }
+        }
+    }
+}

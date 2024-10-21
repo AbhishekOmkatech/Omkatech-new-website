@@ -45,3 +45,19 @@
         margin-bottom: 80px;
     }
 }
+
+@media screen and (max-width: 767px) {
+    .case-study-inner{
+        flex-direction: column;
+        padding: 20px !important;
+        .left{
+            width: 100% !important;
+        }
+        .right{
+            width: 100% !important;
+            img{
+                width: 100% !important;
+            }
+        }
+    }
+}

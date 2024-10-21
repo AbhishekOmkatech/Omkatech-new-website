@@ -123,8 +123,9 @@
 
         img {
             align-self: center;
-            width: 185px;
-            height: 183px;
+            width: 90%;
+            height: 90%;
+            object-fit: cover;
         }
 
         /* Keyframe animation for automatic scrolling */

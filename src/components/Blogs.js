@@ -4,7 +4,7 @@ import Slider from 'react-slick';
 import Img from '../assets/svgs/menu-bar.svg'
 import blogImg from '../pngs/Rectangle 148.png'
 import '../components-css/blogs.scss';
-import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import ArrowIcon from '../assets/svgs/Group 3.svg';
 import GradientArrowIcon from '../assets/svgs/Group 3 (5).svg'
@@ -21,14 +21,14 @@ function App({blogsData}) {
     return date.toLocaleDateString('en-US', options);
   }
 
-  const isoString = blogsData.first_blog[0].created_at;
+  const isoString = blogsData?.first_blog[0]?.created_at;
   const formattedDate = formatDate(isoString);
 
   const settings = {
-    infinite: blogsData.blog_list.length > 1, // Disable infinite scrolling if only one slide
+    infinite: blogsData?.blog_list?.length > 1, // Disable infinite scrolling if only one slide
     speed: 5000,
-    slidesToShow: blogsData.blog_list.length > 1 ? 2 : 1, // Show only one slide if only one slide is available
-    autoplay: blogsData.blog_list.length > 1, // Enable autoplay only if more than one slide
+    slidesToShow: blogsData?.blog_list?.length > 1 ? 2 : 1, // Show only one slide if only one slide is available
+    autoplay: blogsData?.blog_list?.length > 1, // Enable autoplay only if more than one slide
     autoplaySpeed: 0,
     slidesToScroll: 1,
     vertical: true,
@@ -41,8 +41,8 @@ function App({blogsData}) {
     <div className="blogs-main-container">
       <div className="left-section" onClick={()=> {navigate(`/blog/${blogsData.first_blog[0].id}`, {state: blogsData.first_blog[0].id})}}>
           <p>{formattedDate}</p>
-          <h2>{blogsData.first_blog[0].title}</h2>
-          <img className='image' src={blogsData.first_blog[0].file_path + blogsData.first_blog[0].image} alt="" />
+          <h2>{blogsData?.first_blog[0]?.title}</h2>
+          <img className='image' src={blogsData?.first_blog[0]?.file_path + blogsData?.first_blog[0]?.image} alt="" />
           <div className="button">
           <button onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}>
@@ -59,7 +59,7 @@ function App({blogsData}) {
       <div className="right-slider-section">
       <Slider {...settings}>
         {
-          blogsData.blog_list.map((blog)=> (
+          blogsData?.blog_list?.map((blog)=> (
             <div onClick={()=> {navigate(`/blog/${blog.id}`, {state: blog.id})}} className='slide' key={blog.id}>
               <img className='blog-image' src={blog.file_path + blog.image} alt="" />
               <div className="heading">

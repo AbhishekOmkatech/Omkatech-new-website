@@ -37,6 +37,7 @@
             position: absolute;
             right: 6rem;
             top: 12rem;
+            box-sizing: border-box;
 
             h2 {
                 margin-bottom: 20px;
@@ -77,9 +78,13 @@
         }
         .expertise-cards{
             position: relative;
+            background: #1d1d1d;
             margin-top: 4rem;
             padding: 20px;
-            border: 1px solid #fff;
+            border: 1px solid; /* Define the thickness of the border */
+            border-image: linear-gradient(0deg, #6B6B6B, #121212);
+            border-image-slice: 1;
+            border-radius: 8px;
             h3{
                 margin-top: 30px;
                 margin-bottom: 10px;
@@ -107,6 +112,12 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        .right{
+            width: 50%;
+            img{
+                width: 100%;
+            }
+        }
     }
     .join-our-team-section .left{
         width: 48%;
@@ -126,15 +137,153 @@
     .platform-review{
         padding: 4rem 6rem;
         background-color: #fff;
-        .img{
-            display: grid;
-            grid-template-columns: repeat(7, 1fr);
-            justify-items: center;
-            align-items: center;
-        }
         img{
-            width: 120px;
+            width: 120px !important;
             cursor: pointer;
+        }
+        .slick-track{
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 30px !important;
+        }
+    }
+}
+
+//mobile responsive
+@media screen and (max-width: 767px) {
+    .about-banner{
+        padding: 2rem !important;
+        h1{
+            font-size: 24px !important;
+            font-weight: 400 !important;
+            line-height: 34px !important;
+        }
+        p{
+            font-size: 14px !important;
+            font-weight: 300 !important;
+        }
+    }
+    .about-section{
+        position: initial !important;
+        flex-direction: column;
+        padding: 2rem !important;
+        img{
+            width: 100%;
+            margin-bottom: 20px;
+        }
+    }
+    .about-description{
+        position: initial !important;
+        width: 100% !important;
+        height: 100% !important;
+    }
+    .expertise-section{
+        padding: 2rem !important;
+        h2{
+            font-size: 22px !important;
+            font-weight: 500 !important;
+        }
+        p{
+            font-size: 16px !important;
+            font-weight: 300 !important;
+        }
+        .expertise-cards-section{
+            grid-template-columns: repeat(1, 1fr) !important;
+        }
+    }
+    .join-our-team-section{
+        padding: 2rem !important;
+        flex-direction: column;
+        .left{
+            width: 100% !important;
+            h3{
+                font-size: 18px !important;
+                font-weight: 500 !important;
+            }
+            p{
+                font-size: 20px !important;
+                font-weight: 700 !important;
+                margin-top: 5px;
+                margin-bottom: 16px !important;
+            }
+        }
+        .right{
+            width: 100% !important;
+            margin-top: 20px;
+        }
+    }
+    .platform-review{
+        padding: 2rem !important;
+        .img{
+            img{
+                width: 60px !important;
+            }
+        }
+    }
+    .project-slider{
+        h2{
+            font-size: 28px !important;
+            font-weight: 700 !important;
+        }
+        span{
+            font-size: 14px !important;
+            font-weight: 500 !important;
+        }
+    }
+    .about-us-main-container {
+        .slick-list{
+            padding: 1rem 0 !important;
+        }
+    }
+}
+
+//tab responsive
+@media screen and (min-width: 767px) and (max-width: 1024px) {
+    .about-banner{
+        padding: 2rem !important;
+        h1{
+            font-size: 50px !important;
+        }
+        p{
+            font-size: 16px !important;
+        }
+    }
+    .about-section{
+        position: initial !important;
+        flex-direction: column;
+        padding: 2rem !important;
+        img{
+            width: 100%;
+            margin-bottom: 20px;
+        }
+    }
+    .about-description{
+        position: initial !important;
+        width: 100% !important;
+        height: 100% !important;
+    }
+    .expertise-section{
+        padding: 2rem !important;
+        .expertise-cards-section{
+            grid-template-columns: repeat(3, 1fr) !important;
+        }
+    }
+    .join-our-team-section{
+        padding: 2rem !important;
+        .left{
+            width: 100% !important;
+            p{
+                font-size: 24px !important;
+            }
+        }
+    }
+    .platform-review{
+        padding: 2rem !important;
+        .img{
+            img{
+                width: 60px !important;
+            }
         }
     }
 }

@@ -21,7 +21,7 @@ function DevelopmentCard({servicesData}) {
 
   return (
     <div className="development-card-list">
-      {servicesData.map((card, index) => (
+      {servicesData?.map((card, index) => (
         <div
           key={index}
           className={`development-card ${expandedCardIndex === index ? 'expanded' : ''}`}

@@ -80,7 +80,7 @@ const CaseStudy = () => {
                 </div>
             </div>
             <div className="image-container" ref={containerRef}>
-                {imageData.map((img, index) => (
+                {imageData?.map((img, index) => (
                     <div key={index} className="image-wrapper">
                         <img src={img} alt={`Image ${index}`} />
                     </div>

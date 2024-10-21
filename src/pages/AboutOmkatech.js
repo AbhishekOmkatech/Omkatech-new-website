@@ -16,6 +16,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import '../components-css/about-omkatech.scss';
 import OurClients from '../components/OurClients';
+import carrerImg from '../pngs/Group 105159.png'
 
 const AboutOmkatech = () => {
   const platformImages = [
@@ -59,26 +60,21 @@ const AboutOmkatech = () => {
     autoplaySpeed: 0,
     slidesToShow: 3,
     cssEase: 'linear',
-    // responsive: [
-    //   {
-    //     breakpoint: 1024, // Tablet breakpoint
-    //     settings: {
-    //       slidesToShow: 3, // Show 3 slides on tablet
-    //     },
-    //   },
-    //   {
-    //     breakpoint: 767, // Phone breakpoint
-    //     settings: {
-    //       slidesToShow: 2, // Show 2 slides on phone
-    //     },
-    //   },
-    //   {
-    //     breakpoint: 480, // Small phone breakpoint
-    //     settings: {
-    //       slidesToShow: 1, // Show 1 slide on small phone
-    //     },
-    //   },
-    // ],
+    arrows: false,
+    responsive: [
+      {
+        breakpoint: 1024, // Tablet breakpoint
+        settings: {
+          slidesToShow: 2, // Show 3 slides on tablet
+        },
+      },
+      {
+        breakpoint: 767, // Mobile breakpoint
+        settings: {
+          slidesToShow: 1.2, // Show 2 slides on mobile
+        },
+      },
+    ],
   };
   const settings2 = {
     infinite: true,
@@ -87,8 +83,45 @@ const AboutOmkatech = () => {
     autoplay: true,
     autoplaySpeed: 0,
     slidesToShow: 3,
+    arrows: false,
     cssEase: 'linear',
-    rtl: true
+    rtl: true,
+    responsive: [
+      {
+        breakpoint: 1024, // Tablet breakpoint
+        settings: {
+          slidesToShow: 2, // Show 3 slides on tablet
+        },
+      },
+      {
+        breakpoint: 767, // Mobile breakpoint
+        settings: {
+          slidesToShow: 1.2, // Show 2 slides on mobile
+        },
+      },
+    ],
+  }
+  const settings3 = {
+    infinite: true,
+    speed: 3000,
+    slidesToScroll: 1,
+    autoplay: true,
+    slidesToShow: 6,
+    arrows: false,
+    responsive: [
+      {
+        breakpoint: 1024, // Tablet breakpoint
+        settings: {
+          slidesToShow: 5, // Show 3 slides on tablet
+        },
+      },
+      {
+        breakpoint: 767, // Mobile breakpoint
+        settings: {
+          slidesToShow: 4, // Show 2 slides on mobile
+        },
+      },
+    ],
   }
   const expertiseData = [
     {
@@ -152,7 +185,7 @@ const AboutOmkatech = () => {
       </div>
       <Slider {...settings1}>
         {
-          slider1.map((project, index) => {
+          slider1?.map((project, index) => {
             return <div className="project-slider" key={index}>
               <h2>{project.count}</h2>
               <span>{project.title}</span>
@@ -162,7 +195,7 @@ const AboutOmkatech = () => {
       </Slider>
       <Slider {...settings2}>
         {
-          slider2.map((project, index) => {
+          slider2?.map((project, index) => {
             return <div className="project-slider" key={index}>
               <h2>{project.count}</h2>
               <span>{project.title}</span>
@@ -175,7 +208,7 @@ const AboutOmkatech = () => {
         <p>Experience Unmatched Quality and Service That Exceeds Your Expectations</p>
         <div className="expertise-cards-section">
           {
-            expertiseData.map((data) => {
+            expertiseData?.map((data) => {
               return <div className="expertise-cards">
                 <h3>{data.title}</h3>
                 <span>{data.description}</span>
@@ -205,18 +238,20 @@ const AboutOmkatech = () => {
               </span>
             </button>
           </div>
-          <div className="right">
-            <img src="" alt="" />
-          </div>
         </div>
+          <div className="right">
+            <img src={carrerImg} alt="" />
+          </div>
       </div>
       <div className="platform-review">
         <div className="img">
+        <Slider {...settings3}>
           {
-            platformImages.map((image) => {
+            platformImages?.map((image) => {
               return <img src={image} alt="" />
             })
           }
+          </Slider>
         </div>
       </div>
     </div>

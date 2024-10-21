@@ -131,7 +131,7 @@ const OurTeam = () => {
           <p>Meet an exceptional team of technology advisors, growth facilitators, and subject matter experts with proven experience.</p>
         </div>
         <div className="right-content">
-          {teamPhotos.map((team, index) => (
+          {teamPhotos?.map((team, index) => (
             <img key={index} src={team.img} alt={team.name} />
           ))}
         </div>
@@ -153,7 +153,7 @@ const OurTeam = () => {
         <h2>MEET OUR TEAM</h2>
         <div className="company-employees">
           <div className="single-company-employee">
-            {teamPhotos.map((team, index) => (
+            {teamPhotos?.map((team, index) => (
               <div className="about-employee" key={index}>
                 <img src={team.img} alt={team.name} />
                 <h3>{team.name}</h3>

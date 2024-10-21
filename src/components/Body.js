@@ -51,11 +51,12 @@ const Body = () => {
       {/* <video src={banner} autoPlay muted controls>
         Your browser does not support the video tag.
       </video> */}
-      <Header />
       {loading ? (
         <Loader /> // Display the loader while fetching data
       ) : (
         <>
+      <div className="banner-container">
+      <Header />
           <motion.div className="body-animation">
             <motion.span
               className="animated-text"
@@ -84,6 +85,7 @@ const Body = () => {
               INTO THE <b>DIGITAL AGE</b>
             </motion.span>
           </motion.div>
+          </div>
           <AboutUs aboutUsData={aboutUsData} />
           <DevelopmentCard servicesData={servicesData} />
           <Portfolio />
