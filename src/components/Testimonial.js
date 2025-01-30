@@ -1,13 +1,15 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import comma from '../pngs/comma.png';
 import clientImage from '../pngs/Mask group (2).png';
 import '../components-css/testimonial.scss';
 import Slider from 'react-slick';
+import { BASE_URL } from '../config';
+import axios from 'axios';
 // import leftArrow from '../assets/svgs/Vector.svg';
 // import rightArrow from '../assets/svgs/Vector (1).svg';
 
-const Testimonial = ({testimonialData}) => {
-  // const [testimonialData, setTestimonialData] = useState([
+const Testimonial = () => {
+  const [testimonialData, setTestimonialData] = useState(null);
   //   {
   //     feedback: "Omka Tech built out a website for me and I am SUPER happy with the results! Their follow up on changes and little things like making sure when I receive a notification from my host are spot on! I've referred them to a few of my colleagues as their service is outstanding. Thanks, Omka Tech Team!",
   //     clientName: "Cassandra Murray",
@@ -73,6 +75,20 @@ const Testimonial = ({testimonialData}) => {
   //     clientPosition: "CEO, ABC Company",
   //   },
   // ]);
+
+  const getTestimonialData = async () => {
+    try {
+      let response = await axios.get(`${BASE_URL}/testimonial`)
+      setTestimonialData(response.data.data)
+      console.log('testimonial response', response)
+    } catch (error) {
+     console.log(error) 
+    }
+  }
+
+  useEffect(()=> {
+    getTestimonialData();
+  }, [])
 
   // Slick Slider settings
   const settings = {

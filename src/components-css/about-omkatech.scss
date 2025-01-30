@@ -27,6 +27,11 @@
         display: flex;
         position: relative;
 
+        img{
+            width: 56%;
+            border-radius: 16px;
+        }
+
         .about-description {
             border-radius: 10px;
             padding: 30px 16px;
@@ -100,9 +105,13 @@
                 top: 0px;
                 left: 50%;
                 background-color: #2d2d2d;
-                padding: 22px 24px;
+                padding: 16px 18px;
                 border-radius: 50%;
                 transform: translate(-50%, -50%);
+                img{
+                    width: 20px;
+                    height: 20px;
+                }
             }
         }
     }

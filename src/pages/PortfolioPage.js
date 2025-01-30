@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../components-css/portfolio-page.scss';
 import ArrowIcon from '../assets/svgs/Group 3.svg';
 import GradientArrowIcon from '../assets/svgs/Group 3 (5).svg';
 import Project1 from '../pngs/Mask group (1).png';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import { BASE_URL } from '../config';
 
 const PortfolioPage = () => {
     const [projects, setProjects] = useState([
@@ -46,10 +48,25 @@ const PortfolioPage = () => {
     const navigate = useNavigate()
     const [isHovered, setIsHovered] = useState(false);
     const [selectedCategory, setSelectedCategory] = useState('all'); // Default category
+    const [portfolioPageData, setPortfolioPageData] = useState(null)
 
     const loadMore = () => {
         setVisibleProjects((prevVisibleProjects) => prevVisibleProjects + 4); // Increase by 4, change as needed
     };
+
+    const getPortfolioPageData = async () => {
+        try {
+            let response = await axios.get(`${BASE_URL}/portfolioDetails`)
+            console.log('check response portfolio page', response)
+            // setPortfolioPageData(response.data.data)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    useEffect(()=> {
+        getPortfolioPageData()
+    }, [])
 
     // Filter projects based on selected category
     const filteredProjects =

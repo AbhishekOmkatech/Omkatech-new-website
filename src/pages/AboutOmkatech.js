@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import aboutImg from '../pngs/Rectangle 149.png';
 import Img from '../assets/svgs/menu-bar.svg'
 import Slider from 'react-slick';
@@ -17,12 +17,15 @@ import 'slick-carousel/slick/slick-theme.css';
 import '../components-css/about-omkatech.scss';
 import OurClients from '../components/OurClients';
 import carrerImg from '../pngs/Group 105159.png'
+import axios from 'axios';
+import { BASE_URL } from '../config';
 
 const AboutOmkatech = () => {
   const platformImages = [
     googleReview, glassDoorReview, crunchBaseReview, goodFirmsReview, cluthReview, ambitionBoxReview, appFuturaReview
   ]
   const [isHovered, setIsHovered] = useState(false);
+  const [aboutData, setAboutData] = useState(null)
   const slider1 = [
     {
       count: '1000+',
@@ -158,47 +161,51 @@ const AboutOmkatech = () => {
     }
   ]
 
+  const getAboutData = async () => {
+    try {
+      let response = await axios.get(`${BASE_URL}/aboutus-page`)
+      setAboutData(response.data.data)
+      console.log('respone about us page', response)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  useEffect(()=> {
+    getAboutData()
+  }, [])
+
   return (
     <div className='about-us-main-container'>
       <div className="about-banner">
-        <h1>ABOUT OMKATECH</h1>
-        <p>Omka tech Believes that the world revolves around technology.</p>
+        <h1>{aboutData?.aboutus?.title}</h1>
+        <p>{aboutData?.aboutus?.subtitle}</p>
       </div>
       <div className="about-section">
-        <img src={aboutImg} alt="about-img" />
+        <img src={aboutData?.aboutus?.image_path + aboutData?.aboutus?.image} alt="about-img" />
         <div className="about-description">
           <h2>ABOUT US</h2>
-          <p>Omka Tech is a next-generation global leader stands at the forefront of technological
-            innovation in the IT industry enabling 3000+ clients from different countries viz India,
-            USA, Canada, Australia, South Africa, Korea, Europe and many more to maneuver their
-            digital transformation. <br /><br />
-            With over 5 years of experience, we proficiently navigate our clients throughout their
-            digital journey.  As a global business strategy and operations firm, our goal is to assist
-            our clients in meeting their business needs and optimizing their strengths globally. <br /><br />
-            Beyond the business, we have established Omka Tech as the optimal IT solution to
-            bridge the digital gap. Here we assist numerous enterprises to take them to the next
-            level of success! We are committed to delivering high-quality projects on time and
-            within budget.
-
+          <p>
+            {aboutData?.aboutus?.description}
           </p>
         </div>
       </div>
       <Slider {...settings1}>
         {
-          slider1?.map((project, index) => {
+          aboutData?.achievement?.map((project, index) => {
             return <div className="project-slider" key={index}>
-              <h2>{project.count}</h2>
-              <span>{project.title}</span>
+              <h2>{project.value}</h2>
+              <span>{project.text}</span>
             </div>
           })
         }
       </Slider>
       <Slider {...settings2}>
         {
-          slider2?.map((project, index) => {
+          aboutData?.achievement?.map((project, index) => {
             return <div className="project-slider" key={index}>
-              <h2>{project.count}</h2>
-              <span>{project.title}</span>
+              <h2>{project.value}</h2>
+              <span>{project.text}</span>
             </div>
           })
         }
@@ -208,12 +215,12 @@ const AboutOmkatech = () => {
         <p>Experience Unmatched Quality and Service That Exceeds Your Expectations</p>
         <div className="expertise-cards-section">
           {
-            expertiseData?.map((data) => {
+            aboutData?.whychooseus?.map((data) => {
               return <div className="expertise-cards">
                 <h3>{data.title}</h3>
                 <span>{data.description}</span>
                 <div className="img">
-                  <img src={Img} alt="" />
+                  <img src={data.icon_path + data.icon} alt="" />
                 </div>
               </div>
             })
@@ -247,8 +254,8 @@ const AboutOmkatech = () => {
         <div className="img">
         <Slider {...settings3}>
           {
-            platformImages?.map((image) => {
-              return <img src={image} alt="" />
+            aboutData?.ourpresence?.map((image) => {
+              return <img src={image.file_path + image.file} alt="" />
             })
           }
           </Slider>

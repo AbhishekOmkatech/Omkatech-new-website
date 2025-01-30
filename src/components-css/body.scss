@@ -5,13 +5,22 @@
   position: relative;
   
   .banner-container{
-    background-image: url('../pngs/Frame 1 (2).png');
+    // background-image: url('../pngs/Frame 1 (2).png');
     background-size: cover;
     background-repeat: no-repeat;
     /* Ensure the background covers the whole area */
     background-position: top;
     /* Ensure the image starts from the top */
     height: 95vh;
+    .background-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      object-fit: cover;
+      opacity: 0.8;
+      z-index: -1; // Places the video behind the banner content
+    }
 
   }
 

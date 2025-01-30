@@ -1,5 +1,5 @@
 // App.js
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Slider from 'react-slick';
 import Img from '../assets/svgs/menu-bar.svg'
 import blogImg from '../pngs/Rectangle 148.png'
@@ -10,9 +10,12 @@ import ArrowIcon from '../assets/svgs/Group 3.svg';
 import GradientArrowIcon from '../assets/svgs/Group 3 (5).svg'
 import { Link } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import { BASE_URL } from '../config';
 
-function App({blogsData}) {
+function App() {
   const [isHovered, setIsHovered] = useState(false);
+  const [blogsData, setBlogsData] = useState(null)
   let navigate = useNavigate()
   function formatDate(isoString) {
     const date = new Date(isoString);
@@ -20,6 +23,20 @@ function App({blogsData}) {
     const options = { year: 'numeric', month: 'short', day: 'numeric' };
     return date.toLocaleDateString('en-US', options);
   }
+
+  const getBlogsData = async () => {
+    try {
+      let response = await axios.get(`${BASE_URL}/GetBlogs`)
+      setBlogsData(response.data.data)
+      console.log('blogs reponse', response)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  useEffect(()=>{
+    getBlogsData()
+  }, [])
 
   const isoString = blogsData?.first_blog[0]?.created_at;
   const formattedDate = formatDate(isoString);

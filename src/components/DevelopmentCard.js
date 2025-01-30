@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import '../components-css/development-card.scss'; // Assuming you have your CSS file for styling
+import { BASE_URL } from '../config';
+import axios from 'axios'
 
-function DevelopmentCard({servicesData}) {
+function DevelopmentCard() {
   const [expandedCardIndex, setExpandedCardIndex] = useState(0); // Initialize with 0 to expand the first card
   const [lastHoveredIndex, setLastHoveredIndex] = useState(0); // State to track the last hovered index
+  const [servicesData, setServicesData] = useState([])
 
   useEffect(() => {
     // Expand the first card after the component mounts
@@ -19,6 +22,21 @@ function DevelopmentCard({servicesData}) {
     setExpandedCardIndex(lastHoveredIndex === 0 ? 0 : index); // Reset expanded card to the first card or last hovered card
   };
 
+
+  const getServicesData = async () => {
+    try {
+      let response = await axios.get(`${BASE_URL}/service`)
+      setServicesData(response.data.data)
+      console.log('services response', response)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  useEffect(() => {
+    getServicesData();
+  }, [])
+
   return (
     <div className="development-card-list">
       {servicesData?.map((card, index) => (
@@ -32,9 +50,9 @@ function DevelopmentCard({servicesData}) {
             <img
               src={card.file_path + card.image}
               alt={card.title}
-              />
-              {expandedCardIndex !== index && <div><h2 className='close-title'>{card.title}</h2></div>}
-              {expandedCardIndex !== index && (
+            />
+            {expandedCardIndex !== index && <div><h2 className='close-title'>{card.title}</h2></div>}
+            {expandedCardIndex !== index && (
               <div className="black-close-overlay"></div>
             )}
             {expandedCardIndex === index && (

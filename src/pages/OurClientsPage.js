@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import '../components-css/our-clients-page.scss';
 import colorCleanToGreen from '../pngs/04 Clean to green.png';
 import colorRetv from '../pngs/09 RETV.png';
@@ -15,8 +15,26 @@ import Marsiko from '../pngs/Marsiko.png'
 import Coffee from '../pngs/coffee.png'
 import Candidate from '../pngs/Candidate.png'
 import Spotless from '../pngs/Spotless.png'
+import axios from 'axios';
+import { BASE_URL } from '../config';
+
 
 const OurClientsPage = () => {
+  const [brandsData, setBrandsData] = useState(null)
+
+  const getClientsData = async () => {
+    try {
+        let response = await axios.get(`${BASE_URL}/brand`)
+        setBrandsData(response.data.data)
+        console.log('check brands response', response)
+    } catch (error) {
+        console.log(error)
+    }
+  }
+  
+  useEffect(() => {
+    getClientsData()
+  }, [])
   const brandsLogo = [
     { logo: colorRlg },
     { logo: colorCleanToGreen },
@@ -42,9 +60,9 @@ const OurClientsPage = () => {
         <p>Brands You trust, Trust US!</p>
       </div>
       <div className="all-brands">
-        {brandsLogo?.map((brandlogo, index) => (
+        {brandsData?.map((brandlogo, index) => (
           <div className="img" key={index}>
-            <img src={brandlogo.logo} alt={`brand-logo-${index}`} />
+            <img src={brandlogo.file_path + brandlogo.image} alt={`brand-logo-${index}`} />
           </div>
         ))}
       </div>

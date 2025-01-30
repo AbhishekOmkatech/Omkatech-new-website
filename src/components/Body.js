@@ -15,6 +15,7 @@ import Logo from '../pngs/omkatech-logo.png';
 import '../components-css/body.scss';
 import Header from './Header';
 import axios from 'axios';
+import bgVideo from '../../src/pngs/bg-video.mp4'
 // import ConsultWithOmkatech from './ConsultWithOmkatech';
 
 const Body = () => {
@@ -48,57 +49,64 @@ const Body = () => {
 
   return (
     <div className={`body-main-container ${loading ? 'loading' : ''}`}>
-      {/* <video src={banner} autoPlay muted controls>
-        Your browser does not support the video tag.
-      </video> */}
-      {loading ? (
-        <Loader /> // Display the loader while fetching data
-      ) : (
-        <>
+  {loading ? (
+    <Loader /> // Display the loader while fetching data
+  ) : (
+    <>
       <div className="banner-container">
-      <Header />
-          <motion.div className="body-animation">
-            <motion.span
-              className="animated-text"
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, ease: 'easeOut' }}
-            >
-              <b>ACCELERATE</b> YOUR
-            </motion.span>
-            <br />
-            <motion.span
-              className="animated-text business"
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, ease: 'easeOut', delay: 0.2 }}
-            >
-              <span className="create"><b>BUSINESS</b></span>
-            </motion.span>
-            <br />
-            <motion.span
-              className="animated-text"
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, ease: 'easeOut', delay: 0.4 }}
-            >
-              INTO THE <b>DIGITAL AGE</b>
-            </motion.span>
-          </motion.div>
-          </div>
-          <AboutUs aboutUsData={aboutUsData} />
-          <DevelopmentCard servicesData={servicesData} />
-          <Portfolio />
-          {/* <ContactUs /> */}
-          <OurClients brandsData={brandsData} />
-          <CaseStudy />
-          <Testimonial testimonialData={testimonialData} />
-          <Blogs blogsData={blogsData} />
-          <Faq faqData={faqData} />
-          {/* <ConsultWithOmkatech /> */}
-        </>
-      )}
-    </div>
+        {/* Background Video */}
+        <video
+          className="background-video"
+          src={bgVideo}
+          autoPlay
+          muted
+          loop
+        >
+          Your browser does not support the video tag.
+        </video>
+        
+        <Header />
+        <motion.div className="body-animation">
+          <motion.span
+            className="animated-text"
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: 'easeOut' }}
+          >
+            <b>ACCELERATE</b> YOUR
+          </motion.span>
+          <br />
+          <motion.span
+            className="animated-text business"
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: 'easeOut', delay: 0.2 }}
+          >
+            <span className="create"><b>BUSINESS</b></span>
+          </motion.span>
+          <br />
+          <motion.span
+            className="animated-text"
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: 'easeOut', delay: 0.4 }}
+          >
+            INTO THE <b>DIGITAL AGE</b>
+          </motion.span>
+        </motion.div>
+      </div>
+      <AboutUs />
+      <DevelopmentCard servicesData={servicesData} />
+      <Portfolio />
+      <OurClients brandsData={brandsData} />
+      <CaseStudy />
+      <Testimonial testimonialData={testimonialData} />
+      <Blogs blogsData={blogsData} />
+      <Faq faqData={faqData} />
+    </>
+  )}
+</div>
+
   );
 };
 

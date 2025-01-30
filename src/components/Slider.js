@@ -1,16 +1,20 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import '../components-css/portfolio.scss';  // Import your CSS file
-import image1 from '../pngs/Mask group (1).png';
-import image2 from '../pngs/Mask group.png';
-import image3 from '../pngs/Rectangle 32.png';
+import image1 from '../pngs/Group 727.png';
+import image2 from '../pngs/Group 727.png';
+import image3 from '../pngs/Group 727.png';
 import leftArrow from '../assets/svgs/Vector.svg';
 import rightArrow from '../assets/svgs/Vector (1).svg';
+import iconImg from '../assets/svgs/right-black.svg'
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import { BASE_URL } from '../config';
 
 const MySlider = () => {
+    const [portfolioData, setPortfolioData] = useState(null)
     const navigate = useNavigate();
     const settings = {
         infinite: true,
@@ -68,13 +72,27 @@ const MySlider = () => {
         }
     ];
 
+    const getPorfolioData = async () => {
+        let response = await axios.get(`${BASE_URL}/portfolio`)
+        setPortfolioData(response.data.data)
+        console.log('check porfolio response', response)
+      }
+    
+      useEffect(()=> {
+        getPorfolioData()
+      }, [])
+
     return (
         <div>
             <Slider {...settings}>
-                {images?.map((image, index) => (
+                {portfolioData?.map((image, index) => (
                     <div className="portfolio-image-container" key={index}>
-                        <img className="image" src={image.image} alt={`Slide ${index + 1}`} />
-                        <button onClick={() => navigate(`/portfolio/${image.id}`)} className="hover-button">App Name</button>
+                        <div className="heading">
+                            <h2>{image.title}</h2>
+                            <p>{image.sub_title}</p>
+                        </div>
+                        <img className="image" src={image.slider_image_path + image.slider_image} alt={`Slide ${index + 1}`} />
+                        <button onClick={() => navigate(`/portfolio/${image.id}`)} className="hover-button">App Name<img src={iconImg} alt="" /></button>
                     </div>
                 ))}
             </Slider>

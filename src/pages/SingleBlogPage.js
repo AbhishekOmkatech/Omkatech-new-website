@@ -46,8 +46,8 @@ const SingleBlogPage = () => {
         loading ? (<Loader />) : (
           <>
             <h1>{singleBlogData.title}</h1>
-            <span>{singleBlogData.minute_read}-MINUTE READ</span>
-            <span>{formattedDate}</span>
+            <span className='time'>{singleBlogData.minute_read}-MINUTE READ</span>
+            <span className='date'>{formattedDate}</span>
             <div className="image">
               <img src={singleBlogData.file_path + singleBlogData.image} alt="blog-icon" />
             </div>

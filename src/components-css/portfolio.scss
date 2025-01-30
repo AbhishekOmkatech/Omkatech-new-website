@@ -1,5 +1,79 @@
 .slider-container {
   padding: 4rem 0rem 4rem 6rem;
+  background-color: #ededed;
+  color: #000;
+}
+
+.portfolio-image-container {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+
+  .heading {
+    position: absolute;
+    top: 10%; /* Vertical placement of the container */
+    left: 50%; /* Center the container horizontally */
+    transform: translateX(-50%); /* Offset the container's horizontal center */
+    width: 100%; /* Full-width container */
+    text-align: center; /* Center the text inside */
+  }
+  .heading h2 {
+    display: inline-block; /* Ensure the content respects vertical alignment */
+    font-size: 30px;
+    font-weight: 600;
+    transform: translateY(-50%); /* Vertically adjust the text */
+    position: relative;
+    top: 50%; /* Vertically center the text within the container */
+  }
+  &:hover .heading {
+    opacity: 0.3;
+      // transform: scale(1.05); // Zoom effect when hovering over the image
+  }
+
+
+  .image {
+      width: 100%;
+      height: auto;
+      transition: transform 0.3s ease; // Slight zoom effect on hover
+  }
+
+  &:hover .image {
+    display: block;
+      // transform: scale(1.05); // Zoom effect when hovering over the image
+  }
+
+  // Overlay styling
+  &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6); // Black overlay with 50% opacity
+      opacity: 0;
+      transition: opacity 0.3s ease;
+  }
+
+  &:hover::before {
+      opacity: 1;
+      display: block;
+  }
+  // button{
+  //   display: flex;
+  //   align-items: center;
+  //   justify-content: center;
+  //   border-radius: 50px;
+  //   width: 60%;
+  //   // display: none;
+  // }
+  // Button styling
+}
+.portfolio-image-container:hover .hover-button{
+  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .slider {
@@ -86,10 +160,10 @@
     }
 }
 
-.slider-button-left:hover, .slider-button-right:hover {
-  transform: scale(1.1);
-  cursor: pointer;
-}
+// .slider-button-left:hover, .slider-button-right:hover {
+//   transform: scale(1.1);
+//   cursor: pointer;
+// }
 .portfolio{
   display: flex;
   align-items: center;
@@ -98,68 +172,68 @@
   padding: 0 6rem 0 0;
 }
 
-.button button {
-  background-color: #000;
-  color: #fff;
-  border: 1px solid #fff;
-  cursor: pointer;
-  padding: 10px 26px;
-  border-radius: 50px;
-  position: relative;
-  text-transform: uppercase;
-  transition: opacity 300ms cubic-bezier(.694, 0, 0.335, 1),background-color 100ms cubic-bezier(.694, 0, 0.335, 1),color 100ms cubic-bezier(.694, 0, 0.335, 1);
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  white-space: nowrap;
-}
+// .button button {
+//   background-color: #000;
+//   color: #fff;
+//   border: 1px solid #fff;
+//   cursor: pointer;
+//   padding: 10px 26px;
+//   border-radius: 50%;
+//   position: relative;
+//   text-transform: uppercase;
+//   transition: opacity 300ms cubic-bezier(.694, 0, 0.335, 1),background-color 100ms cubic-bezier(.694, 0, 0.335, 1),color 100ms cubic-bezier(.694, 0, 0.335, 1);
+//   user-select: none;
+//   -webkit-user-select: none;
+//   touch-action: manipulation;
+//   white-space: nowrap;
+// }
 
-.button button:before {
-  animation: opacityFallbackOut .5s step-end forwards;
-  backface-visibility: hidden;
-  background: linear-gradient(to left, #FFD80B, #FEAA00);  
-  clip-path: polygon(-1% 0, 0 0, -25% 100%, -1% 100%);
-  content: "";
-  height: 100%;
-  left: 0;
-  position: absolute;
-  top: 0;
-  transform: translateZ(0);
-  transition: clip-path .5s cubic-bezier(.165, 0.84, 0.44, 1), -webkit-clip-path .5s cubic-bezier(.165, 0.84, 0.44, 1);
-  width: 100%;
-  border-radius: 50px;
-}
-.button button:hover{
-  border: none;
-  color: #000;
-}
+// .button button:before {
+//   animation: opacityFallbackOut .5s step-end forwards;
+//   backface-visibility: hidden;
+//   background: linear-gradient(to left, #FFD80B, #FEAA00);  
+//   clip-path: polygon(-1% 0, 0 0, -25% 100%, -1% 100%);
+//   content: "";
+//   height: 100%;
+//   left: 0;
+//   position: absolute;
+//   top: 0;
+//   transform: translateZ(0);
+//   transition: clip-path .5s cubic-bezier(.165, 0.84, 0.44, 1), -webkit-clip-path .5s cubic-bezier(.165, 0.84, 0.44, 1);
+//   width: 100%;
+//   border-radius: 50px;
+// }
+// .button button:hover{
+//   border: none;
+//   color: #000;
+// }
 
-.button button:hover:before {
-  animation: opacityFallbackIn 0s step-start forwards;
-  clip-path: polygon(0 0, 101% 0, 101% 101%, 0 101%);
-  border-radius: 50px;
-}
+// .button button:hover:before {
+//   animation: opacityFallbackIn 0s step-start forwards;
+//   clip-path: polygon(0 0, 101% 0, 101% 101%, 0 101%);
+//   border-radius: 50px;
+// }
 
-.button button:after {
-  background-color: #FFFFFF;
-  border-radius: 50px;
-}
+// .button button:after {
+//   background-color: #FFFFFF;
+//   border-radius: 50px;
+// }
 
-.button button .img {
-  z-index: 1;
-  position: relative;
-  margin-left: 10px;
-}
-.button button span{
-  z-index: 1;
-  position: relative;
-  font-size: 18px;
-  font-weight: 100;
-}
-.button button:hover span img{
-  transition: transform 0.3s ease; // Add transition for the transform property
-  transform: rotate(45deg);
-}
+// .button button .img {
+//   z-index: 1;
+//   position: relative;
+//   margin-left: 10px;
+// }
+// .button button span{
+//   z-index: 1;
+//   position: relative;
+//   font-size: 18px;
+//   font-weight: 100;
+// }
+// .button button:hover span img{
+//   transition: transform 0.3s ease; // Add transition for the transform property
+//   transform: rotate(45deg);
+// }
 
 // button {
 //   background: #000; /* Keeping the background color */
@@ -290,11 +364,9 @@
         opacity: 0.5;
     }
   }
-  
-
 
 .hover-button {
-    width: 90%;
+    width: 60%;
     display: none;
     position: absolute;
     bottom: 0%;
@@ -306,10 +378,17 @@
     padding: 16px 24px;
     cursor: pointer;
     transition: opacity 0.3s ease;
-    border-radius: 4px;
+    border-radius: 50px;
     font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: none;
+    img{
+      margin-left: 20px;
+    }
 }
 
-.portfolio-image-container:hover .hover-button {
-    display: block;
-}
+// .portfolio-image-container:hover .hover-button {
+//     display: block;
+// }

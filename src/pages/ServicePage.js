@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'; // Import useParams
 import ArrowIcon from '../assets/svgs/Group 3.svg';
 import GradientArrowIcon from '../assets/svgs/Group 3 (5).svg';
 import '../components-css/service-page.scss'
@@ -9,9 +10,13 @@ import OurClients from '../components/OurClients'
 import circleArrow from '../assets/svgs/circle-arrow.svg'
 import Faq from '../components/Faq'
 import { Link } from "react-router-dom";
+import axios from 'axios';
+import { BASE_URL } from '../config';
 
 const ServicePage = () => {
+    const { id } = useParams(); // Get the id from the URL
     const [isHovered, setIsHovered] = useState(false);
+    const [serviceData, setServiceData] = useState(null)
     const relatedArticlesData = [
         {
             image: circleArrow,
@@ -85,6 +90,24 @@ const ServicePage = () => {
             ]
         }
     ]
+
+    const getServicePageData = async () => {
+        try {
+            let payload = {
+                service_id: id
+            }
+            let response = await axios.post(`${BASE_URL}/servicedetail`, payload)
+            setServiceData(response.data.data)
+            console.log('service page response', response)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    useEffect(()=> {
+        getServicePageData()
+    }, [])
+
     return (
         <div className="parallax-container">
             {/* The fixed background image */}

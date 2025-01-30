@@ -1,11 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import '../components-css/our-clients.scss';  // Assuming you have this CSS file
+import axios from 'axios';
+import { BASE_URL } from '../config';
 
-function OurClients({ brandsData }) {
+function OurClients() {
     const [hoveredLogo, setHoveredLogo] = useState(null);
+    const [brandsData, setBrandsData] = useState(null)
 
     const handleMouseEnter = index => {
         setHoveredLogo(index);
@@ -14,6 +17,20 @@ function OurClients({ brandsData }) {
     const handleMouseLeave = () => {
         setHoveredLogo(null);
     };
+
+    const getClientsData = async () => {
+        try {
+            let response = await axios.get(`${BASE_URL}/brand`)
+            setBrandsData(response.data.data)
+            console.log('check brands response', response)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    useEffect(() => {
+        getClientsData()
+    }, [])
 
     const settings = {
         dots: true,
@@ -63,9 +80,9 @@ function OurClients({ brandsData }) {
                             onMouseEnter={() => handleMouseEnter(index)}
                             onMouseLeave={handleMouseLeave}
                         >
-                            <img 
-                                src={brand.file_path + brand.image} 
-                                alt={`Brand ${index + 1}`} 
+                            <img
+                                src={hoveredLogo === index ? brand.file_path + brand.image : brand.file_path + brand.black_and_white_image}
+                                alt={`Brand ${index + 1}`}
                             />
                         </div>
                     ))}

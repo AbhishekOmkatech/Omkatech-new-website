@@ -1,69 +1,83 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 // import ArrowIcon from '../assets/svgs/Group 3.svg';
 // import GradientArrowIcon from '../assets/svgs/Group 3 (5).svg'
 import Contact from '../pngs/Group 126.png';
-import ReactFlagSelect from 'react-flags-select'
-import '../components-css/contact-us.scss'
+import 'react-phone-input-2/lib/style.css';
+import PhoneInput from 'react-phone-input-2';
+import '../components-css/contact-us.scss';
+import { BASE_URL } from '../config';
+import axios from 'axios';
 
 const ContactUs = () => {
     const [selectedServices, setSelectedServices] = useState([]);
     const [isHovered, setIsHovered] = useState(false);
-    const [selectedCountry, setSelectedCountry] = useState('US'); // Initially set to America (United States)
+    const [selectedCountryCode, setSelectedCountryCode] = useState(''); // Holds the country code
+    const [phoneNumber, setPhoneNumber] = useState(''); // Holds the full phone number
 
-    const handleSelectCountry = (code) => {
-        console.log('code', code)
-        setSelectedCountry(code);
+    const sendEmail = async () => {
+        const payload = {
+            name: '', // Populate with actual form values
+            email: '', // Populate with actual form values
+            countryCode: selectedCountryCode,
+            phone: phoneNumber,
+            services: selectedServices,
+            message: '', // Populate with actual message value
+        };
+
+        try {
+            const response = await axios.post(`${BASE_URL}/contact-us`, payload);
+            console.log('Contact response:', response);
+        } catch (error) {
+            console.error('Error sending email:', error);
+        }
     };
-    // This function returns the country code based on the selected country
-    // const getCountryCode = () => {
-    //     // You may implement a logic here to get the country code based on the selectedCountry
-    //     // For demonstration, I'm returning a dummy country code
-    //     return "+1";
-    // };
-    // Function to toggle highlighting of a service
+
     const toggleHighlight = (service) => {
         if (selectedServices.includes(service)) {
-            // If already selected, do nothing
-            setSelectedServices(selectedServices.filter(item => item !== service));
+            setSelectedServices(selectedServices.filter((item) => item !== service));
         } else {
-            // If not selected, add it to the array
             setSelectedServices([...selectedServices, service]);
         }
     };
 
-    const services = ["Mobile app Development", "Web Design & Development", "Software Development", "SEO", "UI/UX Design", "Digital Marketing", "IT Manage Services"];
+    const services = [
+        'Mobile app Development',
+        'Web Design & Development',
+        'Software Development',
+        'SEO',
+        'UI/UX Design',
+        'Digital Marketing',
+        'IT Manage Services',
+    ];
 
     return (
         <div className="contact-us-main-container">
             <div className="contact-us">
-            <div className='image'>
-                <img src={Contact} alt="contact-us-img" />
-            </div>
-                <div className="your-name">
-                    <input type="text" placeholder='Your Name' />
+                <div className="image">
+                    <img src={Contact} alt="contact-us-img" />
                 </div>
                 <div className="your-name">
-                    <input type="email" placeholder='Your Email' />
-                </div>
-                <div className="your-name flag">
-                    <div className="flag-select-container">
-                        <ReactFlagSelect
-                            selected={selectedCountry}
-                            onSelect={handleSelectCountry}
-                            searchable
-                            searchPlaceholder='Search'
-                            className='menu-flags'
-                        />
-                    </div>
-                    <div className="phone-number-section">
-                        {/* <div>Country Code: {getCountryCode()}</div> */}
-                        <div>
-                            <input type="tel" placeholder="Enter phone number" />
-                        </div>
-                    </div>
+                    <input type="text" placeholder="Your Name" />
                 </div>
                 <div className="your-name">
-                    <input type="textarea" placeholder='Tell us about your project' />
+                    <input type="email" placeholder="Your Email" />
+                </div>
+                <div className="your-name">
+                    <PhoneInput
+                        country={'us'} // Default country
+                        value={phoneNumber}
+                        onChange={(phone, { dialCode }) => {
+                            setPhoneNumber(phone);
+                            setSelectedCountryCode(dialCode); // Extract country code
+                        }}
+                        placeholder="Enter phone number"
+                        enableSearch={true} // Allow country search
+                        inputClass="phone-input" // Add custom styles
+                        dropdownClass="phone-dropdown"
+                    />
+                </div>
+                <div className="your-name">
+                    <textarea placeholder="Tell us about your project" />
                 </div>
                 <div className="choose-service">
                     <p>Choose your Service</p>
@@ -80,21 +94,18 @@ const ContactUs = () => {
                     </div>
                 </div>
                 <div className="button">
-                    <button className='btn-bg' onMouseEnter={() => setIsHovered(true)}
-                        onMouseLeave={() => setIsHovered(false)}>
+                    <button
+                        className="btn-bg"
+                        onMouseEnter={() => setIsHovered(true)}
+                        onMouseLeave={() => setIsHovered(false)}
+                        onClick={sendEmail}
+                    >
                         <span>Submit</span>
-                         {/* <span className='img'>
-                            {isHovered ? (
-                                <img src={GradientArrowIcon} alt="gradient-icon" />
-                            ) : (
-                                <img src={ArrowIcon} alt="arrow-icon" />
-                            )}
-                        </span> */}
                     </button>
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default ContactUs;
